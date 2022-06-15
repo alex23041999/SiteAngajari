@@ -152,7 +152,7 @@ class Applications
                     $result2 = mysqli_query($conn,$sql2);
                     echo "
                         <div>
-                         <p>" . ($questions['text_intrebare']) . "</p>
+                         <input type=\"text\" value=\"$questions[text_intrebare]\" name=\"intrebare$counter\" readonly>
                          ";
                         if(mysqli_num_rows($result2)>0){
                             $counter1 = 0;
@@ -171,6 +171,44 @@ class Applications
                          <?php
                 }
             }
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //functie care verifica daca raspunsul ales este corect
+    public function correctAnswerChecking($conn,$intrebare)
+    {
+        try {
+            $sql = "SELECT text_raspuns FROM answers_list as al JOIN questions_list as ql ON al.id_question=ql.id_question WHERE text_intrebare='$intrebare' AND is_correct=1";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    return $row['text_raspuns'];
+                }
+            }
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //functie care returneaza numarul de intrebari in functie de test
+    public function questionNumberOfTest($conn,$numeTest)
+    {
+        try {
+            $counter = 0;
+            $sql ="SELECT text_intrebare FROM questions_list as ql JOIN test_names as tn ON ql.id_test=tn.id_test WHERE nume_test='$numeTest'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while (mysqli_fetch_assoc($result)) {
+                    $counter ++;
+                }
+            }
+            return $counter;
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);

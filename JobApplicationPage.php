@@ -56,8 +56,19 @@ if (strcmp($cvCandidat, "") == 0) {
     }
 }*/
 $numeTest = $afisareTest->getAplicareTest($conn,$numejob);
+$questionsnumber= $afisareTest->questionNumberOfTest($conn,$numeTest);
+$raspunsuriCorecte = 0;
 if(isset($_POST["ptTEST"])){
-    $raspunscorect =$_POST["checkbox".$i];
+    for($i = 0;$i<$questionsnumber;$i++){
+        $verificare = new Applications();
+        $intrebare = $_POST["intrebare".$i];
+        $raspunsCorect = $verificare->correctAnswerChecking($conn,$intrebare);
+        $raspunsDat = $_POST["checkbox".$i];
+        if(strcmp($raspunsCorect,$raspunsDat) == 0){
+            $raspunsuriCorecte ++;
+        }
+    }
+    echo $raspunsuriCorecte;
 }
 if (isset($_POST['Back'])) {
     header("location:AvailableJobsPage.php");
