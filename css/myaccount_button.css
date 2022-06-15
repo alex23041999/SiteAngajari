@@ -1,0 +1,14 @@
+.myaccountButton {
+    max-lines: 1;
+    line-height: 25px;
+    width: 150px;
+    font-size: 20px;
+    font-family: tahoma;
+    margin-top: 10px;
+    margin-right: 10px;
+    position:absolute;
+    white-space: nowrap;
+    text-align: center;
+    top:0;
+    right: 150px;;
+}

@@ -1,0 +1,167 @@
+body {
+	font-family: arial;
+	font-size: 15px;
+	line-height: 1.6em;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	border-bottom: 3px #f4f4f4 solid;
+	background: gainsboro;
+	text-align: left;
+}
+
+footer {
+	border-top: 3px #f4f4f4 solid;
+	text-align: center;
+	padding-top: 5px;
+}
+
+main {
+	padding-bottom: 20px;
+}
+
+
+label {
+	display: inline-block;
+	width: 100%;
+	color: #097a0d;
+	font-size: 20px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+input[type="text"] {
+	width: 50%;
+	padding: 4px;
+	border-radius: 5px;
+	margin-top: 5px;
+	font-size: 18px;
+	background-color: white;
+	font-weight: bold;
+}
+
+input[type="number"] {
+	width: 50px;
+	padding: 4px;
+	border-radius: 5px;
+	font-weight: bold;
+}
+textarea{
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #f8f8f8;
+	resize: none;
+	font-size: 14px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+}
+div{
+	margin: 20px;
+}
+.select {
+	padding: 10px 10px;
+	font-size: 15px;
+	border-radius: 10px;
+	border-color: #4CAF50;
+	border-width: 1px;
+	margin-bottom: 20px;
+}
+
+.button_quiz {
+	width: 150px;
+	border-radius: 5px;
+	background-color: #666;
+	border: none;
+	color: white;
+	padding: 15px 50px;
+	text-align: center;
+	text-decoration: none;
+	display: block;
+	font-size: 16px;
+	width: auto;
+	margin: 10px auto; /*centrare buton*/
+	
+}
+
+.menu {
+	width: 1000px;
+	margin: 20px auto;
+}
+
+.container {
+	width: 60%;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+a.start {
+	display: inline-block;
+	color: #666;
+	border: 1px dotted #000;
+	padding: 6px 13px;
+}
+
+li {
+	list-style: none;
+}
+
+.current {
+	padding: 10px;
+	background: #f4f4f4;
+	border: #000 dotted 1px;
+	margin: 20px 0 10px 0;
+}
+
+.raspuns_style{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.span_intrebare{
+	color: red;
+}
+.span_generare{
+	color: red;
+}
+.intrebari{
+	display: flex;
+	flex-direction: column;
+}
+
+input[type="radio"] {
+	display: none;
+  }
+  
+  input[type="radio"] + label:before {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	padding: 6px;
+	margin-right: 3px;
+	background-clip: content-box;
+	border: 2px solid #bbb;
+	background-color: #e7e6e7;
+	border-radius: 50%;
+	margin-left: 10px;
+  }
+  
+  input[type="radio"]:checked + label:before {
+	background-color: #93e026;
+  }
+  
+  label {
+	display: flex;
+	align-items: center;
+	width: auto;
+  }
+  
+  p{
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+  }

@@ -1,0 +1,52 @@
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: bisque;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: darkgrey;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.h1-left {
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  text-align: center;
+  color: brown;
+  font-size: 50px;
+  font-family: 'Signika', sans-serif;
+  padding-bottom: 10px;
+}
+
+.h1-right {
+  position: absolute;
+  top: 20%;
+  right: 25%;
+  text-align: center;
+  color: forestgreen;
+  font-size: 50px;
+  font-family: 'Signika', sans-serif;
+  padding-bottom: 10px;
+}

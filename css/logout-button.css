@@ -1,0 +1,12 @@
+.logoutbutton {
+    max-lines: 1;
+    line-height: 25px;
+    width: 100px;
+    font-size: 10pt;
+    font-family: tahoma;
+    margin-top: 10px;
+    margin-right: 10px;
+    position:absolute;
+    top:0;
+    right:0;
+}
