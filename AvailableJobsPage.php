@@ -21,6 +21,7 @@ $static1 = 'Jobs';
 </head>
 
 <body>
+<link rel="stylesheet" type="text/css" href="css/quiz_style.css">
     <div style="display: none;">
         <?php
         $string = $vizualizeUserjob->vizualizareJoburiUser($conn);

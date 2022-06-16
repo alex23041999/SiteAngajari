@@ -35,40 +35,36 @@ $cerintejob = $_GET['aplicare_cerinteJob'];
 $afisareTest = new Applications();
 $static1 = 'Applications';
 
-/*if (isset($_POST['incepeTest'])) {
 if (strcmp($cvCandidat, "") == 0) {
-        echo "<script>alert('Trebuie sa ai un CV incarcat pentru a aplica la un job !')</script>";
+    echo "<script>alert('Trebuie sa ai un CV incarcat pentru a aplica la un job !')</script>";
 ?>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
-        <?php
-    } else {
-        $dataAplicareCandidat = date('Y-m-d');
-        $aplicareCandidat = new Applications();
-        $aplicareCandidat->setApplication($conn, $userIdCandidat, $idjob, $numejob, $numeCandidat, $prenumeCandidat, $emailCandidat, $telefonCandidat, $cvCandidat, $dataAplicareCandidat,$notaTest);
-        if ($aplicareCandidat->insertNewApplication()) {
-            echo "<script>alert('Ai aplicat cu succes !')</script>";
-        ?>
-            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AvailableJobsPage.php">
-<?php
-        } else if (($aplicareCandidat->insertNewApplication()) == false) {
-            echo "<script>alert('Nu poti aplica la un job la care deja ai aplicat !')</script>";
-        }
-    }
-}*/
-$numeTest = $afisareTest->getAplicareTest($conn,$numejob);
-$questionsnumber= $afisareTest->questionNumberOfTest($conn,$numeTest);
+    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+    <?php
+}
+
+$numeTest = $afisareTest->getAplicareTest($conn, $numejob);
+$questionsnumber = $afisareTest->questionNumberOfTest($conn, $numeTest);
 $raspunsuriCorecte = 0;
-if(isset($_POST["ptTEST"])){
-    for($i = 0;$i<$questionsnumber;$i++){
+if (isset($_POST["aplicare"])) {
+    for ($i = 0; $i < $questionsnumber; $i++) {
         $verificare = new Applications();
-        $intrebare = $_POST["intrebare".$i];
-        $raspunsCorect = $verificare->correctAnswerChecking($conn,$intrebare);
-        $raspunsDat = $_POST["checkbox".$i];
-        if(strcmp($raspunsCorect,$raspunsDat) == 0){
-            $raspunsuriCorecte ++;
+        $intrebare = $_POST["intrebare" . $i];
+        $raspunsCorect = $verificare->correctAnswerChecking($conn, $intrebare);
+        $raspunsDat = $_POST["checkbox" . $i];
+        if (strcmp($raspunsCorect, $raspunsDat) == 0) {
+            $raspunsuriCorecte++;
         }
     }
-    echo $raspunsuriCorecte;
+    $notaFinala = ($raspunsuriCorecte / $questionsnumber) * 10;
+    $dataAplicareCandidat = date('Y-m-d');
+    $aplicareCandidat = new Applications();
+    $aplicareCandidat->setApplication($conn, $userIdCandidat, $idjob, $numejob, $numeCandidat, $prenumeCandidat, $emailCandidat, $telefonCandidat, $cvCandidat, $dataAplicareCandidat, $notaFinala);
+    if ($aplicareCandidat->insertNewApplication()) {
+        echo "<script>alert('Ai aplicat cu succes !')</script>";
+    ?>
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageUser.php">
+<?php
+    }
 }
 if (isset($_POST['Back'])) {
     header("location:AvailableJobsPage.php");
@@ -97,22 +93,23 @@ if (isset($_POST['Back'])) {
                     function visibleDivTest() {
                         document.getElementById("divTest").style.display = "unset";
                         document.getElementById("incepeTest").style.display = "none";
+                        document.getElementById("aplicare").style.display = "unset";
                     }
                 </script>
             </div>
             <div id="divTest" style="display: none;">
                 <hr class="mb-3">
                 <?php
-                    $afisareTest = $static1::afisareTest($conn,$numeTest);
+                $afisareTest = $static1::afisareTest($conn, $numeTest);
                 ?>
             </div>
             <hr class="mb-3">
             <div>
-                <input type="submit" class="btn btn-primary" name="ptTEST" value="Testare">
+                <input type="submit" class="button_quiz" name="aplicare" id="aplicare" value="Trimite aplicarea!" style="display: none;">
             </div>
             <hr class="mb-3">
             <div>
-                <input type="submit" class="btn btn-primary" name="Back" value="Inapoi">
+                <input type="submit" class="button_quiz" name="Back" value="Inapoi">
             </div>
         </div>
     </form>

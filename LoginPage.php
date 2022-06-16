@@ -44,14 +44,14 @@ if (isset($_POST['Connect'])) {
             echo "<script>alert('Te-ai logat cu succes')</script>";
 
 ?>
-            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPage.php">
+            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageUser.php">
         <?php
         } else if ($result->checkAccountForLoging() == 4) {
             $_SESSION['accountid'] = $result->getAccountID();
             $_SESSION['role'] = $result->checkAccountRole();
             echo "<script>alert('Te-ai logat cu succes')</script>";
         ?>
-            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPage.php">
+            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageAdmin.php">
 <?php
         }
     }

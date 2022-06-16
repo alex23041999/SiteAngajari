@@ -17,7 +17,7 @@ if (($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 1) {
     <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
 <?php
 } else if(($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 0){
-    echo "<script>alert('Va rugam sa incarcati un CV cu alt nume, deoarece aceste este deja existent in baza noastra !')</script>";
+    echo "<script>alert('Va rugam sa incarcati un CV cu alt nume, deoarece acesta este deja existent in baza noastra !')</script>";
     ?>
     <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
     <?php

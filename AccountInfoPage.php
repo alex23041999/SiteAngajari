@@ -20,13 +20,6 @@ if (isset($_POST['logout'])) {
 <html>
 
 <body>
-
-    <div style="display: none;">
-        <?php
-        $string = $vizualizeUserApplications->vizualizareAplicari($conn, $userid);
-        ?>
-    </div>
-
     <div>
         <link rel="stylesheet" type="text/css" href="css/table_design.css">
         <table class="table, th, td" style="margin-top: 20px;">
@@ -88,9 +81,16 @@ if (isset($_POST['logout'])) {
                 </td>
             </tr>
         </table>
+        <div style="display: none;">
+            <?php
+            $string = $vizualizeUserApplications->vizualizareAplicari($conn, $userid);
+            ?>
+        </div>
         <?php
         if ($string == 0) {
-            echo "Nu ai aplicat la niciun job momentan!";
+        ?>
+            <label>Nu ai aplicat la niciun job momentan!</label>
+        <?php
         } else if ($string == 1) {
         ?>
             <table class="table, th, td">
@@ -103,9 +103,9 @@ if (isset($_POST['logout'])) {
                     </tr>
                 </thead>
                 <tbody>
-                <?php
+                    <?php
                     $vizualizeUserApplications = $static1::vizualizareAplicari($conn, $userid);
-                ?>
+                    ?>
                 </tbody>
             </table>
         <?php

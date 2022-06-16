@@ -71,16 +71,12 @@ class Applications
     public function insertNewApplication()
     {
         try {
-            if ($this->checkExistance() == 0) {
-                return false;
-            } else if ($this->checkExistance() == 1) {
                 $sql = "INSERT INTO applications_list(user_ID,job_ID,nume_job,nume_candidat,prenume_candidat,email_candidat,telefon_candidat,cv_candidat,data_aplicare,nota_test)
                         VALUES ('$this->userid','$this->jobid','$this->numejob','$this->numecandidat','$this->prenumecandidat','$this->emailcandidat','$this->telefoncandidat','$this->cvcandidat','$this->dataaplicare','$this->notatest')";
                 mysqli_query($this->conn, $sql);
                 $this->increaseNrCandidates();
                 mysqli_close($this->conn);
                 return true;
-            }
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);
@@ -89,11 +85,11 @@ class Applications
         }
     }
     //verificare daca user-ul a aplicat deja la job-ul respectiv
-    public function checkExistance()
+    public function checkExistance($conn,$userid,$jobid)
     {
         try {
-            $sql = "SELECT user_ID, job_ID FROM applications_list WHERE user_ID='$this->userid' AND job_ID='$this->jobid'";
-            $result = mysqli_query($this->conn, $sql);
+            $sql = "SELECT user_ID, job_ID FROM applications_list WHERE user_ID='$userid' AND job_ID='$jobid'";
+            $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 return 0;
             } else {

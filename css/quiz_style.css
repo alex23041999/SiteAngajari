@@ -1,11 +1,13 @@
+.m-0 {
+	margin: 0 !important;
+}
+
+
 body {
 	font-family: arial;
 	font-size: 15px;
 	line-height: 1.6em;
-}
-
-a {
-	text-decoration: none;
+	margin: 0;
 }
 
 header {
@@ -18,6 +20,49 @@ footer {
 	border-top: 3px #f4f4f4 solid;
 	text-align: center;
 	padding-top: 5px;
+}
+
+.page-container {
+	display: flex;
+}
+
+.sidebar {
+	width: 300px;
+	background-color: rgb(70, 62, 58);
+	position: relative;
+}
+
+.sidebar-button {
+	background-color: black;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.sidebar-button:hover {
+	background-color: red;
+}
+
+.title {
+	font-weight: bold;
+	color: white;
+	font-size: 20px;
+	margin-bottom: 100px;
+}
+
+.main-content {
+	width: 100%;
+	margin: 0;
+	background-color: rgb(154, 242, 22);
+}
+
+.navbar {
+	width: 100%;
+	margin: 0;
+	height: 80px;
+	background-color: rgb(70, 62, 58);
+	color: white;
 }
 
 main {
@@ -99,13 +144,6 @@ div{
 	overflow: auto;
 }
 
-a.start {
-	display: inline-block;
-	color: #666;
-	border: 1px dotted #000;
-	padding: 6px 13px;
-}
-
 li {
 	list-style: none;
 }
@@ -166,3 +204,14 @@ input[type="radio"] {
 	font-weight: bold;
 	font-style: italic;
   }
+
+  a{
+	color: #000;
+	text-decoration: none;
+  }
+  a.start {
+	display: inline-block;
+	color: #666;
+	border: 1px dotted #000;
+	padding: 6px 13px;
+}

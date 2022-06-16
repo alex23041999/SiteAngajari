@@ -103,65 +103,81 @@ if (isset($_POST['creareTest'])) {
 </head>
 
 <body>
-    <form method="post" class="menu" name="Quiz" id="form">
-        <div>
-            <header>
-                <div class="container">
-                    <h2>Adaugare detalii job</h2>
-                    <p>Completati campurile pentru a adauga un job nou</p>
-                </div>
-            </header>
-            <div class="form-group" style="margin-top: 10px;">
-                <input type="text" name="numejob" class="form-control" placeholder="Nume job..." value="<?php echo $numejob; ?>" required>
-                <span class="error" style="color:red"> <?php echo $numejobErr; ?></span>
-            </div>
-            <div class="form-group" style="margin-top: 10px;">
-                <textarea class="form-control" rows="10" cols="50" style="width: 500px;" placeholder="Descriere..." name="descriere" value="<?php echo $descriere; ?>" required></textarea>
-                <span class="error" style="color:red"> <?php echo $descriereErr; ?></span>
-            </div>
-            <div class="form-group" style="margin-top: 10px;">
-                <textarea class="form-control" rows="10" cols="50" style="width: 500px;" placeholder="Cerinte..." name="cerinte" value="<?php echo $cerinte; ?>" required></textarea>
-                <span class="error" style="color:red"> <?php echo $cerinteErr; ?></span>
-            </div>
-            <div class="form-group" style="margin-top: 10px;">
-                <label>Status</label>
-                <select name="status" class="select">
-                    <option value="Activ">Activ</option>
-                    <option value="Inactiv">Inactiv</option>
-                </select>
-            </div>
+    <div class="page-container m-0">
+        <div class="sidebar m-0">
+            <div class="title">Sobolaneii SRL</div>
+            <div class="sidebar-button">Buton 1</div>
+            <div class="sidebar-button">Buton 2</div>
+            <div class="sidebar-button">Buton 3</div>
+            <div class="sidebar-button">Buton 4</div>
         </div>
-        <hr class="mb-3">
-        <div>
-            <header>
-                <div class="container">
-                    <h2>Adaugare quiz pentru job</h2>
-                    <p>Completati campurile pentru a adauga quiz-ul</p>
+        <div class="main-content">
+            <div class="navbar"></div>
+            <form method="post" class="menu" name="Quiz" id="form">
+                <div>
+                    <header>
+                        <div class="container">
+                            <h2>Adaugare detalii job</h2>
+                            <p>Completati campurile pentru a adauga un job nou</p>
+                        </div>
+                    </header>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <input type="text" name="numejob" class="form-control" placeholder="Nume job..." value="<?php echo $numejob; ?>" required>
+                        <span class="error" style="color:red"> <?php echo $numejobErr; ?></span>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <textarea class="form-control" rows="10" cols="50" style="width: 500px;" placeholder="Descriere..." name="descriere" value="<?php echo $descriere; ?>" required></textarea>
+                        <span class="error" style="color:red"> <?php echo $descriereErr; ?></span>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <textarea class="form-control" rows="10" cols="50" style="width: 500px;" placeholder="Cerinte..." name="cerinte" value="<?php echo $cerinte; ?>" required></textarea>
+                        <span class="error" style="color:red"> <?php echo $cerinteErr; ?></span>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label>Status</label>
+                        <select name="status" class="select">
+                            <option value="Activ">Activ</option>
+                            <option value="Inactiv">Inactiv</option>
+                        </select>
+                    </div>
                 </div>
-            </header>
-            <script src="js/inserare_Quiz_ByAdmin.js">
-            </script>
-            <input type="text" placeholder="Nume test" id="numeTest" name="numeTest" onclick="updateNumeTest(this.value)" value="<?php echo $numeTest; ?>" autocomplete="FALSE" required>
-            <span class="error" style="color:red"><?php echo $numeTestErr ?></span>
-            <p>Selectati numarul de intrebari ale quiz-ului:</p>
-            <select name="quiznumber" class="select" id="quiznr" onchange="changeNumber(this.value)">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <button type="button" id="generare" class="button_quiz" name="alegeNR" onclick="createIntrebari()">Genereaza intrebari</button>
-            <div id="intrebari" class="intrebari"></div>
-            <hr class="mb-3">
-            <button type="button" id="adaugare" class="button_quiz" name="adaugareraspunsuri" onclick="createRaspunsuri()" style="display: none;">Adauga raspunsuri</button>
-            <div id="raspunsuri"></div>
-            <hr class="mb-3" id="hr2">
-            <span class="error" style="color:red"> <?php echo $raspunsErr; ?></span>
-            <button type="submit" class="button_quiz" name="creareTest" id="creareTest" style="display: none;" value="submit">Salveaza testul</button>
+                <hr class="mb-3">
+                <div>
+                    <header>
+                        <div class="container">
+                            <h2>Adaugare quiz pentru job</h2>
+                            <p>Completati campurile pentru a adauga quiz-ul</p>
+                        </div>
+                    </header>
+                    <script src="js/inserare_Quiz_ByAdmin.js">
+                    </script>
+                    <input type="text" placeholder="Nume test" id="numeTest" name="numeTest" onclick="updateNumeTest(this.value)" value="<?php echo $numeTest; ?>" autocomplete="FALSE" required>
+                    <span class="error" style="color:red"><?php echo $numeTestErr ?></span>
+                    <p>Selectati numarul de intrebari ale quiz-ului:</p>
+                    <select name="quiznumber" class="select" id="quiznr" onchange="changeNumber(this.value)">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="button" id="generare" class="button_quiz" name="alegeNR" onclick="createIntrebari()">Genereaza intrebari</button>
+                    <div id="intrebari" class="intrebari"></div>
+                    <hr class="mb-3">
+                    <button type="button" id="adaugare" class="button_quiz" name="adaugareraspunsuri" onclick="createRaspunsuri()" style="display: none;">Adauga raspunsuri</button>
+                    <div id="raspunsuri"></div>
+                    <hr class="mb-3" id="hr2">
+                    <span class="error" style="color:red"> <?php echo $raspunsErr; ?></span>
+                    <button type="submit" class="button_quiz" name="creareTest" id="creareTest" style="display: none;" value="submit">Salveaza testul</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </body>
 
 </html>
+
+<script>
+
+</script>

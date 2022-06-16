@@ -1,6 +1,8 @@
 <?php
 require_once('DbConnection.php');
-class Jobs
+require_once('Applications.php');
+require_once('AccountDetails.php');
+class Jobs extends Applications
 {
     private $name;
     private $descriere;
@@ -8,7 +10,7 @@ class Jobs
     private $status;
     private $numeTest;
 
-    public function setJob($conn, $name, $descriere, $cerinte, $status,$numeTest)
+    public function setJob($conn, $name, $descriere, $cerinte, $status, $numeTest)
     {
         $this->conn = $conn;
         $this->name = $name;
@@ -33,7 +35,8 @@ class Jobs
     {
         return $this->status;
     }
-    public function getJobTest(){
+    public function getJobTest()
+    {
         return $this->numeTest;
     }
     //functie vizualizare job-uri pentru admin
@@ -105,7 +108,7 @@ class Jobs
         }
     }
     //functie update job de catre admin
-    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou,$testNou)
+    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou, $testNou)
     {
         try {
             $sql = "UPDATE jobs_list SET Nume='$numeNou', Descriere='$descriereNoua',Cerinte='$cerinteNoi',Status='$statusNou',test_name='$testNou' WHERE job_ID='$jobID'";
@@ -122,6 +125,11 @@ class Jobs
     public static function vizualizareJoburiUser($conn)
     {
         try {
+            $numeUtilizatorCandidat = $_SESSION['accountid'];
+            $candidatnou = new AccountDetails();
+            $static = 'AccountDetails';
+            $candidatnou = $static::showAccountDetails($conn, $numeUtilizatorCandidat);
+            $userIdCandidat = $candidatnou->getUserID();
             $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
             $nrjobs = mysqli_query($conn, $sql_nrjobs);
             $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status FROM jobs_list";
@@ -130,17 +138,33 @@ class Jobs
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         if ($row['Status'] == "Activ") {
-                            //afisare joburi disponibile pentru aplicare
-                            echo "
-                        <tr>
-                            <td>" . ($row['Nume']) . "</td>
-                            <td>" . ($row['NumarCandidati']) . "</td>
-                            <td>
-                            <a href='JobApplicationPage.php?aplicare_jobID=" . $row['job_ID'] . "&amp;aplicare_numeJob=" . $row['Nume'] . "&amp;aplicare_descriereJob=" . $row['Descriere'] . "&amp;aplicare_cerinteJob=" . $row['Cerinte'] . "' class='button'>Aplica acum</a>
-                            </td>";
+                            $n = new Applications();
+                            $alreadyCandidate = $n->checkExistance($conn, $userIdCandidat, $row['job_ID']);
+                            if ($alreadyCandidate == 0) {
+                                //afisare joburi disponibile pentru aplicare si pune un text la cele la care a aplicat
+                                echo "
+                            <tr>
+                                <td>" . ($row['Nume']) . "</td>
+                                <td>" . ($row['NumarCandidati']) . "</td>
+                                <td>
+                                Ai aplicat deja la acest job!
+                                </td>";
                         ?>
-                            </tr>
+                                </tr>
+                            <?php
+                            } else if ($alreadyCandidate == 1) {
+                                //afisare joburi disponibile pentru aplicare si pune button la cele care nu a aplicat
+                                echo "
+                            <tr>
+                                <td>" . ($row['Nume']) . "</td>
+                                <td>" . ($row['NumarCandidati']) . "</td>
+                                <td>
+                                <a href='JobApplicationPage.php?aplicare_jobID=" . $row['job_ID'] . "&amp;aplicare_numeJob=" . $row['Nume'] . "&amp;aplicare_descriereJob=" . $row['Descriere'] . "&amp;aplicare_cerinteJob=" . $row['Cerinte'] . "' class='button'>Aplica acum</a>
+                                </td>";
+                            ?>
+                                </tr>
 <?php
+                            }
                         }
                     }
                     return 1;
@@ -173,7 +197,7 @@ class Jobs
                             <td>" . ($row['status_aplicare']) . "</td>";
                 }
                 return 1;
-            }else{
+            } else {
                 return 0;
             }
         } catch (PDOException $e) {
