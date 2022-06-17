@@ -178,6 +178,16 @@ function createRaspunsuri() {
                 document.getElementById('divRaspuns' + i + x).appendChild(label_check);
             }
         }
+        //creare input pentru timp test
+        var input_timer = document.createElement('input');
+        input_timer.type ="text";
+        input_timer.name ="timpTest";
+        input_timer.id = "timpTest";
+        input_timer.placeholder = "Timpul de rezolvare este ...";
+        input_text.setAttribute('required','');
+        document.getElementById('timpTestare').appendChild(input_timer);
+
+
         const butonRaspunsuri = document.getElementById("adaugare");
         butonRaspunsuri.disabled = true;
         document.getElementById("adaugare").style.display = "none";

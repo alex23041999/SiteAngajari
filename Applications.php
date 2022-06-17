@@ -154,7 +154,7 @@ class Applications
                             $counter1 = 0;
                             while($answers = mysqli_fetch_assoc($result2)){    
                                 echo"
-                                    <input type=\"radio\" name=\"checkbox$counter\" id=\"checkbox$counter$counter1\" value=\"$answers[text_raspuns]\" required>
+                                    <input type=\"radio\" name=\"checkbox$counter\" id=\"checkbox$counter$counter1\" value=\"$answers[text_raspuns]\">
                                     <label for=\"checkbox$counter$counter1\">".($answers['text_raspuns'])."</label>
                                     ";
                                 $counter1 ++;
@@ -205,6 +205,47 @@ class Applications
                 }
             }
             return $counter;
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //functie vizualizare job-uri pentru admin
+    public static function vizualizareAplicariAdmin($conn)
+    {
+        try {
+            $evaluat = "Evaluat";
+            $neevaluat = "Neevaluat";
+            $sql = "SELECT * FROM applications_list";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id_app = $row['id_application'];
+                    $var = "";
+                    if(strcmp($row['status_aplicare'],$neevaluat) == 0){
+                        $var = $evaluat;
+                    } else{
+                        $var = $neevaluat;
+                    }
+                    echo "
+                <tr>
+                    <td>" . ($row['nume_job']) . "</td>
+                    <td>" . ($row['nume_candidat']) . "</td>
+                    <td>" . ($row['prenume_candidat']) . "</td>
+                    <td>" . ($row['email_candidat']) . "</td>
+                    <td>" . ($row['telefon_candidat']) . "</td>
+                    <td>" . ($row['cv_candidat']) . "</td>
+                    <td>" . ($row['data_aplicare']) . "</td>
+                    <td>" . ($row['nota_test']) . "</td>
+                    <td>
+                    <select name=\"statusAplicare[$id_app]\" class=\"select\">
+                    <option value=\"$row[status_aplicare]\">$row[status_aplicare]</option>
+                    <option value=\"$var\">$var</option>
+                </select></td>";
+                }
+            }
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);

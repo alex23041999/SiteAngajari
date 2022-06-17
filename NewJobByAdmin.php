@@ -12,8 +12,8 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-$numejob = $descriere = $status = $cerinte = "";
-$numejobErr = $descriereErr = $cerinteErr = "";
+$numejob = $descriere = $status = $cerinte = $durataTest = "";
+$numejobErr = $descriereErr = $cerinteErr = $durataTestErr= "";
 $numeTest = $numeTestErr = $raspunsErr = "";
 if (isset($_POST['creareTest'])) {
     //verificam daca toate $POST au valori
@@ -41,6 +41,11 @@ if (isset($_POST['creareTest'])) {
             $cerinteErr = "Camp obligatoriu!";
         } else {
             $cerinte = test_input($_POST["cerinte"]);
+        }
+        if (empty($_POST["timpTest"])) {
+            $durataTestErr = "Camp obligatoriu!";
+        } else {
+            $durataTest = test_input($_POST["timpTest"]);
         }
         $status = $_POST['status'];
         //insert nume test in baza de date
@@ -80,8 +85,8 @@ if (isset($_POST['creareTest'])) {
                     $raspunsuri_final->insertRaspunsuriIntoDB($conn, $idIntrebare, $idTest, $raspunsuri);
                 }
                 $newjob = new Jobs();
-                $newjob->setJob($conn, $numejob, $descriere, $cerinte, $status, $numeTest);
-                if (empty($numejobErr) && empty($descriereErr) && empty($cerinteErr)) {
+                $newjob->setJob($conn, $numejob, $descriere, $cerinte, $status, $numeTest,$durataTest);
+                if (empty($numejobErr) && empty($descriereErr) && empty($cerinteErr) && empty($durataTestErr)) {
                     $result = $newjob->insertJobs();
                     echo "<script>alert('Job adaugat cu succes')</script>";
 ?>
@@ -100,19 +105,20 @@ if (isset($_POST['creareTest'])) {
 <head>
     <title>Joburi</title>
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
     <div class="page-container m-0">
         <div class="sidebar m-0">
             <div class="title">Sobolaneii SRL</div>
-            <div class="sidebar-button">Buton 1</div>
+            <div class="sidebar-button"> <i class="fa fa-envelope-open" aria-hidden="true"></i> Buton 1</div>
             <div class="sidebar-button">Buton 2</div>
             <div class="sidebar-button">Buton 3</div>
             <div class="sidebar-button">Buton 4</div>
         </div>
         <div class="main-content">
-            <div class="navbar"></div>
+        <div class="navbar"></div>
             <form method="post" class="menu" name="Quiz" id="form">
                 <div>
                     <header>
@@ -167,7 +173,7 @@ if (isset($_POST['creareTest'])) {
                     <hr class="mb-3">
                     <button type="button" id="adaugare" class="button_quiz" name="adaugareraspunsuri" onclick="createRaspunsuri()" style="display: none;">Adauga raspunsuri</button>
                     <div id="raspunsuri"></div>
-                    <hr class="mb-3" id="hr2">
+                    <div id="timpTestare"></div>
                     <span class="error" style="color:red"> <?php echo $raspunsErr; ?></span>
                     <button type="submit" class="button_quiz" name="creareTest" id="creareTest" style="display: none;" value="submit">Salveaza testul</button>
                 </div>

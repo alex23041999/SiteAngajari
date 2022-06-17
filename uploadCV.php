@@ -10,12 +10,20 @@ if (($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 1) {
     //facem update in baza de date, in funcite de user-ul care a incarcat CV-ul , cu numele CV-ului pe care il vom folosi ulterior la descarcarea lui
     $_SESSION['numeCV'] = $file["name"];
     $accountid = $_SESSION['accountid'];
-    $updateCV = $static::updateCV($conn, $accountid, $file["name"]);
-    echo "<script>alert('Ai incarcat CV-ul cu succes !')</script>";
-?>
-    <html>
-    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
-<?php
+    if(strcmp($file["name"],"") ==0 ){
+        echo "<script>alert('Alegeti un CV valabil!')</script>";
+        ?>
+        <html>
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+    <?php
+    }else {
+        $updateCV = $static::updateCV($conn, $accountid, $file["name"]);
+        echo "<script>alert('Ai incarcat CV-ul cu succes !')</script>";
+    ?>
+        <html>
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+    <?php
+    }
 } else if(($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 0){
     echo "<script>alert('Va rugam sa incarcati un CV cu alt nume, deoarece acesta este deja existent in baza noastra !')</script>";
     ?>

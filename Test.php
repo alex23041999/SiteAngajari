@@ -59,6 +59,26 @@ class Test
             return false;
         }
     }
+    //functie care returneaza toate numele testelor din db
+    public static function selectNumeTestFromDB($conn)
+    {
+        try {
+            $sql = "SELECT nume_test FROM test_names";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)){
+                    echo "
+                    <option value=\"$row[nume_test]\">$row[nume_test]</option>
+                    ";
+                }
+            }
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
 }
 
 class Intrebare

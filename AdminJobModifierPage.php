@@ -14,7 +14,6 @@ function test_input($data)
 }
 $vizualizejob = new Jobs();
 $static = 'Jobs';
-
 ?>
 <html>
 
@@ -22,7 +21,7 @@ $static = 'Jobs';
     <title>Joburi</title>
 </head>
 <body>
-    <form action="AdminJobModifierPage.php" method="post">
+    <form action="UpdateJobPage.php" method="post">
         <link rel="stylesheet" type="text/css" href="css/table_design.css">
         <link rel="stylesheet" type="text/css" href="css/href_border.css">
         <table class="table, th, td" style="width: 1500px;">

@@ -9,8 +9,9 @@ class Jobs extends Applications
     private $cerinte;
     private $status;
     private $numeTest;
+    private $durataTest;
 
-    public function setJob($conn, $name, $descriere, $cerinte, $status, $numeTest)
+    public function setJob($conn, $name, $descriere, $cerinte, $status, $numeTest, $durataTest)
     {
         $this->conn = $conn;
         $this->name = $name;
@@ -18,6 +19,7 @@ class Jobs extends Applications
         $this->cerinte = $cerinte;
         $this->status = $status;
         $this->numeTest = $numeTest;
+        $this->durataTest = $durataTest;
     }
     public function getJobName()
     {
@@ -39,6 +41,10 @@ class Jobs extends Applications
     {
         return $this->numeTest;
     }
+    public function getJobDurataTest()
+    {
+        return $this->durataTest;
+    }
     //functie vizualizare job-uri pentru admin
     public static function vizualizareJoburiAdmin($conn)
     {
@@ -57,8 +63,9 @@ class Jobs extends Applications
                     <td>" . ($row['NumarCandidati']) . "</td>
                     <td>" . ($row['Status']) . "</td>
                     <td>" . ($row['test_name']) . "</td>
+                    <td>" . ($row['durata_test']) . "</td>
                     <td><button type=\"submit\" name=\"deleteJob\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Sterge job</button>
-                    <a href='UpdateJobPage.php?updateID=" . $row['job_ID'] . "&amp;updatenumeJob=" . $row['Nume'] . "&amp;updatedescriereJob=" . $row['Descriere'] . "&amp;updatecerinteJob=" . $row['Cerinte'] . "&amp;updatestatusJob=" . $row['Status'] . "&amp;updatenumetestJob=" . $row['test_name'] . "' class='button'>Update Job</a>
+                    <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Update job</button>
                     </td>";
                     if (isset($_POST['deleteJob'])) {
                         $varJob->deleteJobs($conn, $_POST['deleteJob']);
@@ -84,7 +91,7 @@ class Jobs extends Applications
     public function insertJobs()
     {
         try {
-            $sql = "INSERT INTO jobs_list(Nume,Descriere,Cerinte,Status,test_name) VALUES ('$this->name','$this->descriere','$this->cerinte','$this->status','$this->numeTest')";
+            $sql = "INSERT INTO jobs_list(Nume,Descriere,Cerinte,Status,test_name,durata_test) VALUES ('$this->name','$this->descriere','$this->cerinte','$this->status','$this->numeTest','$this->durataTest')";
             mysqli_query($this->conn, $sql);
         } catch (PDOException $e) {
             echo ("<pre>");
@@ -100,6 +107,7 @@ class Jobs extends Applications
             $sql = "DELETE FROM jobs_list WHERE job_ID='$jobID'";
             mysqli_query($conn, $sql);
             mysqli_close($conn);
+            return true;
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);
@@ -108,12 +116,11 @@ class Jobs extends Applications
         }
     }
     //functie update job de catre admin
-    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou, $testNou)
+    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou, $testNou,$durataTestNoua)
     {
         try {
-            $sql = "UPDATE jobs_list SET Nume='$numeNou', Descriere='$descriereNoua',Cerinte='$cerinteNoi',Status='$statusNou',test_name='$testNou' WHERE job_ID='$jobID'";
+            $sql = "UPDATE jobs_list SET Nume='$numeNou', Descriere='$descriereNoua',Cerinte='$cerinteNoi',Status='$statusNou',test_name='$testNou',durata_test='$durataTestNoua' WHERE job_ID='$jobID'";
             mysqli_query($conn, $sql);
-            mysqli_close($conn);
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);
@@ -159,7 +166,7 @@ class Jobs extends Applications
                                 <td>" . ($row['Nume']) . "</td>
                                 <td>" . ($row['NumarCandidati']) . "</td>
                                 <td>
-                                <a href='JobApplicationPage.php?aplicare_jobID=" . $row['job_ID'] . "&amp;aplicare_numeJob=" . $row['Nume'] . "&amp;aplicare_descriereJob=" . $row['Descriere'] . "&amp;aplicare_cerinteJob=" . $row['Cerinte'] . "' class='button'>Aplica acum</a>
+                                <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\">Aplica acum</button>
                                 </td>";
                             ?>
                                 </tr>
@@ -200,6 +207,26 @@ class Jobs extends Applications
             } else {
                 return 0;
             }
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //preluare date despre un job
+    public function returnJobDetails($conn, $jobid)
+    {
+        try {
+            $job = new Jobs();
+            $sql = "SELECT Nume,Descriere,Cerinte,Status,test_name,durata_test FROM jobs_list where job_ID='$jobid'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $job->setJob($conn, $row['Nume'], $row['Descriere'], $row['Cerinte'], $row['Status'], $row['test_name'],$row['durata_test']);
+                }
+            }
+            return $job;
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);

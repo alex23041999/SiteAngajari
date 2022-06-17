@@ -33,7 +33,7 @@ $static1 = 'Jobs';
         echo "Niciun job disponibil momentan!";
     } else if ($string == 1) {
     ?>
-        <form action="AvailableJobsPage.php" method="post">
+        <form method="post" action="JobApplicationPage.php">
             <link rel="stylesheet" type="text/css" href="css/table_design.css">
             <link rel="stylesheet" type="text/css" href="css/href_border.css">
             <table class="table, th, td" style="width: 1000px;">
