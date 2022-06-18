@@ -21,7 +21,7 @@ if (($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 1) {
         echo "<script>alert('Ai incarcat CV-ul cu succes !')</script>";
     ?>
         <html>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageUser.php">
     <?php
     }
 } else if(($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 0){

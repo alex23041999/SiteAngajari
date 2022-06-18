@@ -86,7 +86,7 @@ label {
 }
 
 input[type="text"] {
-	width: 50%;
+	width: 500px;
 	padding: 4px;
 	border-radius: 5px;
 	margin-top: 5px;

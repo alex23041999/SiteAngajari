@@ -68,8 +68,9 @@ if (isset($_POST["aplicare"])) {
     }
     $notaFinala = ($raspunsuriCorecte / $questionsnumber) * 10;
     $dataAplicareCandidat = date('Y-m-d');
+    $statusAplicare = "Neevaluat";
     $aplicareCandidat = new Applications();
-    $aplicareCandidat->setApplication($conn, $userIdCandidat, $idjob, $numejob, $numeCandidat, $prenumeCandidat, $emailCandidat, $telefonCandidat, $cvCandidat, $dataAplicareCandidat, $notaFinala);
+    $aplicareCandidat->setApplication($conn, $userIdCandidat, $idjob, $numejob, $numeCandidat, $prenumeCandidat, $emailCandidat, $telefonCandidat, $cvCandidat, $dataAplicareCandidat, $notaFinala,$statusAplicare);
     if ($aplicareCandidat->insertNewApplication()) {
         echo "<script>alert('Ai aplicat cu succes !')</script>";
     }
@@ -91,7 +92,7 @@ if (isset($_POST["aplicare"])) {
     $notaFinala = ($raspunsuriCorecte / $questionsnumber) * 10;
     $dataAplicareCandidat = date('Y-m-d');
     $aplicareCandidat = new Applications();
-    $aplicareCandidat->setApplication($conn, $userIdCandidat, $idjob, $numejob, $numeCandidat, $prenumeCandidat, $emailCandidat, $telefonCandidat, $cvCandidat, $dataAplicareCandidat, $notaFinala);
+    $aplicareCandidat->setApplication($conn, $userIdCandidat, $idjob, $numejob, $numeCandidat, $prenumeCandidat, $emailCandidat, $telefonCandidat, $cvCandidat, $dataAplicareCandidat, $notaFinala,$statusAplicare);
     if ($aplicareCandidat->insertNewApplication()) {
         echo "<script>alert('Timpul a expirat, aplicarea ta a fost salvata !')</script>" ;
     }
