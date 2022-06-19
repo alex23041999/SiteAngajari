@@ -1,5 +1,10 @@
 <?php
 session_start();
+ini_set('log_errors','On');
+ini_set('error_reporting', E_ALL );
+define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
 ini_set('display_errors', 1);
 require_once('DbConnection.php');
 require_once('Jobs.php');
@@ -34,6 +39,8 @@ $static = 'Jobs';
                     <th style="width: 5%;">Candidati</th>
                     <th style="width: 5%;">Status</th>
                     <th style="width: 10%;">Test atribuit</th>
+                    <th style="width: 10%;">Limbaj</th>
+                    <th style="width: 10%;">Durata test</th>
                     <th style="width: 5%;">Actiune</th>
                 </tr>
             </thead>

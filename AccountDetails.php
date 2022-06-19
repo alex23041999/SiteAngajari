@@ -9,8 +9,9 @@ class AccountDetails
     private $email;
     private $telephone;
     private $nameCV;
+    private $limbaje;
 
-    public function setAccountData($conn, $user_id,$firstname, $lastname, $accountid, $email, $telephone, $nameCV)
+    public function setAccountData($conn, $user_id, $firstname, $lastname, $accountid, $email, $telephone, $nameCV, $limbaje)
     {
         $this->conn = $conn;
         $this->user_id = $user_id;
@@ -20,6 +21,7 @@ class AccountDetails
         $this->email = $email;
         $this->telephone = $telephone;
         $this->nameCV = $nameCV;
+        $this->limbaje = $limbaje;
     }
     public function getUserID()
     {
@@ -49,16 +51,20 @@ class AccountDetails
     {
         return $this->nameCV;
     }
+    public function getAccountLanguages()
+    {
+        return $this->limbaje;
+    }
     //functie preluare date cont pentru afisare in pagina de detalii cont
     public static function showAccountDetails($conn, $accountid)
     {
         try {
-            $sql = "SELECT user_id,firstname,lastname,accountid,email,telephone,CV FROM accounts WHERE accountid ='$accountid'";
+            $sql = "SELECT user_id,firstname,lastname,accountid,email,telephone,CV,limbaj FROM accounts WHERE accountid ='$accountid'";
             $result = mysqli_query($conn, $sql);
             $userdetails = new AccountDetails();
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $userdetails->setAccountData($conn, $row["user_id"],$row["firstname"], $row["lastname"], $row["accountid"], $row["email"], $row["telephone"], $row["CV"]);
+                    $userdetails->setAccountData($conn, $row["user_id"], $row["firstname"], $row["lastname"], $row["accountid"], $row["email"], $row["telephone"], $row["CV"], $row["limbaj"]);
                     return $userdetails;
                 }
             }
@@ -103,9 +109,9 @@ class AccountDetails
         try {
             $sql = "SELECT * FROM accounts WHERE CV='$nameCV'";
             $result = mysqli_query($conn, $sql);
-            if(mysqli_num_rows($result) > 0){
+            if (mysqli_num_rows($result) > 0) {
                 return 0;
-            }else {
+            } else {
                 return 1;
             }
         } catch (PDOException $e) {
@@ -114,5 +120,68 @@ class AccountDetails
             echo ("</pre>");
             return false;
         }
-    } 
+    }
+    //update limbaje selectate in DB
+    public function updateLanguages($conn, $accountid, $newLanguages)
+    {
+        try {
+            $sql = "UPDATE accounts SET limbaj='$newLanguages' WHERE accountid='$accountid'";
+            mysqli_query($conn, $sql);
+            return true;
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //verificare existenta limbaje in DB
+    public function checkLanguagesExistance($conn, $accountid)
+    {
+        try {
+            $sql = "SELECT limbaj FROM accounts WHERE accountid='$accountid'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                if ($row['limbaj'] != NULL) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            }
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //afisare limbaje cunoscute
+    public function returnLanguages($conn, $accountid)
+    {
+        try {
+            $sql = "SELECT limbaj FROM accounts WHERE accountid='$accountid'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $languages = explode(".", $row['limbaj']);
+                foreach ($languages as $language) {
+                    if ($language != "") {
+                        echo "
+                            <tr>
+                            <td>$language</td>
+                            </tr>";
+                    }
+                }
+                return 1;
+            } else {
+                return 0;
+            }
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
 }

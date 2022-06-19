@@ -1,5 +1,11 @@
 <?php
 session_start();
+ini_set('log_errors','On');
+ini_set('display_errors',1);
+ini_set('error_reporting', E_ALL );
+define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
 
 use PHPMailer\PHPMailer\SMTP;
 

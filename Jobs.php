@@ -10,8 +10,9 @@ class Jobs extends Applications
     private $status;
     private $numeTest;
     private $durataTest;
+    private $limbaj;
 
-    public function setJob($conn, $name, $descriere, $cerinte, $status, $numeTest, $durataTest)
+    public function setJob($conn, $name, $descriere, $cerinte, $status, $numeTest, $durataTest, $limbaj)
     {
         $this->conn = $conn;
         $this->name = $name;
@@ -20,6 +21,7 @@ class Jobs extends Applications
         $this->status = $status;
         $this->numeTest = $numeTest;
         $this->durataTest = $durataTest;
+        $this->limbaj = $limbaj;
     }
     public function getJobName()
     {
@@ -45,6 +47,10 @@ class Jobs extends Applications
     {
         return $this->durataTest;
     }
+    public function getJobLimbaj()
+    {
+        return $this->limbaj;
+    }
     //functie vizualizare job-uri pentru admin
     public static function vizualizareJoburiAdmin($conn)
     {
@@ -63,6 +69,7 @@ class Jobs extends Applications
                     <td>" . ($row['NumarCandidati']) . "</td>
                     <td>" . ($row['Status']) . "</td>
                     <td>" . ($row['test_name']) . "</td>
+                    <td>" . ($row['limbaj']) . "</td>
                     <td>" . ($row['durata_test']) . "</td>
                     <td><button type=\"submit\" name=\"deleteJob\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Sterge job</button>
                     <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Update job</button>
@@ -91,7 +98,7 @@ class Jobs extends Applications
     public function insertJobs()
     {
         try {
-            $sql = "INSERT INTO jobs_list(Nume,Descriere,Cerinte,Status,test_name,durata_test) VALUES ('$this->name','$this->descriere','$this->cerinte','$this->status','$this->numeTest','$this->durataTest')";
+            $sql = "INSERT INTO jobs_list(Nume,Descriere,Cerinte,Status,test_name,durata_test,limbaj) VALUES ('$this->name','$this->descriere','$this->cerinte','$this->status','$this->numeTest','$this->durataTest','$this->limbaj')";
             mysqli_query($this->conn, $sql);
         } catch (PDOException $e) {
             echo ("<pre>");
@@ -116,10 +123,10 @@ class Jobs extends Applications
         }
     }
     //functie update job de catre admin
-    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou, $testNou,$durataTestNoua)
+    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou, $testNou, $durataTestNoua, $limbajNou)
     {
         try {
-            $sql = "UPDATE jobs_list SET Nume='$numeNou', Descriere='$descriereNoua',Cerinte='$cerinteNoi',Status='$statusNou',test_name='$testNou',durata_test='$durataTestNoua' WHERE job_ID='$jobID'";
+            $sql = "UPDATE jobs_list SET Nume='$numeNou', Descriere='$descriereNoua',Cerinte='$cerinteNoi',Status='$statusNou',test_name='$testNou',durata_test='$durataTestNoua',limbaj='$limbajNou' WHERE job_ID='$jobID'";
             mysqli_query($conn, $sql);
         } catch (PDOException $e) {
             echo ("<pre>");
@@ -139,7 +146,7 @@ class Jobs extends Applications
             $userIdCandidat = $candidatnou->getUserID();
             $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
             $nrjobs = mysqli_query($conn, $sql_nrjobs);
-            $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status FROM jobs_list";
+            $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($nrjobs) > 0) {
                 if (mysqli_num_rows($result) > 0) {
@@ -153,6 +160,7 @@ class Jobs extends Applications
                             <tr>
                                 <td>" . ($row['Nume']) . "</td>
                                 <td>" . ($row['NumarCandidati']) . "</td>
+                                <td>" . ($row['limbaj']) . "</td>
                                 <td>
                                 Ai aplicat deja la acest job!
                                 </td>";
@@ -165,6 +173,7 @@ class Jobs extends Applications
                             <tr>
                                 <td>" . ($row['Nume']) . "</td>
                                 <td>" . ($row['NumarCandidati']) . "</td>
+                                <td>" . ($row['limbaj']) . "</td>
                                 <td>
                                 <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\">Aplica acum</button>
                                 </td>";
@@ -219,14 +228,159 @@ class Jobs extends Applications
     {
         try {
             $job = new Jobs();
-            $sql = "SELECT Nume,Descriere,Cerinte,Status,test_name,durata_test FROM jobs_list where job_ID='$jobid'";
+            $sql = "SELECT Nume,Descriere,Cerinte,Status,test_name,durata_test,limbaj FROM jobs_list where job_ID='$jobid'";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $job->setJob($conn, $row['Nume'], $row['Descriere'], $row['Cerinte'], $row['Status'], $row['test_name'],$row['durata_test']);
+                    $job->setJob($conn, $row['Nume'], $row['Descriere'], $row['Cerinte'], $row['Status'], $row['test_name'], $row['durata_test'], $row['limbaj']);
                 }
             }
             return $job;
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //vizualizare job-uri recomandate
+    public function returnRecomandedJobs($conn, $accountid)
+    {
+        try {
+            $counterJobs = 0;
+            $sql = "SELECT limbaj FROM accounts where accountid='$accountid'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $everyLanguage = explode(".", $row['limbaj']);
+                    foreach ($everyLanguage as $language) {
+                        $numeUtilizatorCandidat = $_SESSION['accountid'];
+                        $candidatnou = new AccountDetails();
+                        $static = 'AccountDetails';
+                        $candidatnou = $static::showAccountDetails($conn, $numeUtilizatorCandidat);
+                        $userIdCandidat = $candidatnou->getUserID();
+                        $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
+                        $nrjobs = mysqli_query($conn, $sql_nrjobs);
+                        $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($nrjobs) > 0) {
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row1 = mysqli_fetch_assoc($result)) {
+                                    if ($row1['Status'] == "Activ" && strcmp($row1['limbaj'],$language) == 0) {
+                                        $counterJobs ++;
+                                        $n = new Applications();
+                                        $alreadyCandidate = $n->checkExistance($conn, $userIdCandidat, $row1['job_ID']);
+                                        if ($alreadyCandidate == 0) {
+                                            //afisare joburi disponibile pentru aplicare si pune un text la cele la care a aplicat
+                                            echo "
+                                        <tr>
+                                            <td>" . ($row1['Nume']) . "</td>
+                                            <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['limbaj']) . "</td>
+                                            <td>
+                                            Ai aplicat deja la acest job!
+                                            </td>";
+                                    ?>
+                                            </tr>
+                                        <?php
+                                        } else if ($alreadyCandidate == 1) {
+                                            //afisare joburi disponibile pentru aplicare si pune button la cele care nu a aplicat
+                                            echo "
+                                        <tr>
+                                            <td>" . ($row1['Nume']) . "</td>
+                                            <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['limbaj']) . "</td>
+                                            <td>
+                                            <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\">Aplica acum</button>
+                                            </td>";
+                                        ?>
+                                            </tr>
+            <?php
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if(mysqli_num_rows($nrjobs) == $counterJobs){
+                return 0;
+            }else if(mysqli_num_rows($nrjobs) < $counterJobs){
+                return 1;
+            }else if($counterJobs == 0){
+                return 2;
+            }
+        } catch (PDOException $e) {
+            echo ("<pre>");
+            var_dump($e);
+            echo ("</pre>");
+            return false;
+        }
+    }
+    //vizualizare job-uri nerecomandate
+    public function returnNotRecomandedJobs($conn, $accountid)
+    {
+        try {
+            $sql = "SELECT limbaj FROM accounts where accountid='$accountid'";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                    $everyLanguage = explode(".", $row['limbaj']);
+                    $counter = count($everyLanguage);
+                        $numeUtilizatorCandidat = $_SESSION['accountid'];
+                        $candidatnou = new AccountDetails();
+                        $static = 'AccountDetails';
+                        $candidatnou = $static::showAccountDetails($conn, $numeUtilizatorCandidat);
+                        $userIdCandidat = $candidatnou->getUserID();
+                        $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
+                        $nrjobs = mysqli_query($conn, $sql_nrjobs);
+                        if($counter == 4){
+                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list WHERE limbaj !='$everyLanguage[0]' AND limbaj !='$everyLanguage[1]' AND limbaj !='$everyLanguage[2]'";
+                        }else if($counter == 3){
+                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list WHERE limbaj !='$everyLanguage[0]' AND limbaj !='$everyLanguage[1]'";
+                        }else if($counter == 2){
+                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list WHERE limbaj !='$everyLanguage[0]'";
+                        }
+                        $result = mysqli_query($conn, $sql1);
+                        if (mysqli_num_rows($nrjobs) > 0) {
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row1 = mysqli_fetch_assoc($result)) {
+                                    if ($row1['Status'] == "Activ") {
+                                        $n = new Applications();
+                                        $alreadyCandidate = $n->checkExistance($conn, $userIdCandidat, $row1['job_ID']);
+                                        if ($alreadyCandidate == 0) {
+                                            //afisare joburi disponibile pentru aplicare si pune un text la cele la care a aplicat
+                                            echo "
+                                        <tr>
+                                            <td>" . ($row1['Nume']) . "</td>
+                                            <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['limbaj']) . "</td>
+                                            <td>
+                                            Ai aplicat deja la acest job!
+                                            </td>";
+                                    ?>
+                                            </tr>
+                                        <?php
+                                        } else if ($alreadyCandidate == 1) {
+                                            //afisare joburi disponibile pentru aplicare si pune button la cele care nu a aplicat
+                                            echo "
+                                        <tr>
+                                            <td>" . ($row1['Nume']) . "</td>
+                                            <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['limbaj']) . "</td>
+                                            <td>
+                                            <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\">Aplica acum</button>
+                                            </td>";
+                                        ?>
+                                            </tr>
+            <?php
+                                        }
+                                    }
+                                }
+                            }
+                        }
+            }
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);

@@ -1,5 +1,10 @@
 <?php
 session_start();
+ini_set('log_errors','On');
+ini_set('error_reporting', E_ALL );
+define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
 ini_set('display_errors', 1);
 require_once('DbConnection.php');
 require_once('Jobs.php');
@@ -12,7 +17,7 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-$numejob = $descriere = $status = $cerinte = $durataTest = "";
+$numejob = $descriere = $status = $cerinte = $durataTest = $limbaj="";
 $numejobErr = $descriereErr = $cerinteErr = $durataTestErr= "";
 $numeTest = $numeTestErr = $raspunsErr = "";
 if (isset($_POST['creareTest'])) {
@@ -48,6 +53,7 @@ if (isset($_POST['creareTest'])) {
             $durataTest = test_input($_POST["timpTest"]);
         }
         $status = $_POST['status'];
+        $limbaj = $_POST['limbaj'];
         //insert nume test in baza de date
         $numeTest = test_input($_POST["numeTest"]);
         $newTest = new Test();
@@ -85,7 +91,7 @@ if (isset($_POST['creareTest'])) {
                     $raspunsuri_final->insertRaspunsuriIntoDB($conn, $idIntrebare, $idTest, $raspunsuri);
                 }
                 $newjob = new Jobs();
-                $newjob->setJob($conn, $numejob, $descriere, $cerinte, $status, $numeTest,$durataTest);
+                $newjob->setJob($conn, $numejob, $descriere, $cerinte, $status, $numeTest,$durataTest,$limbaj);
                 if (empty($numejobErr) && empty($descriereErr) && empty($cerinteErr) && empty($durataTestErr)) {
                     $result = $newjob->insertJobs();
                     echo "<script>alert('Job adaugat cu succes')</script>";
@@ -103,9 +109,10 @@ if (isset($_POST['creareTest'])) {
 <html>
 
 <head>
-    <title>Joburi</title>
+    <title>Add Jobs</title>
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="FavIcon.png"/>
 </head>
 
 <body>
@@ -146,6 +153,19 @@ if (isset($_POST['creareTest'])) {
                             <option value="Inactiv">Inactiv</option>
                         </select>
                     </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label>Limbaj</label>
+                        <select name="limbaj" class="select">
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="MySQL">MySQL</option>
+                            <option value="Python">Python</option>
+                            <option value="C++">C++</option>
+                            <option value="PHP">PHP</option>
+                            <option value="C++">C++</option>
+                            <option value="Angular">Angular</option>
+                        </select>
+                    </div>
                 </div>
                 <hr class="mb-3">
                 <div>
@@ -161,12 +181,12 @@ if (isset($_POST['creareTest'])) {
                     <span class="error" style="color:red"><?php echo $numeTestErr ?></span>
                     <p>Selectati numarul de intrebari ale quiz-ului:</p>
                     <select name="quiznumber" class="select" id="quiznr" onchange="changeNumber(this.value)">
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
                         <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select>
                     <button type="button" id="generare" class="button_quiz" name="alegeNR" onclick="createIntrebari()">Genereaza intrebari</button>
                     <div id="intrebari" class="intrebari"></div>

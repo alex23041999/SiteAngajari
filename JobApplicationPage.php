@@ -1,16 +1,15 @@
 <?php
 session_start();
+ini_set('log_errors','On');
+ini_set('error_reporting', E_ALL );
+define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
 ini_set('display_errors', 1);
 require_once('DbConnection.php');
 require_once('Jobs.php');
 require_once('AccountDetails.php');
 require_once('Applications.php');
-ini_set('log_errors', 'On');
-ini_set('display_errors', 'Off');
-ini_set('error_reporting', E_ALL);
-define('WP_DEBUG', false);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
 
 //functie care sterge spatiile goale ,sterge backslash-urile si converteste catre caracterele speciale html
 function test_input($data)
@@ -38,8 +37,7 @@ if (strcmp($cvCandidat, "") == 0) {
 
 if(isset($_POST["aplicarejobid"])){
     $_SESSION["jobid"] = $_POST["aplicarejobid"];
-}
-$idjob = $_SESSION["jobid"];
+    $idjob = $_SESSION["jobid"];
 $job = new Jobs();
 $jdetails =$job->returnJobDetails($conn,$idjob);
 $numejob = $jdetails->getJobName();
@@ -49,7 +47,7 @@ $afisareTest = new Applications();
 $static1 = 'Applications';
 $numeTest = $afisareTest->getAplicareTest($conn, $numejob);
 $_SESSION["questionsnumber"] = $afisareTest->questionNumberOfTest($conn, $numeTest);
-
+}
 $raspunsuriCorecte = 0;
 
 if (isset($_POST['Back'])) {

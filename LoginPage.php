@@ -1,5 +1,10 @@
 <?php
 session_start();
+ini_set('log_errors','On');
+ini_set('error_reporting', E_ALL );
+define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
 ini_set('display_errors', 1);
 require_once('DbConnection.php');
 require_once('UserAccount.php');
