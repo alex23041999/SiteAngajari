@@ -197,7 +197,6 @@ class Jobs extends Applications
             } else {
                 return 0;
             }
-            mysqli_close($conn);
         } catch (PDOException $e) {
             echo ("<pre>");
             var_dump($e);
@@ -401,5 +400,67 @@ class Jobs extends Applications
             return false;
         }
     }
+        //functie vizualizare job-uri pentru user
+        public static function returnFilteredJobs($conn,$filter)
+        {
+            try {
+                $numeUtilizatorCandidat = $_SESSION['accountid'];
+                $candidatnou = new AccountDetails();
+                $static = 'AccountDetails';
+                $candidatnou = $static::showAccountDetails($conn, $numeUtilizatorCandidat);
+                $userIdCandidat = $candidatnou->getUserID();
+                $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
+                $nrjobs = mysqli_query($conn, $sql_nrjobs);
+                $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj,categorie FROM jobs_list WHERE categorie='$filter'";
+                $result = mysqli_query($conn, $sql);
+                if (mysqli_num_rows($nrjobs) > 0) {
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if ($row['Status'] == "Activ") {
+                                $n = new Applications();
+                                $alreadyCandidate = $n->checkExistance($conn, $userIdCandidat, $row['job_ID']);
+                                if ($alreadyCandidate == 0) {
+                                    //afisare joburi disponibile pentru aplicare si pune un text la cele la care a aplicat
+                                    echo "
+                                <tr>
+                                    <td>" . ($row['Nume']) . "</td>
+                                    <td>" . ($row['NumarCandidati']) . "</td>
+                                    <td>" . ($row['categorie']) . "</td>
+                                    <td>" . ($row['limbaj']) . "</td>
+                                    <td>
+                                    Ai aplicat deja la acest job!
+                                    </td>";
+                            ?>
+                                    </tr>
+                                <?php
+                                } else if ($alreadyCandidate == 1) {
+                                    //afisare joburi disponibile pentru aplicare si pune button la cele care nu a aplicat
+                                    echo "
+                                <tr>
+                                    <td>" . ($row['Nume']) . "</td>
+                                    <td>" . ($row['NumarCandidati']) . "</td>
+                                    <td>" . ($row['categorie']) . "</td>
+                                    <td>" . ($row['limbaj']) . "</td>
+                                    <td>
+                                    <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\">Aplica acum</button>
+                                    </td>";
+                                ?>
+                                    </tr>
+    <?php
+                                }
+                            }
+                        }
+                        return 1;
+                    }
+                } else {
+                    return 0;
+                }
+            } catch (PDOException $e) {
+                echo ("<pre>");
+                var_dump($e);
+                echo ("</pre>");
+                return false;
+            }
+        }
 }
 ?>

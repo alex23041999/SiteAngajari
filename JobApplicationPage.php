@@ -1,7 +1,7 @@
 <?php
 session_start();
-ini_set('log_errors','On');
-ini_set('error_reporting', E_ALL );
+ini_set('log_errors', 'On');
+ini_set('error_reporting', E_ALL);
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
@@ -32,21 +32,21 @@ if (strcmp($cvCandidat, "") == 0) {
     echo "<script>alert('Trebuie sa ai un CV incarcat pentru a aplica la un job !')</script>";
 ?>
     <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
-    <?php
+<?php
 }
 
-if(isset($_POST["aplicarejobid"])){
+if (isset($_POST["aplicarejobid"])) {
     $_SESSION["jobid"] = $_POST["aplicarejobid"];
     $idjob = $_SESSION["jobid"];
-$job = new Jobs();
-$jdetails =$job->returnJobDetails($conn,$idjob);
-$numejob = $jdetails->getJobName();
-$timpRezolvare = $jdetails->getJobDurataTest();
+    $job = new Jobs();
+    $jdetails = $job->returnJobDetails($conn, $idjob);
+    $numejob = $jdetails->getJobName();
+    $timpRezolvare = $jdetails->getJobDurataTest();
 
-$afisareTest = new Applications();
-$static1 = 'Applications';
-$numeTest = $afisareTest->getAplicareTest($conn, $numejob);
-$_SESSION["questionsnumber"] = $afisareTest->questionNumberOfTest($conn, $numeTest);
+    $afisareTest = new Applications();
+    $static1 = 'Applications';
+    $numeTest = $afisareTest->getAplicareTest($conn, $numejob);
+    $_SESSION["questionsnumber"] = $afisareTest->questionNumberOfTest($conn, $numeTest);
 }
 $raspunsuriCorecte = 0;
 
@@ -94,7 +94,7 @@ if (isset($_POST['Back'])) {
                             seconds = seconds < 10 ? '0' + seconds : seconds;
                             countDownEl.innerHTML = minutes + ":" + seconds;
                             time--;
-                            time = time == 0 ? document.getElementById("form1").submit() : time ;
+                            time = time == 0 ? document.getElementById("form1").submit() : time;
                         }
                     }
                 </script>

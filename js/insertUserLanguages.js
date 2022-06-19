@@ -151,3 +151,15 @@ function deleteLastLanguage1() {
 
     }
 }
+
+function buttonWithFilter(){
+    document.getElementById('formNoFilter').style.display = "none";
+    document.getElementById('withFilter').style.display = "block";
+    let x = document.getElementById('categorieNoua').value;
+    document.getElementById('option').value = x;
+    console.log(document.getElementById('option').value);
+}
+function buttonWithoutFilter(){
+    document.getElementById('formNoFilter').style.display = "block";
+    document.getElementById("withFilter").style.display = "none";
+}
