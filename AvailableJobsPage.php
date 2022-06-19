@@ -57,9 +57,10 @@ $checkLanguagesExistance = $accountLanguages->checkLanguagesExistance($conn, $us
                         <thead>
                             <tr>
                                 <th style="width: 30%;">Nume job</th>
-                                <th style="width: 20%;">Numar candidati</th>
-                                <th style="width: 30%;">Limbaj</th>
-                                <th style="width: 20%;">Actiune</th>
+                                <th style="width: 10%;">Numar candidati</th>
+                                <th style="width: 25%;">Categorie</th>
+                                <th style="width: 10%;">Limbaj</th>
+                                <th style="width: 25%;">Actiune</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,9 +76,10 @@ $checkLanguagesExistance = $accountLanguages->checkLanguagesExistance($conn, $us
                         <thead>
                             <tr>
                                 <th style="width: 30%;">Nume job</th>
-                                <th style="width: 20%;">Numar candidati</th>
-                                <th style="width: 30%;">Limbaj</th>
-                                <th style="width: 20%;">Actiune</th>
+                                <th style="width: 10%;">Numar candidati</th>
+                                <th style="width: 25%;">Categorie</th>
+                                <th style="width: 10%;">Limbaj</th>
+                                <th style="width: 25%;">Actiune</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -96,9 +98,10 @@ $checkLanguagesExistance = $accountLanguages->checkLanguagesExistance($conn, $us
                         <thead>
                             <tr>
                                 <th style="width: 30%;">Nume job</th>
-                                <th style="width: 20%;">Numar candidati</th>
-                                <th style="width: 30%;">Limbaj</th>
-                                <th style="width: 20%;">Actiune</th>
+                                <th style="width: 10%;">Numar candidati</th>
+                                <th style="width: 25%;">Categorie</th>
+                                <th style="width: 10%;">Limbaj</th>
+                                <th style="width: 25%;">Actiune</th>
                             </tr>
                         </thead>
                         <tbody>

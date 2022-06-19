@@ -45,9 +45,9 @@ function sendMail($emailCandidat, $numeCompletCandidat, $subject, $body)
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
 
-        $mail->setFrom('licentafirm2022@gmail.com', 'Nume firma');
+        $mail->setFrom('licentafirm2022@gmail.com', 'SL.Tech');
         $mail->addAddress($emailCandidat, $numeCompletCandidat);
-        $mail->addReplyTo('licentafirm2022@gmail.com', 'Nume firma');
+        $mail->addReplyTo('licentafirm2022@gmail.com', 'SL.Tech');
 
         $mail->isHTML(true);
         $mail->Subject = $subject;

@@ -11,8 +11,9 @@ class Jobs extends Applications
     private $numeTest;
     private $durataTest;
     private $limbaj;
+    private $categorie;
 
-    public function setJob($conn, $name, $descriere, $cerinte, $status, $numeTest, $durataTest, $limbaj)
+    public function setJob($conn, $name, $descriere, $cerinte, $status, $numeTest, $durataTest, $limbaj,$categorie)
     {
         $this->conn = $conn;
         $this->name = $name;
@@ -22,6 +23,7 @@ class Jobs extends Applications
         $this->numeTest = $numeTest;
         $this->durataTest = $durataTest;
         $this->limbaj = $limbaj;
+        $this->categorie = $categorie;
     }
     public function getJobName()
     {
@@ -51,6 +53,10 @@ class Jobs extends Applications
     {
         return $this->limbaj;
     }
+    public function getJobCategory()
+    {
+        return $this->categorie;
+    }
     //functie vizualizare job-uri pentru admin
     public static function vizualizareJoburiAdmin($conn)
     {
@@ -70,6 +76,7 @@ class Jobs extends Applications
                     <td>" . ($row['Status']) . "</td>
                     <td>" . ($row['test_name']) . "</td>
                     <td>" . ($row['limbaj']) . "</td>
+                    <td>" . ($row['categorie']) . "</td>
                     <td>" . ($row['durata_test']) . "</td>
                     <td><button type=\"submit\" name=\"deleteJob\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Sterge job</button>
                     <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Update job</button>
@@ -98,7 +105,7 @@ class Jobs extends Applications
     public function insertJobs()
     {
         try {
-            $sql = "INSERT INTO jobs_list(Nume,Descriere,Cerinte,Status,test_name,durata_test,limbaj) VALUES ('$this->name','$this->descriere','$this->cerinte','$this->status','$this->numeTest','$this->durataTest','$this->limbaj')";
+            $sql = "INSERT INTO jobs_list(Nume,Descriere,Cerinte,Status,test_name,durata_test,limbaj,categorie) VALUES ('$this->name','$this->descriere','$this->cerinte','$this->status','$this->numeTest','$this->durataTest','$this->limbaj','$this->categorie')";
             mysqli_query($this->conn, $sql);
         } catch (PDOException $e) {
             echo ("<pre>");
@@ -123,10 +130,10 @@ class Jobs extends Applications
         }
     }
     //functie update job de catre admin
-    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou, $testNou, $durataTestNoua, $limbajNou)
+    public function updateJobs($conn, $jobID, $numeNou, $descriereNoua, $cerinteNoi, $statusNou, $testNou, $durataTestNoua, $limbajNou,$categorieNoua)
     {
         try {
-            $sql = "UPDATE jobs_list SET Nume='$numeNou', Descriere='$descriereNoua',Cerinte='$cerinteNoi',Status='$statusNou',test_name='$testNou',durata_test='$durataTestNoua',limbaj='$limbajNou' WHERE job_ID='$jobID'";
+            $sql = "UPDATE jobs_list SET Nume='$numeNou', Descriere='$descriereNoua',Cerinte='$cerinteNoi',Status='$statusNou',test_name='$testNou',durata_test='$durataTestNoua',limbaj='$limbajNou',categorie='$categorieNoua' WHERE job_ID='$jobID'";
             mysqli_query($conn, $sql);
         } catch (PDOException $e) {
             echo ("<pre>");
@@ -146,7 +153,7 @@ class Jobs extends Applications
             $userIdCandidat = $candidatnou->getUserID();
             $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
             $nrjobs = mysqli_query($conn, $sql_nrjobs);
-            $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list";
+            $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj,categorie FROM jobs_list";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($nrjobs) > 0) {
                 if (mysqli_num_rows($result) > 0) {
@@ -160,6 +167,7 @@ class Jobs extends Applications
                             <tr>
                                 <td>" . ($row['Nume']) . "</td>
                                 <td>" . ($row['NumarCandidati']) . "</td>
+                                <td>" . ($row['categorie']) . "</td>
                                 <td>" . ($row['limbaj']) . "</td>
                                 <td>
                                 Ai aplicat deja la acest job!
@@ -173,6 +181,7 @@ class Jobs extends Applications
                             <tr>
                                 <td>" . ($row['Nume']) . "</td>
                                 <td>" . ($row['NumarCandidati']) . "</td>
+                                <td>" . ($row['categorie']) . "</td>
                                 <td>" . ($row['limbaj']) . "</td>
                                 <td>
                                 <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\">Aplica acum</button>
@@ -228,11 +237,11 @@ class Jobs extends Applications
     {
         try {
             $job = new Jobs();
-            $sql = "SELECT Nume,Descriere,Cerinte,Status,test_name,durata_test,limbaj FROM jobs_list where job_ID='$jobid'";
+            $sql = "SELECT Nume,Descriere,Cerinte,Status,test_name,durata_test,limbaj,categorie FROM jobs_list where job_ID='$jobid'";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $job->setJob($conn, $row['Nume'], $row['Descriere'], $row['Cerinte'], $row['Status'], $row['test_name'], $row['durata_test'], $row['limbaj']);
+                    $job->setJob($conn, $row['Nume'], $row['Descriere'], $row['Cerinte'], $row['Status'], $row['test_name'], $row['durata_test'], $row['limbaj'],$row['categorie']);
                 }
             }
             return $job;
@@ -261,7 +270,7 @@ class Jobs extends Applications
                         $userIdCandidat = $candidatnou->getUserID();
                         $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
                         $nrjobs = mysqli_query($conn, $sql_nrjobs);
-                        $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list";
+                        $sql = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj,categorie FROM jobs_list";
                         $result = mysqli_query($conn, $sql);
                         if (mysqli_num_rows($nrjobs) > 0) {
                             if (mysqli_num_rows($result) > 0) {
@@ -276,6 +285,7 @@ class Jobs extends Applications
                                         <tr>
                                             <td>" . ($row1['Nume']) . "</td>
                                             <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['categorie']) . "</td>
                                             <td>" . ($row1['limbaj']) . "</td>
                                             <td>
                                             Ai aplicat deja la acest job!
@@ -289,6 +299,7 @@ class Jobs extends Applications
                                         <tr>
                                             <td>" . ($row1['Nume']) . "</td>
                                             <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['categorie']) . "</td>
                                             <td>" . ($row1['limbaj']) . "</td>
                                             <td>
                                             <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\">Aplica acum</button>
@@ -336,11 +347,11 @@ class Jobs extends Applications
                         $sql_nrjobs = "SELECT job_ID FROM jobs_list WHERE Status='Activ'";
                         $nrjobs = mysqli_query($conn, $sql_nrjobs);
                         if($counter == 4){
-                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list WHERE limbaj !='$everyLanguage[0]' AND limbaj !='$everyLanguage[1]' AND limbaj !='$everyLanguage[2]'";
+                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj,categorie FROM jobs_list WHERE limbaj !='$everyLanguage[0]' AND limbaj !='$everyLanguage[1]' AND limbaj !='$everyLanguage[2]'";
                         }else if($counter == 3){
-                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list WHERE limbaj !='$everyLanguage[0]' AND limbaj !='$everyLanguage[1]'";
+                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj,categorie FROM jobs_list WHERE limbaj !='$everyLanguage[0]' AND limbaj !='$everyLanguage[1]'";
                         }else if($counter == 2){
-                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj FROM jobs_list WHERE limbaj !='$everyLanguage[0]'";
+                            $sql1 = "SELECT job_ID,Nume,Descriere,Cerinte,NumarCandidati,Status,limbaj,categorie FROM jobs_list WHERE limbaj !='$everyLanguage[0]'";
                         }
                         $result = mysqli_query($conn, $sql1);
                         if (mysqli_num_rows($nrjobs) > 0) {
@@ -355,6 +366,7 @@ class Jobs extends Applications
                                         <tr>
                                             <td>" . ($row1['Nume']) . "</td>
                                             <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['categorie']) . "</td>
                                             <td>" . ($row1['limbaj']) . "</td>
                                             <td>
                                             Ai aplicat deja la acest job!
@@ -368,6 +380,7 @@ class Jobs extends Applications
                                         <tr>
                                             <td>" . ($row1['Nume']) . "</td>
                                             <td>" . ($row1['NumarCandidati']) . "</td>
+                                            <td>" . ($row1['categorie']) . "</td>
                                             <td>" . ($row1['limbaj']) . "</td>
                                             <td>
                                             <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\">Aplica acum</button>

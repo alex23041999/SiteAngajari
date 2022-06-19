@@ -36,9 +36,10 @@ $statusjobVechi = $rr->getJobStatus();
 $numeTestVechi = $rr->getJobTest();
 $durataTestVeche = $rr->getJobDurataTest();
 $limbajTestVechi = $rr->getJobLimbaj();
+$categorieJobVeche = $rr->getJobCategory();
 $idjob = $_SESSION["idUpdateJob"];
 $updateJob = new Jobs();
-$numejobNou = $descrierejobNou = $cerintejobNou = $statusjobNou = $numetestNou = $durataTestNoua = $limbajTestNou = "";
+$numejobNou = $descrierejobNou = $cerintejobNou = $statusjobNou = $numetestNou = $durataTestNoua = $limbajTestNou = $categorieJobNoua = "";
 
 if (isset($_POST['Back'])) {
     header("location:AdminJobModifierPage.php");
@@ -119,6 +120,26 @@ if (isset($_POST['Back'])) {
                     <option value="PHP">PHP</option>
                     <option value="C++">C++</option>
                     <option value="Angular">Angular</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label>Categorie</label>
+                <select name="categorieNoua" class="select">
+                    <option value="Backend Internship">Backend Internship</option>
+                    <option value="Frontend Internship">Frontend Internship</option>
+                    <option value="Fullstack Internship">Fullstack Internship</option>
+                    <option value="MySQL Internship">MySQL Internship</option>
+                    <option value="QA Internship">QA Internship</option>
+                    <option value="Backend Junior">Backend Junior</option>
+                    <option value="Frontend Junior">Frontend Junior</option>
+                    <option value="Fullstack Junior">Fullstack Junior</option>
+                    <option value="MySQL Junior">MySQL Junior</option>
+                    <option value="QA Junior">QA Junior</option>
+                    <option value="Backend Senior">Backend Senior</option>
+                    <option value="Frontend Senior">Frontend Senior</option>
+                    <option value="Fullstack Senior">Fullstack Senior</option>
+                    <option value="MySQL Senior">MySQL Senior</option>
+                    <option value="QA Senior">QA Senior</option>
                 </select>
             </div>
             <hr class="mb-3">

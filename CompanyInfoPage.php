@@ -9,6 +9,7 @@ ini_set('display_errors', 1);
 <html>
     <head>
         <p>Informatii firma</p>
+        <title>SL.Tech</title>
     </head>
     <body>
 

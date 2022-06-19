@@ -1,7 +1,7 @@
 <?php
 session_start();
-ini_set('log_errors','On');
-ini_set('error_reporting', E_ALL );
+ini_set('log_errors', 'On');
+ini_set('error_reporting', E_ALL);
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
@@ -17,8 +17,8 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-$numejob = $descriere = $status = $cerinte = $durataTest = $limbaj="";
-$numejobErr = $descriereErr = $cerinteErr = $durataTestErr= "";
+$numejob = $descriere = $status = $cerinte = $durataTest = $limbaj = $categorie = "";
+$numejobErr = $descriereErr = $cerinteErr = $durataTestErr = "";
 $numeTest = $numeTestErr = $raspunsErr = "";
 if (isset($_POST['creareTest'])) {
     //verificam daca toate $POST au valori
@@ -54,6 +54,7 @@ if (isset($_POST['creareTest'])) {
         }
         $status = $_POST['status'];
         $limbaj = $_POST['limbaj'];
+        $categorie = $_POST['categorie'];
         //insert nume test in baza de date
         $numeTest = test_input($_POST["numeTest"]);
         $newTest = new Test();
@@ -91,7 +92,7 @@ if (isset($_POST['creareTest'])) {
                     $raspunsuri_final->insertRaspunsuriIntoDB($conn, $idIntrebare, $idTest, $raspunsuri);
                 }
                 $newjob = new Jobs();
-                $newjob->setJob($conn, $numejob, $descriere, $cerinte, $status, $numeTest,$durataTest,$limbaj);
+                $newjob->setJob($conn, $numejob, $descriere, $cerinte, $status, $numeTest, $durataTest, $limbaj, $categorie);
                 if (empty($numejobErr) && empty($descriereErr) && empty($cerinteErr) && empty($durataTestErr)) {
                     $result = $newjob->insertJobs();
                     echo "<script>alert('Job adaugat cu succes')</script>";
@@ -112,7 +113,7 @@ if (isset($_POST['creareTest'])) {
     <title>Add Jobs</title>
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/png" href="FavIcon.png"/>
+    <link rel="shortcut icon" type="image/png" href="FavIcon.png" />
 </head>
 
 <body>
@@ -125,7 +126,7 @@ if (isset($_POST['creareTest'])) {
             <div class="sidebar-button">Buton 4</div>
         </div>
         <div class="main-content">
-        <div class="navbar"></div>
+            <div class="navbar"></div>
             <form method="post" class="menu" name="Quiz" id="form">
                 <div>
                     <header>
@@ -162,8 +163,28 @@ if (isset($_POST['creareTest'])) {
                             <option value="Python">Python</option>
                             <option value="C++">C++</option>
                             <option value="PHP">PHP</option>
-                            <option value="C++">C++</option>
+                            <option value="Flutter">Flutter</option>
                             <option value="Angular">Angular</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <label>Categorie</label>
+                        <select name="categorie" class="select">
+                            <option value="Backend Internship">Backend Internship</option>
+                            <option value="Frontend Internship">Frontend Internship</option>
+                            <option value="Fullstack Internship">Fullstack Internship</option>
+                            <option value="MySQL Internship">MySQL Internship</option>
+                            <option value="QA Internship">QA Internship</option>
+                            <option value="Backend Junior">Backend Junior</option>
+                            <option value="Frontend Junior">Frontend Junior</option>
+                            <option value="Fullstack Junior">Fullstack Junior</option>
+                            <option value="MySQL Junior">MySQL Junior</option>
+                            <option value="QA Junior">QA Junior</option>
+                            <option value="Backend Senior">Backend Senior</option>
+                            <option value="Frontend Senior">Frontend Senior</option>
+                            <option value="Fullstack Senior">Fullstack Senior</option>
+                            <option value="MySQL Senior">MySQL Senior</option>
+                            <option value="QA Senior">QA Senior</option>
                         </select>
                     </div>
                 </div>

@@ -33,14 +33,15 @@ $static = 'Jobs';
             <thead>
                 <tr>
                     <th style="width: 5%;">ID</th>
-                    <th style="width: 10%;">Nume</th>
-                    <th style="width: 30%;">Descriere</th>
-                    <th style="width: 30%;">Cerinte</th>
+                    <th style="width: 5%;">Nume</th>
+                    <th style="width: 25%;">Descriere</th>
+                    <th style="width: 25%;">Cerinte</th>
                     <th style="width: 5%;">Candidati</th>
                     <th style="width: 5%;">Status</th>
-                    <th style="width: 10%;">Test atribuit</th>
-                    <th style="width: 10%;">Limbaj</th>
-                    <th style="width: 10%;">Durata test</th>
+                    <th style="width: 5%;">Test atribuit</th>
+                    <th style="width: 5%;">Limbaj</th>
+                    <th style="width: 5;">Categorie</th>
+                    <th style="width: 5%;">Durata test</th>
                     <th style="width: 5%;">Actiune</th>
                 </tr>
             </thead>

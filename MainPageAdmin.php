@@ -21,8 +21,9 @@ if (isset($_POST['updateJob'])) {
     $durataTestNoua = $_POST["durataTestNoua"];
     $statusjobNou = $_POST['statusnouJob'];
     $limbajJobNou = $_POST['limbajNou'];
+    $categorieJobNoua = $_POST['categorieNoua'];
     $updateJob = new Jobs();
-    $updateJob->updateJobs($conn, $idjob, $numejobNou, $descrierejobNou, $cerintejobNou, $statusjobNou, $numetestNou, $durataTestNoua,$limbajJobNou);
+    $updateJob->updateJobs($conn, $idjob, $numejobNou, $descrierejobNou, $cerintejobNou, $statusjobNou, $numetestNou, $durataTestNoua,$limbajJobNou,$categorieJobNoua);
     echo "<script>alert('Job modificat cu succes')</script>";
 }
 ?>
