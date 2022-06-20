@@ -178,13 +178,18 @@ function createRaspunsuri() {
                 document.getElementById('divRaspuns' + i + x).appendChild(label_check);
             }
         }
+        var label_text1 = document.createElement("label");
+        label_text1.className = "label";
+        label_text1.textContent = "Timp de rezolvare, considerat in minute";
+        document.getElementById('timpTestare').appendChild(label_text1);
         //creare input pentru timp test
         var input_timer = document.createElement('input');
         input_timer.type ="text";
         input_timer.name ="timpTest";
         input_timer.id = "timpTest";
-        input_timer.placeholder = "Timpul de rezolvare este ...";
-        input_text.setAttribute('required','');
+        input_timer.setAttribute('required','');
+        input_timer.setAttribute('maxlength', '2');
+        input_timer.setAttribute('type','number');
         document.getElementById('timpTestare').appendChild(input_timer);
 
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 ini_set('log_errors','On');
-ini_set('error_reporting', E_ALL );
+error_reporting(E_ALL ^ E_WARNING); 
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
@@ -54,7 +54,7 @@ if (isset($_POST['Back'])) {
 </head>
 
 <body>
-    <form method="post" action="MainPageAdmin.php">
+    <form method="post" action="RedirectPageAdmin.php">
         <h1>Confirmare valori noi pentru job-ul selectat</h1>
         <div>
             <div class="form-control" style="margin-top: 10px;">

@@ -1,7 +1,7 @@
 <?php
 session_start();
+error_reporting(E_ALL ^ E_WARNING); 
 ini_set('log_errors', 'On');
-ini_set('error_reporting', E_ALL);
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
@@ -41,7 +41,8 @@ if (isset($_POST["aplicarejobid"])) {
     $job = new Jobs();
     $jdetails = $job->returnJobDetails($conn, $idjob);
     $numejob = $jdetails->getJobName();
-    $timpRezolvare = $jdetails->getJobDurataTest();
+    //$timpRezolvare = $jdetails->getJobDurataTest();
+    $timpRezolvare = 0.2;
 
     $afisareTest = new Applications();
     $static1 = 'Applications';
@@ -59,8 +60,7 @@ if (isset($_POST['Back'])) {
 <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
 
 <body>
-
-    <form method="post" id="form1" action="MainPageUser.php">
+    <form method="post" id="form1" action="RedirectPageUser.php">
         <div>
             <div>
                 <input type="text" id="numeJob" name="numejob" placeholder="Nume job" style="height: 30px;" value="<?php echo $numejob; ?>" readonly>

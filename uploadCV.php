@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(E_ALL ^ E_WARNING); 
 require_once('AccountDetails.php');
 $updateCV = new AccountDetails();
 $static = 'AccountDetails';
