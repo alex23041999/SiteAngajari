@@ -36,7 +36,7 @@ function createIntrebari() {
                 }
             }
             var span_error_intrebare = document.createElement("span");
-            span_error_intrebare.textContent = "Nu puteti crea un test cu 0 intrebari!";
+            span_error_intrebare.textContent = "Nu puteți crea un test cu 0 întrebări!";
             span_error_intrebare.className = "span_intrebare";
             span_error_intrebare.id = "span_error_intrebare";
             document.getElementById('intrebari').appendChild(span_error_intrebare);
@@ -52,13 +52,14 @@ function createIntrebari() {
             }
             for (var i = 0; i < number; i++) {
                 var label_text = document.createElement("label");
-                label_text.className = "label";
-                label_text.textContent = "Intrebarea " + (i + 1);
+                label_text.className = "label_adaugaJob";
+                label_text.textContent = "Întrebarea " + (i + 1);
                 label_text.id = "labelIntrebare" + i;
                 document.getElementById('intrebari').appendChild(label_text);
                 var input_text = document.createElement("input");
                 input_text.type = "text";
-                input_text.placeholder = "Intrebarea este ...";
+                input_text.className = "input_adaugaJob";
+                input_text.placeholder = "întrebarea este ...";
                 input_text.name = "intrebare" + (i + 1);
                 input_text.id = "intrebare" + i;
                 document.getElementById('intrebari').appendChild(input_text);
@@ -76,7 +77,7 @@ function createIntrebari() {
             deleteIntrebari("span_error_generare");
         }
         var span_error_generare = document.createElement("span");
-        span_error_generare.textContent = "Nu puteti crea un test fara nume!";
+        span_error_generare.textContent = "Nu puteți crea un test fără nume!";
         span_error_generare.className = "span_generare";
         span_error_generare.id = "span_error_generare";
         document.getElementById('intrebari').appendChild(span_error_generare);
@@ -90,7 +91,7 @@ function createIntrebari() {
             }
         }
         var span_error_intrebare = document.createElement("span");
-        span_error_intrebare.textContent = "Nu puteti crea un test cu 0 intrebari!";
+        span_error_intrebare.textContent = "Nu puteți crea un test cu 0 întrebări!";
         span_error_intrebare.className = "span_intrebare";
         span_error_intrebare.id = "span_error_intrebare";
         document.getElementById('intrebari').appendChild(span_error_intrebare);
@@ -103,7 +104,7 @@ function createIntrebari() {
             deleteIntrebari("span_error_generare");
         }
         var span_error_generare = document.createElement("span");
-        span_error_generare.textContent = "Nu puteti crea un test fara nume!";
+        span_error_generare.textContent = "Nu puteți crea un test fără nume!";
         span_error_generare.className = "span_generare";
         span_error_generare.id = "span_error_generare";
         document.getElementById('intrebari').appendChild(span_error_generare);
@@ -123,7 +124,7 @@ function createRaspunsuri() {
                 deleteIntrebari("span_error_generare");
             }
             var span_error_generare = document.createElement("span");
-            span_error_generare.textContent = "Nu puteti lasa intrebarile necompletate!";
+            span_error_generare.textContent = "Nu puteți lăsa întrebările necompletate!";
             span_error_generare.className = "span_generare";
             span_error_generare.id = "span_error_generare";
             document.getElementById('intrebari').appendChild(span_error_generare);
@@ -144,9 +145,9 @@ function createRaspunsuri() {
         }
         for (var i = 0; i < number; i++) {
             var label_text = document.createElement("label");
-            label_text.className = "label";
+            label_text.className = "label_adaugaJob";
             label_text.id = "label" + (i + 1);
-            label_text.textContent = "Raspunsurile intrebarii numarul  " + (i + 1);
+            label_text.textContent = "Răspunsurile întrebării numărul  " + (i + 1);
             document.getElementById('raspunsuri').appendChild(label_text);
 
             //avem cate 4 div-uri diferite cu raspunsuri pentru fiecare intrebare.
@@ -158,6 +159,7 @@ function createRaspunsuri() {
 
                 var input_text = document.createElement("input");
                 input_text.type = "text";
+                input_text.className ="input_adaugaJob";
                 input_text.placeholder = "Raspunsul este ...";
                 input_text.name = "raspuns" + i + x;
                 input_text.id = "raspuns" + i + x;
@@ -166,7 +168,7 @@ function createRaspunsuri() {
 
                 //folosesc radiobutton-uri cu acelasi nume pentru a bifa raspunsul corect
                 var input_checkbox = document.createElement('input');
-                input_checkbox.type = "radio"; 
+                input_checkbox.type = "radio";
                 input_checkbox.name = "raspuns_checkbox" + i;
                 input_checkbox.id = "raspunsCheckBox" + i + x;
                 input_checkbox.value =  "raspuns" + i + x;
@@ -179,14 +181,15 @@ function createRaspunsuri() {
             }
         }
         var label_text1 = document.createElement("label");
-        label_text1.className = "label";
-        label_text1.textContent = "Timp de rezolvare, considerat in minute";
+        label_text1.className = "label_adaugaJob";
+        label_text1.textContent = "Timp de rezolvare, considerat în minute";
         document.getElementById('timpTestare').appendChild(label_text1);
         //creare input pentru timp test
         var input_timer = document.createElement('input');
         input_timer.type ="text";
         input_timer.name ="timpTest";
         input_timer.id = "timpTest";
+        input_timer.className="input_adaugaJob";
         input_timer.setAttribute('required','');
         input_timer.setAttribute('maxlength', '2');
         input_timer.setAttribute('type','number');

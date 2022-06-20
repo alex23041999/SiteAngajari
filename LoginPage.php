@@ -1,7 +1,7 @@
 <?php
 session_start();
-ini_set('log_errors','On');
-ini_set('error_reporting', E_ALL );
+ini_set('log_errors', 'On');
+ini_set('error_reporting', E_ALL);
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
@@ -18,6 +18,11 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+if (isset($_POST['logoutButton'])) {
+    session_destroy();
+    echo "<script>alert('Te-ai deconectat cu succes !')</script>";
+}
+
 if (isset($_POST['Back'])) {
     header("location:RegistrationPage.php");
 }
@@ -25,22 +30,22 @@ $accountidErr2 = $passwordErr2 = $loginpassErr = $loginidErr = "";
 $accountID2 = $password2 = "";
 if (isset($_POST['Connect'])) {
     if (empty($_POST["accountID2"])) {
-        $accountidErr2 = "Camp obligatoriu!";
+        $accountidErr2 = "Câmp obligatoriu!";
     } else {
         $accountID2 = test_input($_POST["accountID2"]);
     }
     if (empty($_POST['password2'])) {
-        $passwordErr2 = "Camp obligatoriu!";
+        $passwordErr2 = "Câmp obligatoriu!";
     } else {
         $password2 = test_input($_POST["password2"]);
     }
     if (empty($accountidErr2) && empty($passwordErr2)) {
         $result = new AccountLogin($conn, $accountID2, $password2);
         if ($result->checkAccountForLoging() == 2 || $result->checkAccountForLoging() == 5) {
-            $loginpassErr = "Parola introdusa este incorecta!";
+            $loginpassErr = "Parola introdusă este incorectă!";
             $password2 = "";
         } else if ($result->checkAccountForLoging() == 3 || $result->checkAccountForLoging() == 6) {
-            $loginidErr = "Contul dumneavoastra nu a fost gasit!";
+            $loginidErr = "Contul dumneavoastră nu a fost găsit!";
             $accountID2 = "";
             $password2 = "";
         } else if ($result->checkAccountForLoging() == 1) {
@@ -64,34 +69,31 @@ if (isset($_POST['Connect'])) {
 ?>
 <html>
 
+<head>
+    <title>Logare</title>
+    <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
+</head>
+
 <body>
-    <div>
-        <form action="LoginPage.php" method="post">
-            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <h1>Intrati in contul dumneavoastra</h1>
-                        <p>Completati toate campurile pentru logarea cu succes.</p>
-                        <hr class="mb-3">
+    <div class="registration_background">
+    <div class="logo-firm"></div>
+    <div class="registration_div">
+        <form action="LoginPage.php" method="post" class="registration_form">
+                        <p class="registration-text1">Conectați-vă la contul dumneavoastră</p>
+                        <input class="input_registration" placeholder="Account ID" type="text" name="accountID2" value="<?php echo $accountID2; ?>" autocomplete="false">
+                        <span style="color:red; font-size: 15px;"> <?php echo $accountidErr2; ?></span>
 
-                        <input class="form-control" style="margin-top: 20px;" placeholder="Account ID" type="text" name="accountID2" value="<?php echo $accountID2; ?>" autocomplete="false">
-                        <span class="error" style="color:red"> <?php echo $accountidErr2; ?></span>
+                        <input class="input_registration" placeholder="Parola" type="password" name="password2" value="<?php echo $password2; ?>" autocomplete="false">
+                        <span style="color:red; font-size: 15px;"> <?php echo $passwordErr2; ?></span>
 
-                        <input class="form-control" style="margin-top: 20px;" placeholder="Parola" type="password" name="password2" value="<?php echo $password2; ?>" autocomplete="false">
-                        <span class="error" style="color:red"> <?php echo $passwordErr2; ?></span>
+                        <span style="color:red; font-size: 15px;"><?php echo $loginidErr ?></span>
 
-                        <hr class="mb-3">
-                        <span class="error" style="color:red"><?php echo $loginidErr ?></span>
-                        <span class="error" style="color:red"><?php echo $loginpassErr ?></span>
-                        <hr class="mb-3">
-                        <input type="submit" class="btn btn-primary" name="Connect" value="Conectare">
-                        <hr class="mb-3">
-                        <input type="submit" class="btn btn-primary" name="Back" value="Inapoi la inregistrare">
-                    </div>
-                </div>
-            </div>
+                        <span style="color:red; font-size: 15px;"><?php echo $loginpassErr ?></span>
+
+                        <input type="submit" class="registration_button" name="Connect" value="Conectare" style="width: 250px;margin-bottom: 10px;">
+                        <input type="submit" class="registration_button" name="Back" value="Înapoi la înregistrare" style="width: 250px;">
         </form>
+</div>
     </div>
 </body>
 

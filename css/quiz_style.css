@@ -27,18 +27,27 @@ footer {
 }
 
 .sidebar {
-	width: 300px;
-	background-color: rgb(70, 62, 58);
+	width: 400px;
+	background-color: rgb(76, 76, 232);
 	position: relative;
-	box-shadow: 10px -1px 9px -2px rgba(0,0,0,0.83);
+	box-shadow: 10px -1px 5px -2px rgb(3, 9, 34);
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+	padding: 5px;
 }
 
 .sidebar-button {
-	background-color: black;
-	color: white;
+	background-color: #ffffff;
+	color: rgb(47, 0, 255);
 	padding: 10px;
-	border-radius: 5px;
+	border-radius: 10px;
 	cursor: pointer;
+	margin-bottom: 30px;
+	display: flex;
+	font-size: 20px;
+	justify-content: flex-start;
+	align-items: center;
 }
 
 .sidebar-button i {
@@ -46,7 +55,8 @@ footer {
 }
 
 .sidebar-button:hover {
-	background-color: red;
+	background-color: rgb(32, 34, 25);
+	color: white;
 }
 
 .title {
@@ -59,16 +69,21 @@ footer {
 .main-content {
 	width: 100%;
 	margin: 0;
-	background-color: rgb(154, 242, 22);
+	height: 100vh;
+	background-color: whitesmoke;
+	overflow-y: auto;
 }
 
 .navbar {
 	width: 100%;
 	margin: 0;
-	height: 80px;
-	background-color: rgb(70, 62, 58);
+	height: 120px;
+	background-color: rgb(76, 76, 232);
 	color: white;
-	box-shadow: 0px 12px 15px 0px #000000;
+	box-shadow: 0px 8px 5px 0px rgb(3, 9, 34);
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 main {
@@ -85,7 +100,7 @@ label {
 	font-weight: bold;
 }
 
-input[type="text"] {
+ .input_text {
 	width: 700px;
 	padding: 4px;
 	border-radius: 5px;
@@ -93,7 +108,16 @@ input[type="text"] {
 	font-size: 18px;
 	background-color: white;
 	font-weight: bold;
-}
+} 
+ .input_password {
+	width: 700px;
+	padding: 4px;
+	border-radius: 5px;
+	margin-top: 5px;
+	font-size: 18px;
+	background-color: white;
+	font-weight: bold;
+} 
 
 input[type="number"] {
 	width: 50px;
@@ -101,19 +125,7 @@ input[type="number"] {
 	border-radius: 5px;
 	font-weight: bold;
 }
-textarea{
-	padding: 5px;
-	border-radius: 5px;
-	background-color: #f8f8f8;
-	resize: none;
-	font-size: 14px;
-	box-sizing: border-box;
-	border: 2px solid #ccc;
-	height: auto;
-}
-div{
-	margin: 20px;
-}
+
 .select {
 	padding: 10px 10px;
 	font-size: 15px;
@@ -135,19 +147,28 @@ div{
 	display: block;
 	font-size: 16px;
 	width: auto;
-	margin: 10px auto; /*centrare buton*/
-	
+	margin: 10px auto;
+	/*centrare buton*/
+
 }
+.input_adaugaJob::placeholder { 
+	color: white;
+	opacity: 1; 
+  }
 
 .menu {
 	width: 1000px;
 	margin: 20px auto;
+	display: flex;
+	flex-direction: column;
+	
 }
 
 .container {
 	width: 60%;
-	margin: 0 auto;
+	margin: 10 auto;
 	overflow: auto;
+	padding: 5px;
 }
 
 li {
@@ -161,27 +182,30 @@ li {
 	margin: 20px 0 10px 0;
 }
 
-.raspuns_style{
+.raspuns_style {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
-.span_intrebare{
+
+.span_intrebare {
 	color: red;
 }
-.span_generare{
+
+.span_generare {
 	color: red;
 }
-.intrebari{
+
+.intrebari {
 	display: flex;
 	flex-direction: column;
 }
 
 input[type="radio"] {
 	display: none;
-  }
-  
-  input[type="radio"] + label:before {
+}
+
+input[type="radio"]+label:before {
 	content: "";
 	display: inline-block;
 	width: 15px;
@@ -189,41 +213,45 @@ input[type="radio"] {
 	padding: 6px;
 	margin-right: 3px;
 	background-clip: content-box;
-	border: 2px solid #bbb;
+	border: 2px solid rgb(6, 6, 6);
 	background-color: #e7e6e7;
 	border-radius: 50%;
 	margin-left: 10px;
-  }
-  
-  input[type="radio"]:checked + label:before {
-	background-color: #93e026;
-  }
-  
-  label {
+}
+
+input[type="radio"]:checked+label:before {
+	background-color: #0811c3;
+}
+
+label {
 	display: flex;
 	align-items: center;
 	width: auto;
-  }
-  
-  p{
+}
+
+p {
 	font-size: 16px;
 	font-weight: bold;
 	font-style: italic;
-  }
+}
 
-  a{
+a {
 	color: #000;
 	text-decoration: none;
-  }
-  a.start {
+}
+
+a.start {
 	display: inline-block;
 	color: #666;
 	border: 1px dotted #000;
 	padding: 6px 13px;
 }
 
-hr{
-	box-shadow: 0px 0px 15px 6px #000000;
+hr {
+	width: 1000px;
+	box-shadow: 0px 0px 15px 6px #0b4eba;
+	margin-top: 25px;
+	margin-bottom: 15px ;
 }
 
 div.under {
@@ -231,7 +259,221 @@ div.under {
 	clear: both;
 }
 
-div.selectAdd{
+div.selectAdd {
 	margin-top: 20px;
 	display: inline-block;
+}
+
+.sidebar-buttons {
+	padding: 50px 5px 0 5px;
+	display: flex;
+	width: 300px;
+	justify-content: left;
+	flex-direction: column;
+}
+
+div.logo-firm::before {
+	content: url('images/FavIcon.png');
+}
+
+.logout-button {
+	background-color: #ffffff;
+	color: rgb(47, 0, 255);
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	font-size: 20px;
+	align-items: center;
+	justify-content: flex-start;
+	margin-right: 20px;
+	height: 50px;
+	padding: 10px;
+}
+
+.logout-button:hover {
+	background-color: rgb(32, 34, 25);
+}
+
+.navbar-text1 {
+	font-size: 30px;
+	font-style: italic;
+}
+
+.navbar-text2 {
+	font-size: 25px;
+}
+
+.registration_background {
+	display: flex;
+	align-items: center;
+	background: rgb(25,49,224);
+	background: linear-gradient(30deg, rgba(25,49,224,1) 45%, rgba(45,172,253,1) 55%);
+	height: 100vh;
+	flex-direction: column;
+}
+.registration_div{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	position: relative;
+	border: 3px solid whitesmoke;
+	width: 500px;
+	border-radius: 10px;
+	flex-direction: column;	
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	background-color: white;
+	margin-top: 20px;
+}
+.registration_form{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.input_registration{
+	width: 400px; 
+	padding: 5px;
+	border-radius: 5px;
+	margin: 15px;
+	font-size: 18px;
+	color: #000;
+	background-color: rgba(255, 255, 255, 0.664);
+	font-weight: bold;
+	
+}
+.input_registration:focus {
+	border:1px solid rgb(21, 25, 25);
+    box-shadow: 0 0 10px #719ECE;
+  }
+
+  .registration-text1 {
+	color: #000;
+	font-size: 25px;
+	font-style: bold;
+}
+.registration_button{
+	background-color: rgba(15, 56, 203, 0.9);
+	padding: 5px;
+	width: 180px;
+	color: white;
+	border-radius: 5px;
+	font-size: 20px;
+	align-items: center;
+}
+.registration_button:hover{
+	background-color: rgb(32, 34, 25);
+}
+textarea {
+	padding: 5px;
+	border-radius: 5px;
+	background-color: #0554a4;
+	resize: none;
+	font-size: 18px;
+	color: white;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	height: auto;
+}
+
+.input_numeAdaugaJob{
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 18px;
+	background-color: #bfddfa;
+	color: black;
+	font-weight: bold;
+	margin-top: 5px;
+}
+.input_AdaugaJob{
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 18px;
+	background-color: #bfddfa;
+	color: black;
+}
+.label_adaugaJob{
+	display: inline-block;
+	width: 100%;
+	color: black;
+	font-size: 20px;
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+.textarea_adaugaJob {
+	margin-top: 5px;
+	border-radius: 5px;
+	background-color: #bfddfa;
+	resize: none;
+	font-size: 18px;
+	color: black;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	height: auto;
+}
+.textarea_adaugaJob::placeholder{
+	color: rgb(69, 67, 67);
+	opacity: 1;
+}
+.input_adaugaJob::placeholder{
+	color: rgb(69, 67, 67);
+	opacity: 1;
+}
+
+.input_registration::placeholder { 
+	color: rgb(69, 67, 67);
+	opacity: 1; 
+  }
+
+  .select_adaugaJob {
+	padding: 10px 10px;
+	font-size: 15px;
+	border-radius: 10px;
+	border-color: black;
+	border-width: 1px;
+	margin-bottom: 15px;
+}
+
+.p_adaugaJob{
+	display: inline-block;
+	width: 100%;
+	color: black;
+	font-size: 30px;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+.button_adaugaJob{
+	background-color: rgb(68, 68, 219);
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	display: flex;
+	font-size: 20px;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.button_adaugaJob:hover {
+	background-color: rgb(32, 34, 25);
+}
+
+.input_intrebareTest{
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 18px;
+	background-color: #bfddfa;
+	color: black;
+	width: 700px;
+}
+.label_raspunsTest{
+	display: flex;
+	align-items: center;
+	width: auto;
+	color: black;
+	font-size: 20px;
+	font-weight: bold;
 }

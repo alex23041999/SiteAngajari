@@ -155,14 +155,14 @@ class Applications
                     $result2 = mysqli_query($conn, $sql2);
                     echo "
                         <div>
-                         <input type=\"text\" value=\"$questions[text_intrebare]\" name=\"intrebare$counter\" readonly>
+                         <input type=\"text\" class=\"input_intrebareTest\" value=\"$questions[text_intrebare]\" name=\"intrebare$counter\" readonly>
                          ";
                     if (mysqli_num_rows($result2) > 0) {
                         $counter1 = 0;
                         while ($answers = mysqli_fetch_assoc($result2)) {
                             echo "
                                     <input type=\"radio\" name=\"checkbox$counter\" id=\"checkbox$counter$counter1\" value=\"$answers[text_raspuns]\">
-                                    <label for=\"checkbox$counter$counter1\">" . ($answers['text_raspuns']) . "</label>
+                                    <label class=\"label_raspunsTest\" for=\"checkbox$counter$counter1\">" . ($answers['text_raspuns']) . "</label>
                                     ";
                             $counter1++;
                         }

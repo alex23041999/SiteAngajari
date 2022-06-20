@@ -17,6 +17,7 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
 $numejob = $descriere = $status = $cerinte = $durataTest = $limbaj = $categorie = "";
 $numejobErr = $descriereErr = $cerinteErr = $durataTestErr = "";
 $numeTest = $numeTestErr = $raspunsErr = "";
@@ -106,117 +107,128 @@ if (isset($_POST['creareTest'])) {
         echo "<script>alert('Ceva nu a mers bine,reincearca !')</script>";
     }
 }
+
 ?>
 <html>
 
 <head>
-    <title>Add Jobs</title>
+    <title>Adaugă job-uri</title>
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/png" href="FavIcon.png" />
+    <link rel="shortcut icon" type="image/png" href="css/images/FavIcon.png">
 </head>
 
 <body>
     <div class="page-container m-0">
-        <div class="sidebar m-0">
-            <div class="title">Sobolaneii SRL</div>
-            <div class="sidebar-button"> <i class="fa fa-envelope-open" aria-hidden="true"></i> Buton 1</div>
-            <div class="sidebar-button">Buton 2</div>
-            <div class="sidebar-button">Buton 3</div>
-            <div class="sidebar-button">Buton 4</div>
+        <div class="sidebar">
+            <div class="logo-firm"></div>
+            <div class="sidebar-buttons">
+                <button class="sidebar-button" onclick="window.location='MainPageAdmin.php';"> <i class="fa fa-home" aria-hidden="true"></i>Pagină principală</button>
+                <button class="sidebar-button" onclick="window.location='NewJobByAdmin.php';"> <i class="fa fa-plus" aria-hidden="true"></i>Adăugare job</button>
+                <button class="sidebar-button" onclick="window.location='AdminJobModifierPage.php';"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifică job</button>
+                <button class="sidebar-button" onclick="window.location='UpdateApplicationsPage.php';"> <i class="fa fa-retweet" aria-hidden="true"></i>Update aplicări</button>
+            </div>
         </div>
         <div class="main-content">
-            <div class="navbar"></div>
+            <div class="navbar">
+                <div class="container">
+                    <p class="navbar-text1">Adăugare detalii job</p>
+                    <p class="navbar-text2">Completați câmpurile pentru a adăuga un job nou!</p>
+                </div>
+                <form method="POST" name="logout" action="LoginPage.php">
+                    <button class="logout-button" type="submit" name="logoutButton">Logout <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px;"></i></button>
+                </form>
+            </div>
             <form method="post" class="menu" name="Quiz" id="form">
                 <div>
-                    <header>
-                        <div class="container">
-                            <h2>Adaugare detalii job</h2>
-                            <p>Completati campurile pentru a adauga un job nou</p>
-                        </div>
-                    </header>
                     <div class="form-group" style="margin-top: 10px;">
-                        <input type="text" name="numejob" class="form-control" placeholder="Nume job..." value="<?php echo $numejob; ?>" required>
+                        <label class="label_adaugaJob">Nume job</label>
+                        <input type="text" class="input_numeAdaugaJob" name="numejob" class="form-control" placeholder="Nume job..." value="<?php echo $numejob; ?>" required>
                         <span class="error" style="color:red"> <?php echo $numejobErr; ?></span>
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
-                        <textarea class="form-control" rows="10" cols="50" style="width: 500px;" placeholder="Descriere..." name="descriere" value="<?php echo $descriere; ?>" required></textarea>
+                        <label class="label_adaugaJob">Descriere job</label>
+                        <textarea class="textarea_adaugaJob" rows="10" cols="50" style="width: 500px;" placeholder="Descriere..." name="descriere" value="<?php echo $descriere; ?>" required></textarea>
                         <span class="error" style="color:red"> <?php echo $descriereErr; ?></span>
                     </div>
                     <div class="form-group" style="margin-top: 10px;">
-                        <textarea class="form-control" rows="10" cols="50" style="width: 500px;" placeholder="Cerinte..." name="cerinte" value="<?php echo $cerinte; ?>" required></textarea>
+                        <label class="label_adaugaJob">Cerințe job</label>
+                        <textarea class="textarea_adaugaJob" rows="10" cols="50" style="width: 500px;" placeholder="Cerințe..." name="cerinte" value="<?php echo $cerinte; ?>" required></textarea>
                         <span class="error" style="color:red"> <?php echo $cerinteErr; ?></span>
                     </div>
-                    <div class="form-group" style="margin-top: 10px;">
-                        <label>Status</label>
-                        <select name="status" class="select">
-                            <option value="Activ">Activ</option>
-                            <option value="Inactiv">Inactiv</option>
-                        </select>
-                    </div>
-                    <div class="form-group" style="margin-top: 10px;">
-                        <label>Limbaj</label>
-                        <select name="limbaj" class="select">
-                            <option value="Java">Java</option>
-                            <option value="JavaScript">JavaScript</option>
-                            <option value="MySQL">MySQL</option>
-                            <option value="Python">Python</option>
-                            <option value="C++">C++</option>
-                            <option value="PHP">PHP</option>
-                            <option value="Flutter">Flutter</option>
-                            <option value="Angular">Angular</option>
-                        </select>
-                    </div>
-                    <div class="form-group" style="margin-top: 10px;">
-                        <label>Categorie</label>
-                        <select name="categorie" class="select">
-                            <option value="Backend Internship">Backend Internship</option>
-                            <option value="Frontend Internship">Frontend Internship</option>
-                            <option value="Fullstack Internship">Fullstack Internship</option>
-                            <option value="MySQL Internship">MySQL Internship</option>
-                            <option value="QA Internship">QA Internship</option>
-                            <option value="Backend Junior">Backend Junior</option>
-                            <option value="Frontend Junior">Frontend Junior</option>
-                            <option value="Fullstack Junior">Fullstack Junior</option>
-                            <option value="MySQL Junior">MySQL Junior</option>
-                            <option value="QA Junior">QA Junior</option>
-                            <option value="Backend Senior">Backend Senior</option>
-                            <option value="Frontend Senior">Frontend Senior</option>
-                            <option value="Fullstack Senior">Fullstack Senior</option>
-                            <option value="MySQL Senior">MySQL Senior</option>
-                            <option value="QA Senior">QA Senior</option>
-                        </select>
+                    <div style="display: flex;">
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label class="label_adaugaJob">Status</label>
+                            <select name="status" class="select_adaugaJob">
+                                <option value="Activ">Activ</option>
+                                <option value="Inactiv">Inactiv</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label class="label_adaugaJob">Limbaj</label>
+                            <select name="limbaj" class="select_adaugaJob">
+                                <option value="Java">Java</option>
+                                <option value="JavaScript">JavaScript</option>
+                                <option value="MySQL">MySQL</option>
+                                <option value="Python">Python</option>
+                                <option value="C++">C++</option>
+                                <option value="PHP">PHP</option>
+                                <option value="Flutter">Flutter</option>
+                                <option value="Angular">Angular</option>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin-top: 10px;">
+                            <label class="label_adaugaJob">Categorie</label>
+                            <select name="categorie" class="select_adaugaJob">
+                                <option value="Backend Internship">Backend Internship</option>
+                                <option value="Frontend Internship">Frontend Internship</option>
+                                <option value="Fullstack Internship">Fullstack Internship</option>
+                                <option value="MySQL Internship">MySQL Internship</option>
+                                <option value="QA Internship">QA Internship</option>
+                                <option value="Backend Junior">Backend Junior</option>
+                                <option value="Frontend Junior">Frontend Junior</option>
+                                <option value="Fullstack Junior">Fullstack Junior</option>
+                                <option value="MySQL Junior">MySQL Junior</option>
+                                <option value="QA Junior">QA Junior</option>
+                                <option value="Backend Senior">Backend Senior</option>
+                                <option value="Frontend Senior">Frontend Senior</option>
+                                <option value="Fullstack Senior">Fullstack Senior</option>
+                                <option value="MySQL Senior">MySQL Senior</option>
+                                <option value="QA Senior">QA Senior</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <hr class="mb-3">
+                <hr>
                 <div>
-                    <header>
-                        <div class="container">
-                            <h2>Adaugare quiz pentru job</h2>
-                            <p>Completati campurile pentru a adauga quiz-ul</p>
-                        </div>
-                    </header>
+                    <p class="p_adaugaJob">Adăugare quiz pentru job</p>
                     <script src="js/inserare_Quiz_ByAdmin.js">
                     </script>
-                    <input type="text" placeholder="Nume test" id="numeTest" name="numeTest" onclick="updateNumeTest(this.value)" value="<?php echo $numeTest; ?>" autocomplete="FALSE" required>
-                    <span class="error" style="color:red"><?php echo $numeTestErr ?></span>
-                    <p>Selectati numarul de intrebari ale quiz-ului:</p>
-                    <select name="quiznumber" class="select" id="quiznr" onchange="changeNumber(this.value)">
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                    <button type="button" id="generare" class="button_quiz" name="alegeNR" onclick="createIntrebari()">Genereaza intrebari</button>
+                    <div style="display: flex;">
+                    <div>
+                        <label class="label_adaugaJob">Nume test</label>
+                        <input type="text" class="input_numeAdaugaJob" placeholder="Nume test" id="numeTest" name="numeTest" onclick="updateNumeTest(this.value)" value="<?php echo $numeTest; ?>" autocomplete="FALSE" required>
+                        <span class="error" style="color:red"><?php echo $numeTestErr ?></span>
+                    </div>
+                    <div>
+                        <label class="label_adaugaJob">Selectați numărul de întrebări ale quiz-ului:</label>
+                        <select name="quiznumber" class="select_adaugaJob" id="quiznr" onchange="changeNumber(this.value)">
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    </div>
+                    <button type="button" id="generare" class="button_adaugaJob" name="alegeNR" onclick="createIntrebari()">Genereaza intrebari</button>
                     <div id="intrebari" class="intrebari"></div>
-                    <hr class="mb-3">
-                    <button type="button" id="adaugare" class="button_quiz" name="adaugareraspunsuri" onclick="createRaspunsuri()" style="display: none;">Adauga raspunsuri</button>
+                    <button type="button" id="adaugare" class="button_adaugaJob" name="adaugareraspunsuri" onclick="createRaspunsuri()" style="display: none;">Adauga raspunsuri</button>
                     <div id="raspunsuri"></div>
                     <div id="timpTestare"></div>
                     <span class="error" style="color:red"> <?php echo $raspunsErr; ?></span>
-                    <button type="submit" class="button_quiz" name="creareTest" id="creareTest" style="display: none;" value="submit">Salveaza testul</button>
+                    <button type="submit" class="button_adaugaJob" name="creareTest" id="creareTest" style="display: none;" value="submit">Salveaza testul</button>
                 </div>
             </form>
         </div>

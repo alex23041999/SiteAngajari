@@ -1,6 +1,6 @@
 <?php
-ini_set('log_errors','On');
-error_reporting(E_ALL ^ E_WARNING); 
+ini_set('log_errors', 'On');
+error_reporting(E_ALL ^ E_WARNING);
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
@@ -108,53 +108,41 @@ if (isset($_POST['login'])) {
 <html>
 
 <head>
-  <title>Registration/sing up</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <title>Înregistrare</title>
+  <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
 </head>
 
 <body>
 
-  <div>
-    <form action="RegistrationPage.php" method="post">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3">
+  <div class="registration_background">
+  <div class="logo-firm"></div>
+    <div class="registration_div">
+      <p class="registration-text1">Creează un cont nou</p>
+      <form class="registration_form" action="RegistrationPage.php" method="post">
+        <input class="input_registration" placeholder="Nume de familie" type="text" name="firstname" value="<?php echo $firstname; ?>" autofocus>
+        <span class="error" style="color:red; font-size: 15px;"> <?php echo $firstnameErr; ?></span>
 
-            <h1>Inregistrare cont</h1>
-            <p>Completati toate campurile pentru a va inregistra pe site.</p>
-            <hr class="mb-3">
+        <input class="input_registration" style="margin-top: 20px;" placeholder="Prenume" type="text" value="<?php echo $lastname; ?>" name="lastname" autofocus>
+        <span class="error" style="color:red; font-size: 15px;"> <?php echo $lastnameErr; ?></span>
 
-            <input class="form-control" style="margin-top: 20px;" placeholder="Nume de familie" type="text" name="firstname" value="<?php echo $firstname; ?>" autofocus>
-            <span class="error" style="color:red"> <?php echo $firstnameErr; ?></span>
+        <input class="input_registration" style="margin-top: 20px;" placeholder="Account ID" type="text" name="accountID" autocomplete="false" value="<?php echo $accountID; ?>" autofocus>
+        <span class="error" style="color:red; font-size: 15px;"> <?php echo $accountidErr ?></span>
 
-            <input class="form-control" style="margin-top: 20px;" placeholder="Prenume" type="text" value="<?php echo $lastname; ?>" name="lastname" autofocus>
-            <span class="error" style="color:red"> <?php echo $lastnameErr; ?></span>
+        <input class="input_registration" placeholder="Parolă" type="password" name="password1" autocomplete="false" value="<?php echo $password1; ?>" autofocus>
+        <span class="error" style="color:red; font-size: 15px;"> <?php echo $passwordErr; ?></span>
 
-            <input class="form-control" style="margin-top: 20px;" placeholder="Account ID" type="text" name="accountID" autocomplete="false" value="<?php echo $accountID; ?>" autofocus>
-            <span class="error" style="color:red"> <?php echo $accountidErr ?></span>
+        <input class="input_registration" style="margin-top: 20px;" placeholder="Email" type="text" name="email" value="<?php echo $email; ?>" autofocus>
+        <span class="error" style="color:red; font-size: 15px;"><?php echo $emailErr ?></span>
 
-            <input class="form-control" style="margin-top: 20px;" placeholder="Parola" type="password" name="password1" autocomplete="false" value="<?php echo $password1; ?>" autofocus>
-            <span class="error" style="color:red"> <?php echo $passwordErr; ?></span>
+        <input class="input_registration" style="margin-top: 20px;" placeholder="Număr de telefon" type="text" name="telephone" value="<?php echo $telephone; ?>" autofocus>
+        <span class="error" style="color:red; font-size: 15px;"><?php echo $telephoneErr ?></span>
 
-            <input class="form-control" style="margin-top: 20px;" placeholder="Email" type="text" name="email" value="<?php echo $email; ?>" autofocus>
-            <span class="error" style="color:red"><?php echo $emailErr ?></span>
-
-            <input class="form-control" style="margin-top: 20px;" placeholder="Numar telefon" type="text" name="telephone" value="<?php echo $telephone; ?>" autofocus>
-            <span class="error" style="color:red"><?php echo $telephoneErr ?></span>
-
-            <hr class="mb-3">
-            <span class="error" style="color:red"><?php echo $accountExists ?></span>
-            <hr class="mb-3">
-            <input class="btn btn-primary" type="submit" name="register" value="Inregistrare">
-
-            <hr class="mb-3">
-            <p>Aveti deja cont?</p>
-            <input class="btn btn-primary" type="submit" name="login" value="Conectare">
-
-          </div>
-        </div>
-      </div>
-    </form>
+        <span class="error" style="color:red; font-size: 15px;"><?php echo $accountExists ?></span>
+        <input class="registration_button" type="submit" name="register" value="Înregistrare">
+        <p class="registration-text1">Aveți deja cont?</p>
+        <input class="registration_button" type="submit" name="login" value="Conectare">
+      </form>
+    </div>
   </div>
 
 </body>

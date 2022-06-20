@@ -41,8 +41,7 @@ if (isset($_POST["aplicarejobid"])) {
     $job = new Jobs();
     $jdetails = $job->returnJobDetails($conn, $idjob);
     $numejob = $jdetails->getJobName();
-    //$timpRezolvare = $jdetails->getJobDurataTest();
-    $timpRezolvare = 0.2;
+    $timpRezolvare = $jdetails->getJobDurataTest();
 
     $afisareTest = new Applications();
     $static1 = 'Applications';
