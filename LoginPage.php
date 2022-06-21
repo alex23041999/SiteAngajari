@@ -72,6 +72,7 @@ if (isset($_POST['Connect'])) {
 <head>
     <title>Logare</title>
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -88,10 +89,10 @@ if (isset($_POST['Connect'])) {
 
                         <span style="color:red; font-size: 15px;"><?php echo $loginidErr ?></span>
 
-                        <span style="color:red; font-size: 15px;"><?php echo $loginpassErr ?></span>
+                        <span style="color:red; font-size: 15px;margin-bottom: 10px;"><?php echo $loginpassErr ?></span>
 
-                        <input type="submit" class="registration_button" name="Connect" value="Conectare" style="width: 250px;margin-bottom: 10px;">
-                        <input type="submit" class="registration_button" name="Back" value="Înapoi la înregistrare" style="width: 250px;">
+                        <button type="submit" class="registration_button" name="Connect" value="Conectare" style="width: 250px;margin-bottom: 10px;"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right: 10px;"></i>Conectare</button>
+                        <button type="submit" class="registration_button" name="Back" value="Înapoi la înregistrare" style="width: 250px;"><i class="fa fa-arrow-left" aria-hidden="true" style="margin-right: 10px;"></i>Înapoi la înregistrare</button>
         </form>
 </div>
     </div>

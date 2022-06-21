@@ -310,6 +310,7 @@ div.logo-firm::before {
 	background: linear-gradient(30deg, rgba(25,49,224,1) 45%, rgba(45,172,253,1) 55%);
 	height: 100vh;
 	flex-direction: column;
+	overflow-y: auto;
 }
 .registration_div{
 	display: flex;
@@ -323,6 +324,7 @@ div.logo-firm::before {
 	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
 	background-color: white;
 	margin-top: 20px;
+	margin-bottom: 50px;
 }
 .registration_form{
 	display: flex;
@@ -359,6 +361,8 @@ div.logo-firm::before {
 	border-radius: 5px;
 	font-size: 20px;
 	align-items: center;
+	display: flex;
+	justify-content: center;
 }
 .registration_button:hover{
 	background-color: rgb(32, 34, 25);

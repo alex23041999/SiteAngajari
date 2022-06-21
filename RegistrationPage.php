@@ -109,6 +109,7 @@ if (isset($_POST['login'])) {
 
 <head>
   <title>Înregistrare</title>
+  <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
 </head>
 
@@ -138,9 +139,9 @@ if (isset($_POST['login'])) {
         <span class="error" style="color:red; font-size: 15px;"><?php echo $telephoneErr ?></span>
 
         <span class="error" style="color:red; font-size: 15px;"><?php echo $accountExists ?></span>
-        <input class="registration_button" type="submit" name="register" value="Înregistrare">
+        <button type="submit" class="registration_button" type="submit" name="register" value="Înregistrare"><i class="fa fa-registered" aria-hidden="true" style="margin-right: 10px;"></i>Înregistrare</button>
         <p class="registration-text1">Aveți deja cont?</p>
-        <input class="registration_button" type="submit" name="login" value="Conectare">
+        <button type="submit" class="registration_button" type="submit" name="login" value="Conectare"><i class="fa fa-sign-in" aria-hidden="true" style="margin-right: 10px;"></i>Conectare</button>
       </form>
     </div>
   </div>
