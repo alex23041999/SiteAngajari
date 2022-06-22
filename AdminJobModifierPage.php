@@ -1,7 +1,7 @@
 <?php
 session_start();
-ini_set('log_errors','On');
-ini_set('error_reporting', E_ALL );
+ini_set('log_errors', 'On');
+ini_set('error_reporting', E_ALL);
 define('WP_DEBUG', false);
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
@@ -24,25 +24,31 @@ $static = 'Jobs';
 
 <head>
     <title>Joburi</title>
+    <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 </head>
+
 <body>
+    <div class="container_table">
+    <div class="table_div">
     <form action="UpdateJobPage.php" method="post">
-        <link rel="stylesheet" type="text/css" href="css/table_design.css">
-        <link rel="stylesheet" type="text/css" href="css/href_border.css">
-        <table class="table, th, td" style="width: 1500px;">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+        <table id="boostrapTable" class="table table-striped" style="width: 100%;">
             <thead>
                 <tr>
-                    <th style="width: 5%;">ID</th>
-                    <th style="width: 5%;">Nume</th>
-                    <th style="width: 25%;">Descriere</th>
-                    <th style="width: 25%;">Cerinte</th>
-                    <th style="width: 5%;">Candidati</th>
-                    <th style="width: 5%;">Status</th>
-                    <th style="width: 5%;">Test atribuit</th>
-                    <th style="width: 5%;">Limbaj</th>
-                    <th style="width: 5;">Categorie</th>
-                    <th style="width: 5%;">Durata test</th>
-                    <th style="width: 5%;">Actiune</th>
+                    <th style="width: 10%;">ID</th>
+                    <th style="width: 15%;">Nume</th>
+                    <th style="width: 10%;">Candidati</th>
+                    <th style="width: 10%;">Status</th>
+                    <th style="width: 15%;">Test atribuit</th>
+                    <th style="width: 10%;">Limbaj</th>
+                    <th style="width: 10%;">Categorie</th>
+                    <th style="width: 10%;">Durata test</th>
+                    <th style="width: 10%;">Actiune</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,7 +57,10 @@ $static = 'Jobs';
                 ?>
             </tbody>
         </table>
+        <script src="js/table_design.js"></script>
     </form>
-    <hr class="mb-3">
+    </div>
+    </div>
 </body>
+
 </html>

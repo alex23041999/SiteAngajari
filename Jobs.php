@@ -67,11 +67,9 @@ class Jobs extends Applications
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "
-                <tr>
+                <tr class=\"tr_div\">
                     <td>" . ($row['job_ID']) . "</td>
                     <td>" . ($row['Nume']) . "</td>
-                    <td>" . ($row['Descriere']) . "</td>
-                    <td>" . ($row['Cerinte']) . "</td>
                     <td>" . ($row['NumarCandidati']) . "</td>
                     <td>" . ($row['Status']) . "</td>
                     <td>" . ($row['test_name']) . "</td>
