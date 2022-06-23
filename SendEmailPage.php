@@ -16,7 +16,9 @@ require_once('Applications.php');
 require('PHPMailer/PHPMailerAutoload.php');
 require_once('PHPMailer/class.smtp.php');
 
-
+if (isset($_POST['Back'])) {
+    header("location:UpdateApplicationsPage.php");
+}
 
 $app = new Applications();
 $application = $app->returnApplicationDetails($conn, $_GET['applicationID']);
@@ -95,27 +97,31 @@ if(isset($_POST['trimite'])){
 </head>
 
 <body>
+    <div class="registration_div" style="margin-top: 50px; margin-left: 50px;">
     <form method="post">
         <div>
-            <label>Catre:</label>
-            <input type="text" name="numeCandidat" value="<?php echo $numeCompletCandidat;?>" readonly>
+            <label class="label_AdaugaJob">Catre:</label>
+            <input class="input_AdaugaJob" style="font-weight: bold;" type="text" name="numeCandidat" value="<?php echo $numeCompletCandidat;?>" readonly>
         </div>
         <div>
-            <label>Email:</label>
-            <input type="text" name="numeCandidat" value="<?php echo $emailCandidat;?>" readonly>
+            <label class="label_AdaugaJob">Email:</label>
+            <input class="input_mail" type="text" name="numeCandidat" value="<?php echo $emailCandidat;?>" readonly>
         </div>
-        <div class="form-group" style="margin-top: 10px;">
-            <label>Status nou job:</label>
-            <select name="statusCandidatura">
+        <div class="div_mail" style="margin-top: 10px;">
+        <div class="registration_form">
+            <label class="label_AdaugaJob">Status nou job:</label>
+            <select class="select_adaugaJob" name="statusCandidatura" style="margin-top: 10px;">
                 <option value="Admis" >Admis</option>
                 <option value="Respins">Respins</option>
             </select>
-        </div>
-        <div>
-            <input type="submit" name="trimite" value="Trimite email">
-            <input type="submit" name="verificare" value="verificare">
-        </div>
+            </div>
+            <div style="margin-left: 50px; display: flex; align-items: center; padding-top: 35px;">
+            <input class="button_adaugaJob" type="submit" name="trimite" value="Trimite email">
+            </div>
+            </div>
+            <input type="submit" class="button_backMail" name="Back" value="Inapoi" style="margin-left: 120px;">
     </form>
+    </div>
 </body>
 
 </html>

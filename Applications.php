@@ -269,14 +269,14 @@ class Applications
                     } else {
                         echo "
                         <td>
-                        <select name=\"statusAplicare[$id_app]\" class=\"select\">
+                        <select name=\"statusAplicare[$id_app]\" class=\"select_tableUpdateApplications\">
                         <option value=\"$row[status_aplicare]\">$row[status_aplicare]</option>
                         <option value=\"$var\">$var</option>
                     </select></td>";
                     }
                     echo "
                     <td>
-                    <a href=\"SendEmailPage.php?applicationID=$row[id_application]\">Trimite email</a>
+                    <a class=\"a_tableUpdateApplications\" href=\"SendEmailPage.php?applicationID=$row[id_application]\">Trimite email</a>
                     </td>";
                 }
             }

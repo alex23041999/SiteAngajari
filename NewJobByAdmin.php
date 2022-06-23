@@ -139,7 +139,7 @@ if (isset($_POST['creareTest'])) {
                     <button class="logout-button" type="submit" name="logoutButton">Logout <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px;"></i></button>
                 </form>
             </div>
-            <form method="post" class="menu" name="Quiz" id="form">
+            <form method="post" class="menu" name="Quiz" id="form" style="padding: 50px; border-radius: 10px; box-shadow: 0px 0px 20px 10px black; margin-top: 50px;">
                 <div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label class="label_adaugaJob">Nume job</label>
@@ -222,12 +222,12 @@ if (isset($_POST['creareTest'])) {
                         </select>
                     </div>
                     </div>
+                    <span class="error" style="color:red"> <?php echo $raspunsErr; ?></span>
                     <button type="button" id="generare" class="button_adaugaJob" name="alegeNR" onclick="createIntrebari()">Genereaza intrebari</button>
                     <div id="intrebari" class="intrebari"></div>
                     <button type="button" id="adaugare" class="button_adaugaJob" name="adaugareraspunsuri" onclick="createRaspunsuri()" style="display: none;">Adauga raspunsuri</button>
                     <div id="raspunsuri"></div>
                     <div id="timpTestare"></div>
-                    <span class="error" style="color:red"> <?php echo $raspunsErr; ?></span>
                     <button type="submit" class="button_adaugaJob" name="creareTest" id="creareTest" style="display: none;" value="submit">Salveaza testul</button>
                 </div>
             </form>

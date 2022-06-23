@@ -12,31 +12,10 @@ require_once('Jobs.php');
 $userid = $_SESSION['accountid'];
 $role = $_SESSION['role'];
 //in cazul in care utilizatorul/admin-ul se deconecteaza , se sterg datele cache din sesiune
-if (isset($_POST['logout'])) {
+if (isset($_POST['logoutButton'])) {
     session_destroy();
     header("location:LoginPage.php");
 }
-//buton care duce la pagina de profil a contului
-if (isset($_POST['myaccount'])) {
-    header("location:AccountInfoPage.php");
-}
-//buton care duce la pagina de prezentare a firmei
-if (isset($_POST['companyinfo'])) {
-    header("location:CompanyInfoPage.php");
-}
-//buton care duce la pagina de adaugare/stergere job-uri(doar pentru admin)
-if (isset($_POST['addjobs'])) {
-    header("location:NewJobByAdmin.php");
-}
-//buton care duce la pagina de vizualizare job-uri si aplicare pt user
-if (isset($_POST['availablejobs'])) {
-    header("location:AvailableJobsPage.php");
-}
-//buton care duce la pagina de vizualizare job-uri si aplicare pt user
-if (isset($_POST['updatejobs'])) {
-    header("location:AdminJobModifierPage.php");
-}
-
 //verificam daca s-a transmis in sesiune accountid-ul si daca rolul este de user
 if ($_SESSION['accountid'] != NULL && strcmp($_SESSION['role'], "user") == 0) {
     $numeUtilizatorCandidat = $_SESSION['accountid'];
@@ -105,45 +84,30 @@ if (isset($_POST["aplicare"])) {
 ?>
 
 <html>
-
-<body>
-    <form method="post">
-        <link rel="stylesheet" type="text/css" href="css/logout-button.css">
-        <div>
-            <button class="logoutbutton" id="logout" name="logout">Log out</button>
-        </div>
-        <div>
-            <link rel="stylesheet" type="text/css" href="css/myaccount_button.css">
-            <button class="myaccountButton" type="submit" name="myaccount" <?php if ($role == "admin") { ?> style="display: none;" <?php } ?>>Contul meu</button>
-        </div>
-        <div>
-            <button class="button" id="info" name="companyinfo">Informatii firma</button>
-        </div>
-        <div>
-            <button class="button" id="jobs" name="availablejobs" <?php if ($role == "admin") { ?> style="display: none;" <?php } else { ?> style="margin-top: 10px;" <?php } ?>>Vedeti job-uri disponibile</button>
-        </div>
-        <div>
-            <button class="button" id="addjobs" name="addjobs" <?php if ($role == "user") { ?> style="margin-top: 20px; display: none;" <?php } else { ?> style="margin-top: 10px;" <?php } ?>>Adauga joburi</button>
-        </div>
-        <div>
-            <button class="button" id="updatejobs" name="updatejobs" <?php if ($role == "user") { ?> style="margin-top: 20px; display: none;" <?php } else { ?> style="margin-top: 10px;" <?php } ?>>Modifica joburi</button>
-        </div>
-    </form>
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <div class="footer">
-        <div class="row">
-            <div class="column">
-                <p>Contacte</p>
-                <p>Numar telefon: 0351 444 188</p>s
-            </div>
-            <div class="column">
-                <p>Adresa email:licenceproject@gmail.com</p>
-                <p>Adresa:Str.Bucuriei , Nr.23</p>
-            </div>
-        </div>
-    </div>
+    <head>
+    <title>Contul meu</title>
+    <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="css/images/FavIcon.png">
     </head>
 
+<body>
+<div class="page-container m-0" style="overflow: hidden;">
+<div class="sidebar_mainpage m-0">
+            <div class="logo-firm"></div>
+            <div class="sidebar-buttons">
+            <button class="sidebar-button" onclick="window.location='AccountInfoPage.php';"> <i class="fa fa-user" aria-hidden="true"></i>Contul meu</button>
+                <button class="sidebar-button" onclick="window.location='MainPageUser.php';"> <i class="fa fa-home" aria-hidden="true"></i>Pagină principală</button>
+                <button class="sidebar-button" onclick="window.location='AvailableJobsPage.php';"> <i class="fa fa-briefcase" aria-hidden="true"></i>Vizualizează joburi</button>
+                <button class="sidebar-button" onclick="window.location='CompanyInfoPage.php';"> <i class="fa fa-retweet" aria-hidden="true"></i>Despre SL.Tech</button>
+                <form method="POST" name="logout" action="LoginPage.php">
+                <button class="logout-button" type="submit" name="logoutButton"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right: 10px;"></i> Logout</button>
+                </form>
+            </div>
+        </div>
+        <div class="mainpage_div">
+        </div>
+</div>
 </body>
 
 </html>

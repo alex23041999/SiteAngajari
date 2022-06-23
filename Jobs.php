@@ -67,7 +67,7 @@ class Jobs extends Applications
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "
-                <tr class=\"tr_div\">
+                <tr>
                     <td>" . ($row['job_ID']) . "</td>
                     <td>" . ($row['Nume']) . "</td>
                     <td>" . ($row['NumarCandidati']) . "</td>
@@ -76,8 +76,8 @@ class Jobs extends Applications
                     <td>" . ($row['limbaj']) . "</td>
                     <td>" . ($row['categorie']) . "</td>
                     <td>" . ($row['durata_test']) . "</td>
-                    <td><button type=\"submit\" name=\"deleteJob\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Sterge job</button>
-                    <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" style=\"margin-bottom: 10px;\">Update job</button>
+                    <td class=\"td_div\"><button type=\"submit\" name=\"deleteJob\" value=\"$row[job_ID]\" class=\"button_table\">Șterge job</button>
+                    <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" class=\"button_table\">Update job</button>
                     </td>";
                     if (isset($_POST['deleteJob'])) {
                         $varJob->deleteJobs($conn, $_POST['deleteJob']);
@@ -167,7 +167,7 @@ class Jobs extends Applications
                                 <td>" . ($row['NumarCandidati']) . "</td>
                                 <td>" . ($row['categorie']) . "</td>
                                 <td>" . ($row['limbaj']) . "</td>
-                                <td>
+                                <td class=\"td_button\">
                                 Ai aplicat deja la acest job!
                                 </td>";
                         ?>
@@ -181,8 +181,8 @@ class Jobs extends Applications
                                 <td>" . ($row['NumarCandidati']) . "</td>
                                 <td>" . ($row['categorie']) . "</td>
                                 <td>" . ($row['limbaj']) . "</td>
-                                <td>
-                                <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\">Aplica acum</button>
+                                <td class=\"td_button\">
+                                <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\" class=\"button_avJob\">Aplica acum</button>
                                 </td>";
                             ?>
                                 </tr>
@@ -280,11 +280,11 @@ class Jobs extends Applications
                                             //afisare joburi disponibile pentru aplicare si pune un text la cele la care a aplicat
                                             echo "
                                         <tr>
-                                            <td>" . ($row1['Nume']) . "</td>
-                                            <td>" . ($row1['NumarCandidati']) . "</td>
-                                            <td>" . ($row1['categorie']) . "</td>
-                                            <td>" . ($row1['limbaj']) . "</td>
-                                            <td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['Nume']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['NumarCandidati']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['categorie']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['limbaj']) . "</td>
+                                            <td class=\"td_button\">
                                             Ai aplicat deja la acest job!
                                             </td>";
                                     ?>
@@ -294,12 +294,12 @@ class Jobs extends Applications
                                             //afisare joburi disponibile pentru aplicare si pune button la cele care nu a aplicat
                                             echo "
                                         <tr>
-                                            <td>" . ($row1['Nume']) . "</td>
-                                            <td>" . ($row1['NumarCandidati']) . "</td>
-                                            <td>" . ($row1['categorie']) . "</td>
-                                            <td>" . ($row1['limbaj']) . "</td>
-                                            <td>
-                                            <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\">Aplica acum</button>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['Nume']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['NumarCandidati']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['categorie']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['limbaj']) . "</td>
+                                            <td class=\"td_button\">
+                                            <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\" class=\"a_tableUpdateApplications\">Aplica acum</button>
                                             </td>";
                                         ?>
                                             </tr>
@@ -361,11 +361,11 @@ class Jobs extends Applications
                                             //afisare joburi disponibile pentru aplicare si pune un text la cele la care a aplicat
                                             echo "
                                         <tr>
-                                            <td>" . ($row1['Nume']) . "</td>
-                                            <td>" . ($row1['NumarCandidati']) . "</td>
-                                            <td>" . ($row1['categorie']) . "</td>
-                                            <td>" . ($row1['limbaj']) . "</td>
-                                            <td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['Nume']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['NumarCandidati']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['categorie']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['limbaj']) . "</td>
+                                            <td class=\"td_button\">
                                             Ai aplicat deja la acest job!
                                             </td>";
                                     ?>
@@ -375,12 +375,12 @@ class Jobs extends Applications
                                             //afisare joburi disponibile pentru aplicare si pune button la cele care nu a aplicat
                                             echo "
                                         <tr>
-                                            <td>" . ($row1['Nume']) . "</td>
-                                            <td>" . ($row1['NumarCandidati']) . "</td>
-                                            <td>" . ($row1['categorie']) . "</td>
-                                            <td>" . ($row1['limbaj']) . "</td>
-                                            <td>
-                                            <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\">Aplica acum</button>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['Nume']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['NumarCandidati']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['categorie']) . "</td>
+                                            <td class=\"td_buttonAvbJob\">" . ($row1['limbaj']) . "</td>
+                                            <td class=\"td_button\">
+                                            <button type=\"submit\" name=\"aplicarejobid\" value=\"$row1[job_ID]\" class=\"button_avJob\">Aplica acum</button>
                                             </td>";
                                         ?>
                                             </tr>
@@ -421,11 +421,11 @@ class Jobs extends Applications
                                     //afisare joburi disponibile pentru aplicare si pune un text la cele la care a aplicat
                                     echo "
                                 <tr>
-                                    <td>" . ($row['Nume']) . "</td>
-                                    <td>" . ($row['NumarCandidati']) . "</td>
-                                    <td>" . ($row['categorie']) . "</td>
-                                    <td>" . ($row['limbaj']) . "</td>
-                                    <td>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['Nume']) . "</td>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['NumarCandidati']) . "</td>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['categorie']) . "</td>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['limbaj']) . "</td>
+                                    <td class=\"td_button\">
                                     Ai aplicat deja la acest job!
                                     </td>";
                             ?>
@@ -435,12 +435,12 @@ class Jobs extends Applications
                                     //afisare joburi disponibile pentru aplicare si pune button la cele care nu a aplicat
                                     echo "
                                 <tr>
-                                    <td>" . ($row['Nume']) . "</td>
-                                    <td>" . ($row['NumarCandidati']) . "</td>
-                                    <td>" . ($row['categorie']) . "</td>
-                                    <td>" . ($row['limbaj']) . "</td>
-                                    <td>
-                                    <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\">Aplica acum</button>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['Nume']) . "</td>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['NumarCandidati']) . "</td>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['categorie']) . "</td>
+                                    <td class=\"td_buttonAvbJob\">" . ($row['limbaj']) . "</td>
+                                    <td class=\"td_button\">
+                                    <button type=\"submit\" name=\"aplicarejobid\" value=\"$row[job_ID]\" class=\"button_avJob\">Aplica acum</button>
                                     </td>";
                                 ?>
                                     </tr>

@@ -28,7 +28,19 @@ footer {
 
 .sidebar {
 	width: 400px;
-	background-color: rgb(76, 76, 232);
+	background-color: rgb(66, 89, 239);
+	position: relative;
+	box-shadow: 10px -1px 5px -2px rgb(3, 9, 34);
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+	padding: 5px;
+	height: 100vh;
+}
+
+.sidebar_mainpage {
+	width: 400px;
+	background-color: #6A695C;
 	position: relative;
 	box-shadow: 10px -1px 5px -2px rgb(3, 9, 34);
 	align-items: center;
@@ -39,7 +51,7 @@ footer {
 
 .sidebar-button {
 	background-color: #ffffff;
-	color: rgb(47, 0, 255);
+	color: #95937F;
 	padding: 10px;
 	border-radius: 10px;
 	cursor: pointer;
@@ -47,6 +59,7 @@ footer {
 	display: flex;
 	font-size: 20px;
 	justify-content: flex-start;
+	box-shadow: 0px 0px 20px 5px black;
 	align-items: center;
 }
 
@@ -78,7 +91,7 @@ footer {
 	width: 100%;
 	margin: 0;
 	height: 120px;
-	background-color: rgb(76, 76, 232);
+	background-color: rgb(66, 89, 239);
 	color: white;
 	box-shadow: 0px 8px 5px 0px rgb(3, 9, 34);
 	display: flex;
@@ -100,7 +113,7 @@ label {
 	font-weight: bold;
 }
 
- .input_text {
+ .text {
 	width: 700px;
 	padding: 4px;
 	border-radius: 5px;
@@ -285,6 +298,7 @@ div.logo-firm::before {
 	font-size: 20px;
 	align-items: center;
 	justify-content: flex-start;
+	box-shadow: 0px 0px 20px 5px black;
 	margin-right: 20px;
 	height: 50px;
 	padding: 10px;
@@ -367,6 +381,9 @@ div.logo-firm::before {
 .registration_button:hover{
 	background-color: rgb(32, 34, 25);
 }
+.registration_CV:hover{
+	background-color: rgb(32, 34, 25);
+}
 textarea {
 	padding: 5px;
 	border-radius: 5px;
@@ -383,7 +400,7 @@ textarea {
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	font-size: 18px;
-	background-color: #bfddfa;
+	background-color: #dae8f5;
 	color: black;
 	font-weight: bold;
 	margin-top: 5px;
@@ -392,7 +409,7 @@ textarea {
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	font-size: 18px;
-	background-color: #bfddfa;
+	background-color: #dae8f5;
 	color: black;
 }
 .label_adaugaJob{
@@ -407,7 +424,7 @@ textarea {
 .textarea_adaugaJob {
 	margin-top: 5px;
 	border-radius: 5px;
-	background-color: #bfddfa;
+	background-color: #dae8f5;
 	resize: none;
 	font-size: 18px;
 	color: black;
@@ -436,6 +453,7 @@ textarea {
 	border-color: black;
 	border-width: 1px;
 	margin-bottom: 15px;
+	width: 200px;
 }
 
 .p_adaugaJob{
@@ -472,6 +490,8 @@ textarea {
 	background-color: #bfddfa;
 	color: black;
 	width: 700px;
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
 .label_raspunsTest{
 	display: flex;
@@ -480,22 +500,330 @@ textarea {
 	color: black;
 	font-size: 20px;
 	font-weight: bold;
+	margin-bottom: 10px;
 }
 
 .table_div{
 	border: 3px solid whitesmoke;
-	width: 1800px;
+	width: 1600px;
 	border-radius: 10px;
 	padding: 5px;
 	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
 	margin: 50px;
 }
+.table_divUpdateApplications{
+	border: 3px solid whitesmoke;
+	width: 1600px;
+	border-radius: 10px;
+	padding: 10px;
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	margin-right: 50px;
+}
 .tr_div{
-	height: 5px;
+	height: 30px;
 }
 .container_table{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 50px;
+}
+.td_div{
+	display: flex;
+	justify-content: center;
+	padding: 3px;
+}
+
+.button_table{
+	margin: 5px;
+	padding: 5px;
+	display: flex;
+	justify-content: center;
+	background-color: #ffffff;
+	border: 2px solid rgb(11, 41, 188);
+	border-radius: 5px;
+}
+.select_tableUpdateApplications{
+		padding: 3px;
+		font-size: 15px;
+		border-radius: 5px;
+		border-color: rgb(11, 41, 188);
+		border-width: 1px;
+}
+.a_tableUpdateApplications{
+	background-color: #ffffff;
+	color: rgb(0, 0, 0);
+	padding: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	cursor: pointer;
+	border: 2px solid rgb(4, 33, 179);
+	border-radius: 5px;
+}
+
+.input_mail{
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 18px;
+	background-color: #dae8f5;
+	color: black;
+	font-weight: bold;
+	margin-top: 5px;
+	width: 350px;
+}
+.div_mail{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.updateJob_div{
+	border: 3px solid whitesmoke;
+	width: 1600px;
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	margin: 50px;
+	display: flex;
+	align-items: center;
+}
+.div_princUpdate{
+	display: flex;
+	align-items: center;
+}
+.div_secUpdate{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	padding: 30px;
+}
+
+.div_shadow{
+	box-shadow: 20px 0px 15px -9px rgba(15, 56, 203, 0.9);
+}
+.button_updateJob{
+	background-color: rgb(68, 68, 219);
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	display: flex;
+	font-size: 20px;
+	width: 300px;
+	justify-content: center;
+	align-items: center;
+}
+.button_updateJob:hover {
+	background-color: rgb(32, 34, 25);
+}
+
+.button_backMail{
+	background-color: rgb(68, 68, 219);
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	display: flex;
+	font-size: 20px;
+	width: 150px;
+	justify-content: center;
+	align-items: center;
+}
+.mainpage_div{
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: 100vw;
+	height: 100vh;
+	background-image: url('images/background_mainpage.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.main-contentProfile {
+	width: 100%;
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: whitesmoke;
+	overflow-y: auto;
+	align-items: flex-start;
+	padding-left: 100px;
+}
+.profile_div{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;	
+	border: 3px solid whitesmoke;
+	width: 400px;
+	padding-left: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 4px #0f15d2;
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.p_profile{
+	display: inline-block;
+	color: black;
+	width: 100%;
+	font-size: 20px;
+	margin-top: 2px;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+.p_profile1{
+	display: inline-block;
+	width: 100%;
+	color: rgb(172, 165, 165);
+	font-size: 15px;
+	margin-top: 0;
+}
+.hr_profile {
+	width: auto;
+	box-shadow: 0px 0px 15px 6px #9a9b9c;
+	margin-top: 5px;
+	margin-bottom: 5px ;
+}
+.addCV{
+	display: none;
+}
+.button_CV{
+	background-color: rgb(68, 68, 219);
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	font-size: 15px;
+	margin-top: 20px;
+	width: 150px;
+		align-items: center;
+}
+.input_language{
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	font-size: 15px;
+	background-color: #dae8f5;
+	color: black;
+	font-weight: bold;
+	margin-top: 5px;
+	width: 300px;
+}
+
+.table_app{
+	border: 2px solid whitesmoke;
+	border-radius: 5px;
+	padding: 5px;
+	box-shadow: 0px 0px 10px 10px rgba(15, 56, 203, 0.9);
+	width: 800px;
+}
+.table_app tr, .table_app td{
+	font-size: 15px;
+	border: 3px solid black;
+  }
+  .table_filter{
+	border: 3px solid whitesmoke;
+	width: 400px;
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 0px 0px 15px 15px rgba(13, 15, 20, 0.9);
+	margin: 50px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.button_filter{
+	background-color: rgb(22, 22, 30);
+	color: white;
+	padding: 10px;
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	font-size: 15px;
+	margin-top: 20px;
+	width: 150px;
+	align-items: center;
+}
+.table_language{
+	border: 2px solid whitesmoke;
+	border-radius: 5px;
+	padding: 5px;
+	box-shadow: 0px 0px 10px 10px rgba(15, 56, 203, 0.9);
+	width: 100px;
+}
+.table_languagetr, .table_language td{
+	font-size: 15px;
+	border: 3px solid black;
+  }
+
+  .main-contentJobs {
+	width: 100%;
+	margin: 0;
+	height: 100vh;
+	background-color: whitesmoke;
+	overflow-y: auto;
+	padding-left: 50px;
+}
+.button_avJob{
+	background-color: #ffffff;
+	color: rgb(0, 0, 0);
+	padding: 3px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	cursor: pointer;
+	margin-left: 30px;
+	display: flex;
+	border: 2px solid rgb(4, 33, 179);
+	border-radius: 5px;
+}
+.td_button{
+	display: flex;
+	justify-content: center;
+}
+
+.input_testJob{
+	border: none;
+	border-radius: 5px;
+	font-size: 25px;
+	background-color: #dae8f5;
+	color: black;
+	outline: none;
+	text-align: center;
+}
+.p_timer{
+	font-size: 25px;
+	border: 2px solid rgb(0, 27, 164);
+	border-radius: 5px;
+	width: fit-content;
+}
+.test_div{
+	border: 3px solid whitesmoke;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	margin: 50px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.table_avbJobs{
+	border: 3px solid whitesmoke;
+	width: 1300px;
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	margin: 50px;
+}
+
+.td_buttonAvbJob{
+text-align: left;
 }

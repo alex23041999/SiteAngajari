@@ -1,5 +1,6 @@
 function createLanguageField() {
     var button_add = document.createElement('button');
+    button_add.className = "button_CV";
     button_add.type = "button";
     button_add.name = "button_add";
     button_add.id = "button_add";
@@ -9,6 +10,7 @@ function createLanguageField() {
     document.getElementById('button_add').onclick = function () { addAnotherLanguage() };
 
     var button_delete = document.createElement('button');
+    button_delete.className = "button_CV";
     button_delete.type = "button";
     button_delete.name = "button_delete";
     button_delete.id = "button_delete";
@@ -26,6 +28,7 @@ function addAnotherLanguage() {
         document.getElementById('maxLimit').style.display = "none";
         document.getElementById('button_add').disabled = false;
         var input_language = document.createElement("input");
+        input_language.className = "input_language";
         input_language.type = "text";
         input_language.name = "language"+1;
         input_language.id = "language"+1;
@@ -37,6 +40,7 @@ function addAnotherLanguage() {
         document.getElementById('maxLimit').style.display = "none";
         document.getElementById('button_add').disabled = false;
         var input_language = document.createElement("input");
+        input_language.className = "input_language";
         input_language.type = "text";
         input_language.name = "language"+2;
         input_language.id = "language"+2;
@@ -47,6 +51,7 @@ function addAnotherLanguage() {
         document.getElementById('maxLimit').style.display = "unset";
         document.getElementById('button_add').disabled = false;
         var input_language = document.createElement("input");
+        input_language.className = "input_language";
         input_language.type = "text";
         input_language.name = "language"+3;
         input_language.id = "language"+3;
@@ -77,6 +82,7 @@ function deleteLastLanguage() {
 
 function createLanguageField1() {
     var button_add = document.createElement('button');
+    button_add.className = "button_CV";
     button_add.type = "button";
     button_add.name = "button_add";
     button_add.id = "button_add";
@@ -86,6 +92,7 @@ function createLanguageField1() {
     document.getElementById('button_add').onclick = function () { addAnotherLanguage1() };
 
     var button_delete = document.createElement('button');
+    button_delete.className = "button_CV";
     button_delete.type = "button";
     button_delete.name = "button_delete";
     button_delete.id = "button_delete";
@@ -103,6 +110,7 @@ function addAnotherLanguage1() {
         document.getElementById('maxLimit1').style.display = "none";
         document.getElementById('button_add').disabled = false;
         var input_language = document.createElement("input");
+        input_language.className = "input_language";
         input_language.type = "text";
         input_language.name = "language"+1;
         input_language.id = "language"+1;
@@ -114,6 +122,7 @@ function addAnotherLanguage1() {
         document.getElementById('maxLimit1').style.display = "none";
         document.getElementById('button_add').disabled = false;
         var input_language = document.createElement("input");
+        input_language.className = "input_language";
         input_language.type = "text";
         input_language.name = "language"+2;
         input_language.id = "language"+2;
@@ -124,6 +133,7 @@ function addAnotherLanguage1() {
         document.getElementById('maxLimit1').style.display = "unset";
         document.getElementById('button_add').disabled = false;
         var input_language = document.createElement("input");
+        input_language.className = "input_language";
         input_language.type = "text";
         input_language.name = "language"+3;
         input_language.id = "language"+3;
