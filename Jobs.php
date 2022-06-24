@@ -77,7 +77,7 @@ class Jobs extends Applications
                     <td>" . ($row['categorie']) . "</td>
                     <td>" . ($row['durata_test']) . "</td>
                     <td>
-                    <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" class=\"button_table\">Update job</button>
+                    <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" class=\"button_table\">Modifică acest job</button>
                     </td>
                 </tr>";
 

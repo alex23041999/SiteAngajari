@@ -71,7 +71,7 @@ if (isset($_POST['updateLanguages'])) {
 
 <body>
     <div class="page-container m-0">
-        <div class="sidebar m-0">
+        <div class="sidebar_accInfo m-0">
             <div class="logo-firm"></div>
             <div class="sidebar-buttons">
                 <button class="sidebar-button" onclick="window.location='AccountInfoPage.php';"> <i class="fa fa-user" aria-hidden="true"></i>Contul meu</button>
@@ -83,7 +83,7 @@ if (isset($_POST['updateLanguages'])) {
                 </form>
             </div>
         </div>
-        <div class="mainpage_div">
+        <div class="accinfopage_div">
             <script src="js/insertUserLanguages.js"></script>
             <?php
             //daca user-ul nu are niciun CV incarcat, ii va aparea form-ul de incarcare a CV-ului
@@ -135,7 +135,7 @@ if (isset($_POST['updateLanguages'])) {
                         <p class="p_profile1"><?php echo $accountdata->getAccountFirstName(); ?></p>
                         <p class="p_profile">Nume utilizator</p>
                         <p class="p_profile1"><?php echo $accountdata->getAccountID(); ?></p>
-                        <p class="p_profile">Adresa email</p>
+                        <p class="p_profile">Adresă email</p>
                         <p class="p_profile1"><?php echo $accountdata->getAccountEmail(); ?></p>
                         <p class="p_profile">Telefon</p>
                         <p class="p_profile1"><?php echo $accountdata->getAccountTelephone(); ?></p>
@@ -178,10 +178,10 @@ if (isset($_POST['updateLanguages'])) {
                                                                 } else {
                                                                     echo "unset";
                                                                 } ?>;">
-                        <label class="label_raspunsTest">Adaugati-va limbajele cunoscute</label>
-                        <button type="button" id="generate" class="button_CV" name="chooseLanguages" onclick="createLanguageField()">Adauga limbaje</button>
+                        <label class="label_raspunsTest">Adăugați-vă limbajele cunoscute</label>
+                        <button type="button" id="generate" class="button_CV" name="chooseLanguages" onclick="createLanguageField()">Adaugă limbaje</button>
                         <div class="selectAdd" style="display: none;" id="divSelect">
-                            <select name="limbaj" class="select" id="limbaj">
+                            <select name="limbaj" class="select_adaugaJob" id="limbaj">
                                 <option value="Java">Java</option>
                                 <option value="JavaScript">JavaScript</option>
                                 <option value="MySQL">MySQL</option>
@@ -193,11 +193,11 @@ if (isset($_POST['updateLanguages'])) {
                             </select>
                         </div>
                         <div>
-                            <p style="display: none;" id="maxLimit">Puteti adauga maxim 3 limbaje cunoscute!</p>
+                            <p style="display: none;" id="maxLimit">Puteți adauga maxim 3 limbaje cunoscute!</p>
                         </div>
                         <div id="languages"></div>
                         <div>
-                            <button type="submit" id="saveLanguages" class="button_CV" name="saveLanguages" style="display: none;">Salveaza limbajele alese</button>
+                            <button type="submit" id="saveLanguages" class="button_CV" name="saveLanguages" style="display: none;">Salvează limbajele alese</button>
                         </div>
                     </div>
 
@@ -216,9 +216,9 @@ if (isset($_POST['updateLanguages'])) {
                         </div>
                         <div>
                             <label class="label_raspunsTest">Puteți să vă înlocuiți limbajele știute</label>
-                            <button type="button" id="generate1" class="button_CV" name="chooseLanguages1" onclick="createLanguageField1()">Adauga limbaje</button>
+                            <button type="button" id="generate1" class="button_CV" name="chooseLanguages1" onclick="createLanguageField1()">Adaugă limbaje</button>
                             <div class="select_adaugaJob" style="display: none;" id="divSelect1">
-                                <select name="limbaj1" class="select" id="limbaj1">
+                                <select name="limbaj1" class="select_adaugaJob" id="limbaj1">
                                     <option value="Java">Java</option>
                                     <option value="JavaScript">JavaScript</option>
                                     <option value="MySQL">MySQL</option>
@@ -231,11 +231,11 @@ if (isset($_POST['updateLanguages'])) {
                             </div>
                         </div>
                         <div>
-                            <p style="display: none;" id="maxLimit1">Puteti adauga maxim 3 limbaje cunoscute!</p>
+                            <p style="display: none;" id="maxLimit1">Puteți adăuga maxim 3 limbaje cunoscute!</p>
                         </div>
                         <div id="languages1"></div>
                         <div>
-                            <button type="submit" id="updateLanguages" class="button_CV" name="updateLanguages" style="display: none;">Salveaza limbajele alese</button>
+                            <button type="submit" id="updateLanguages" class="button_CV" name="updateLanguages" style="display: none;">Salvează limbajele alese!</button>
                         </div>
                     </div>
                     <div style="display: none;">
@@ -252,7 +252,7 @@ if (isset($_POST['updateLanguages'])) {
                     } else if ($string == 1) {
                         ?>
                             <table class="table_app">
-                                <caption style="margin-bottom: 20px; font-size: 15px; font-weight: bold;">Joburile la care ati aplicat</caption>
+                                <caption style="margin-bottom: 20px; font-size: 15px; font-weight: bold;">Joburile la care ați aplicat</caption>
                                 <thead>
                                     <tr>
                                         <th>Nume job</th>

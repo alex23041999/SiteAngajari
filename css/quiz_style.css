@@ -731,6 +731,7 @@ textarea {
 	padding: 5px;
 	box-shadow: 0px 0px 10px 10px rgba(15, 56, 203, 0.9);
 	width: 800px;
+	color: rgb(96, 202, 221);
 }
 .table_app tr, .table_app td{
 	font-size: 15px;
@@ -834,4 +835,30 @@ textarea {
 
 .td_buttonAvbJob{
 text-align: left;
+}
+
+.accinfopage_div{
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: 100vw;
+	background-image: url('images/background_mainpage.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	padding-left: 100px;
+	padding-bottom: 50px;
+	align-items: flex-start;
+}
+.sidebar_accInfo {
+	width: 400px;
+	background-color: rgb(66, 89, 239);
+	position: sticky;
+	top: 0;
+	box-shadow: 10px -1px 1px -2px rgb(3, 9, 34);
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+	padding: 5px;
 }

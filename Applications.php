@@ -276,7 +276,7 @@ class Applications
                     }
                     echo "
                     <td>
-                    <a class=\"a_tableUpdateApplications\" href=\"SendEmailPage.php?applicationID=$row[id_application]\">Trimite email</a>
+                    <a class=\"a_tableUpdateApplications\" href=\"SendEmailPage.php?applicationID=$row[id_application]\">Trimite mail</a>
                     </td>";
                 }
             }

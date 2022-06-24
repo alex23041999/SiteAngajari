@@ -111,6 +111,7 @@ if (isset($_POST['login'])) {
   <title>Înregistrare</title>
   <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
+  <link rel="shortcut icon" type="image/png" href="css/images/FavIcon.png">
 </head>
 
 <body>

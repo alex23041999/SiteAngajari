@@ -105,7 +105,7 @@ if (isset($_POST["aplicare"])) {
                 </form>
             </div>
         </div>
-        <div class="mainpage_div">
+        <div class="mainpage_div" id="img_div">
         </div>
 </div>
 </body>

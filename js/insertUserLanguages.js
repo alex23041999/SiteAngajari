@@ -5,7 +5,7 @@ function createLanguageField() {
     button_add.name = "button_add";
     button_add.id = "button_add";
     button_add.value = "Adauga";
-    button_add.textContent = "Adauga";
+    button_add.textContent = "Adaugă";
     document.getElementById('divSelect').appendChild(button_add);
     document.getElementById('button_add').onclick = function () { addAnotherLanguage() };
 
@@ -15,7 +15,7 @@ function createLanguageField() {
     button_delete.name = "button_delete";
     button_delete.id = "button_delete";
     button_delete.value = "Sterge";
-    button_delete.textContent = "Sterge";
+    button_delete.textContent = "Șterge";
     document.getElementById('divSelect').appendChild(button_delete);
     document.getElementById('button_delete').onclick = function () { deleteLastLanguage() };
 
@@ -87,7 +87,7 @@ function createLanguageField1() {
     button_add.name = "button_add";
     button_add.id = "button_add";
     button_add.value = "Adauga";
-    button_add.textContent = "Adauga";
+    button_add.textContent = "Adaugă";
     document.getElementById('divSelect1').appendChild(button_add);
     document.getElementById('button_add').onclick = function () { addAnotherLanguage1() };
 
@@ -97,7 +97,7 @@ function createLanguageField1() {
     button_delete.name = "button_delete";
     button_delete.id = "button_delete";
     button_delete.value = "Sterge";
-    button_delete.textContent = "Sterge";
+    button_delete.textContent = "Șterge";
     document.getElementById('divSelect1').appendChild(button_delete);
     document.getElementById('button_delete').onclick = function () { deleteLastLanguage1() };
 

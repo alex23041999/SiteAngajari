@@ -51,18 +51,18 @@ if (isset($_POST['Connect'])) {
         } else if ($result->checkAccountForLoging() == 1) {
             $_SESSION['accountid'] = $result->getAccountID();
             $_SESSION['role'] = $result->checkAccountRole();
-            echo "<script>alert('Te-ai logat cu succes')</script>";
+             echo "<script>alert('Te-ai logat cu succes')</script>";
 
-?>
-            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageUser.php">
-        <?php
+ ?>
+             <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageUser.php">
+         <?php
         } else if ($result->checkAccountForLoging() == 4) {
             $_SESSION['accountid'] = $result->getAccountID();
             $_SESSION['role'] = $result->checkAccountRole();
             echo "<script>alert('Te-ai logat cu succes')</script>";
-        ?>
-            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageAdmin.php">
-<?php
+         ?>
+             <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageAdmin.php">
+ <?php
         }
     }
 }
@@ -73,6 +73,7 @@ if (isset($_POST['Connect'])) {
     <title>Logare</title>
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="css/images/FavIcon.png">
 </head>
 
 <body>
