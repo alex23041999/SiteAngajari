@@ -76,19 +76,11 @@ class Jobs extends Applications
                     <td>" . ($row['limbaj']) . "</td>
                     <td>" . ($row['categorie']) . "</td>
                     <td>" . ($row['durata_test']) . "</td>
-                    <td class=\"td_div\"><button type=\"submit\" name=\"deleteJob\" value=\"$row[job_ID]\" class=\"button_table\">Șterge job</button>
+                    <td>
                     <button type=\"submit\" name=\"updateJobID\" value=\"$row[job_ID]\" class=\"button_table\">Update job</button>
-                    </td>";
-                    if (isset($_POST['deleteJob'])) {
-                        $varJob->deleteJobs($conn, $_POST['deleteJob']);
-?>
-                        </tr>
-                        <?php
-                        echo "<script>alert('Job sters cu succes')</script>";
-                        ?>
-                        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AdminJobModifierPage.php">
-                        <?php
-                    }
+                    </td>
+                </tr>";
+
                 }
             }
             mysqli_close($conn);

@@ -83,7 +83,7 @@ if (isset($_POST['updateLanguages'])) {
                 </form>
             </div>
         </div>
-        <div class="main-contentProfile">
+        <div class="mainpage_div">
             <script src="js/insertUserLanguages.js"></script>
             <?php
             //daca user-ul nu are niciun CV incarcat, ii va aparea form-ul de incarcare a CV-ului
