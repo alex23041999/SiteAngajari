@@ -514,13 +514,22 @@ textarea {
 	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
 	margin: 50px;
 }
+.table_divAdminModifier{
+	border: 3px solid whitesmoke;
+	width: 1400px;
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	margin: 50px;
+}
+
 .table_divUpdateApplications{
 	border: 3px solid whitesmoke;
 	width: 1600px;
 	border-radius: 10px;
-	padding: 10px;
+	padding: 5px;
 	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
-	margin-right: 50px;
+	margin-top: 50px;
 }
 .tr_div{
 	height: 30px;
@@ -579,7 +588,7 @@ textarea {
 .div_mail{
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	align-items: flex-start;
 }
 
 .updateJob_div{
@@ -861,4 +870,64 @@ text-align: left;
     display: flex;
     flex-direction: column;
 	padding: 5px;
+}
+
+.container_tableApp{
+	width: 100%;
+	margin: 0;
+	height: 100vh;
+	overflow-y: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 50px;
+}
+.mail_div{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	position: relative;
+	border: 3px solid whitesmoke;
+	width: 500px;
+	border-radius: 10px;
+	flex-direction: column;	
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	padding: 20px;
+}
+
+.mail_div1{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	position: relative;
+	border: 3px solid whitesmoke;
+	width: 500px;
+	border-radius: 10px;
+	flex-direction: column;	
+	box-shadow: 9px 0px 5px 0px rgba(15, 56, 203, 0.7);
+	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 80px;
+	padding-right: 20px;
+	padding-left: 20px;
+}
+
+.table_divSendMail{
+	border: 3px solid whitesmoke;
+	width: 1200px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	margin-top: 50px;
+}
+
+.divSendMail{
+	border: 3px solid whitesmoke;
+	width: 1050px;
+	border-radius: 10px;
+	padding: 5px;
+	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	margin: 50px;
 }

@@ -59,42 +59,6 @@ $vizualizeFilteredJobs = new Jobs();
         </div>
         <div class="main-contentJobs">
 
-            <form method="GET" action="AvailableJobsPage.php" style="padding-left: 50px;">
-                <div class="profile_div" style="justify-content: center;padding: 5px;">
-                    <div style="display: flex; align-items: flex-start; flex-direction: column;">
-                        <label class="label_adaugaJob">Sorteaza job-uri</label>
-                        <select class="select_adaugaJob" id="categorieNoua" name="category">
-                            <option value="Backend Internship">Backend Internship</option>
-                            <option value="Frontend Internship">Frontend Internship</option>
-                            <option value="Fullstack Internship">Fullstack Internship</option>
-                            <option value="MySQL Internship">MySQL Internship</option>
-                            <option value="QA Internship">QA Internship</option>
-                            <option value="Backend Junior">Backend Junior</option>
-                            <option value="Frontend Junior">Frontend Junior</option>
-                            <option value="Fullstack Junior">Fullstack Junior</option>
-                            <option value="MySQL Junior">MySQL Junior</option>
-                            <option value="QA Junior">QA Junior</option>
-                            <option value="Backend Senior">Backend Senior</option>
-                            <option value="Frontend Senior">Frontend Senior</option>
-                            <option value="Fullstack Senior">Fullstack Senior</option>
-                            <option value="MySQL Senior">MySQL Senior</option>
-                            <option value="QA Senior">QA Senior</option>
-                        </select>
-                    </div>
-                    <div style="display: flex;align-items: center;">
-                        <script src="js/insertUserLanguages.js">
-                        </script>
-                        <button class="button_filter" type="submit" name="sorteaza" value="sort">Sorteaza</button>
-                        <button class="button_filter" style="margin-left: 100px;" type="button" name="stergeFiltru" onclick="buttonWithoutFilter()">Sterge filtrul</button>
-                    </div>
-                    <script>
-                        function updateInput(newvalue) {
-                            document.getElementById("option").value = newvalue;
-                        }
-                    </script>
-                </div>
-            </form>
-
             <form method="post" action="JobApplicationPage.php" id="formWithFilter" style="width: 1500px;">
                 <input type="text" id="option" name="optiune" style="display: none;" onchange="updateInput(this.value)">
                 <label style="display: none;" id="filterLabel">Nu exista job-uri care corespund filtrului!</label>

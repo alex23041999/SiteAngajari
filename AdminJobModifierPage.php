@@ -47,7 +47,7 @@ $static = 'Jobs';
         </div>
         <div class="main_content">
                 <form action="UpdateJobPage.php" method="post" style="margin-top: 150px;">
-                <div class="table_div">
+                <div class="table_divAdminModifier">
                     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
                     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>

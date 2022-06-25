@@ -31,7 +31,7 @@ if (isset($_POST["modifica"])) {
 <html>
 
 <head>
-    <title>Aplicari joburi</title>
+    <title>Aplicări joburi</title>
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" type="image/png" href="css/images/FavIcon.png">
@@ -41,7 +41,7 @@ if (isset($_POST["modifica"])) {
 
 <body>
 <div class="page-container m-0">
-<div class="sidebar">
+<div class="sidebar_accInfo m-0">
             <div class="logo-firm"></div>
             <div class="sidebar-buttons">
                 <button class="sidebar-button" onclick="window.location='MainPageAdmin.php';"> <i class="fa fa-home" aria-hidden="true"></i>Pagină principală</button>
@@ -53,7 +53,7 @@ if (isset($_POST["modifica"])) {
                 </form>
             </div>
         </div>
-    <div class="container_table">
+    <div class="container_tableApp">
         <div class="table_divUpdateApplications">
             <form action="UpdateApplicationsPage.php" method="post">
                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

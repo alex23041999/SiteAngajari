@@ -120,25 +120,19 @@ if (isset($_POST['creareTest'])) {
 
 <body>
     <div class="page-container m-0">
-        <div class="sidebar">
+        <div class="sidebar_accInfo m-0">
             <div class="logo-firm"></div>
             <div class="sidebar-buttons">
                 <button class="sidebar-button" onclick="window.location='MainPageAdmin.php';"> <i class="fa fa-home" aria-hidden="true"></i>Pagină principală</button>
                 <button class="sidebar-button" onclick="window.location='NewJobByAdmin.php';"> <i class="fa fa-plus" aria-hidden="true"></i>Adăugare job</button>
                 <button class="sidebar-button" onclick="window.location='AdminJobModifierPage.php';"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Modifică job</button>
                 <button class="sidebar-button" onclick="window.location='UpdateApplicationsPage.php';"> <i class="fa fa-retweet" aria-hidden="true"></i>Update aplicări</button>
+                <form method="POST" name="logout" action="LoginPage.php">
+                    <button class="logout-button" type="submit" name="logoutButton"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right: 10px;"></i> Logout</button>
+                </form>
             </div>
         </div>
         <div class="main-content">
-            <div class="navbar">
-                <div class="container">
-                    <p class="navbar-text1">Adăugare detalii job</p>
-                    <p class="navbar-text2">Completați câmpurile pentru a adăuga un job nou!</p>
-                </div>
-                <form method="POST" name="logout" action="LoginPage.php">
-                    <button class="logout-button" type="submit" name="logoutButton">Logout <i class="fa fa-sign-out" aria-hidden="true" style="margin-left: 10px;"></i></button>
-                </form>
-            </div>
             <form method="post" class="menu" name="Quiz" id="form" style="padding: 50px; border-radius: 10px; box-shadow: 0px 0px 20px 10px black; margin-top: 50px;">
                 <div>
                     <div class="form-group" style="margin-top: 10px;">
