@@ -48,10 +48,8 @@ $vizualizeFilteredJobs = new Jobs();
         <div class="sidebar m-0">
             <div class="logo-firm"></div>
             <div class="sidebar-buttons">
-                <button class="sidebar-button" onclick="window.location='AccountInfoPage.php';"> <i class="fa fa-user" aria-hidden="true"></i>Contul meu</button>
                 <button class="sidebar-button" onclick="window.location='MainPageUser.php';"> <i class="fa fa-home" aria-hidden="true"></i>Pagină principală</button>
-                <button class="sidebar-button" onclick="window.location='AvailableJobsPage.php';"> <i class="fa fa-briefcase" aria-hidden="true"></i>Vizualizează joburi</button>
-                <button class="sidebar-button" onclick="window.location='CompanyInfoPage.php';"> <i class="fa fa-retweet" aria-hidden="true"></i>Despre SL.Tech</button>
+                <button class="sidebar-button" onclick="window.location='AccountInfoPage.php';"> <i class="fa fa-user" aria-hidden="true"></i>Contul meu</button> <button class="sidebar-button" onclick="window.location='AvailableJobsPage.php';"> <i class="fa fa-briefcase" aria-hidden="true"></i>Vizualizează joburi</button>
                 <form method="POST" name="logout" action="LoginPage.php">
                     <button class="logout-button" type="submit" name="logoutButton"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right: 10px;"></i> Logout</button>
                 </form>
@@ -127,7 +125,7 @@ $vizualizeFilteredJobs = new Jobs();
                     if ($checkLanguagesExistance == 1) {
                 ?>
                         <div class="table_avbJobs">
-                        <label class="label_adaugaJob">Job-uri recomandate pentru tine</label>
+                            <label class="label_adaugaJob">Job-uri recomandate pentru tine</label>
                             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
                             <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -151,7 +149,7 @@ $vizualizeFilteredJobs = new Jobs();
                         </div>
 
                         <div class="table_avbJobs">
-                        <label class="label_adaugaJob">Alte joburi</label>
+                            <label class="label_adaugaJob">Alte joburi</label>
                             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
                             <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
@@ -176,7 +174,7 @@ $vizualizeFilteredJobs = new Jobs();
                     <?php
                     } else if ($checkLanguagesExistance == 0) {
                     ?>
-                            <div class="table_avbJobs">
+                        <div class="table_avbJobs">
                             <label class="label_adaugaJob">Aplică acum la oricare dintre joburile disponibile</label>
                             <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                             <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -203,11 +201,11 @@ $vizualizeFilteredJobs = new Jobs();
                     }
                     ?>
             </form>
-            
+
         <?php
                 }
         ?>
-            </div>
+        </div>
     </div>
 </body>
 

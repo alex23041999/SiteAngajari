@@ -67,6 +67,8 @@ if (isset($_POST['updateLanguages'])) {
     <link rel="stylesheet" type="text/css" href="css/quiz_style.css">
     <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" type="image/png" href="css/images/FavIcon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 </head>
 
 <body>
@@ -74,10 +76,9 @@ if (isset($_POST['updateLanguages'])) {
         <div class="sidebar_accInfo m-0">
             <div class="logo-firm"></div>
             <div class="sidebar-buttons">
+            <button class="sidebar-button" onclick="window.location='MainPageUser.php';"> <i class="fa fa-home" aria-hidden="true"></i>Pagină principală</button>
                 <button class="sidebar-button" onclick="window.location='AccountInfoPage.php';"> <i class="fa fa-user" aria-hidden="true"></i>Contul meu</button>
-                <button class="sidebar-button" onclick="window.location='MainPageUser.php';"> <i class="fa fa-home" aria-hidden="true"></i>Pagină principală</button>
                 <button class="sidebar-button" onclick="window.location='AvailableJobsPage.php';"> <i class="fa fa-briefcase" aria-hidden="true"></i>Vizualizează joburi</button>
-                <button class="sidebar-button" onclick="window.location='CompanyInfoPage.php';"> <i class="fa fa-retweet" aria-hidden="true"></i>Despre SL.Tech</button>
                 <form method="POST" name="logout" action="LoginPage.php">
                     <button class="logout-button" type="submit" name="logoutButton"><i class="fa fa-sign-out" aria-hidden="true" style="margin-right: 10px;"></i> Logout</button>
                 </form>
@@ -91,7 +92,7 @@ if (isset($_POST['updateLanguages'])) {
             ?>
                 <div class="profile_div">
                     <form method="POST" enctype="multipart/form-data" action="uploadCV.php">
-                        <p>Nu aveti un CV incarcat, incarcati unul chiar acum !</p>
+                        <p>Nu aveți un CV încărcat, încărcați unul chiar acum !</p>
                         <div style="display: flex; justify-content: center; flex-direction: column;">
                             <div>
                                 <label for="cv" style="font-size: 20px; color: rgb(172, 165, 165); display: flex; flex-direction: column; align-items: flex-start;">
@@ -125,7 +126,7 @@ if (isset($_POST['updateLanguages'])) {
                 <?php
             }
                 ?>
-                <form method="post" name="accountDetails" id="accDetails" action="AccountInfoPage.php">
+                <form method="post" name="accountDetails" id="accDetails" action="AccountInfoPage.php" class="profile_div1">
                     <div class="profile_div">
                         <div>
                             <p class="p_profile">Nume</p>
@@ -208,7 +209,7 @@ if (isset($_POST['updateLanguages'])) {
                                                                 } ?>;">
                         <div style="padding: 5px;">
                         <label class="label_adaugaJob">Limbaje cunoscute</label>
-                            <table class="table_language" style="margin-top: 20px; margin-bottom: 20px;">
+                            <table class="table table-striped" style="margin-top: 20px; margin-bottom: 20px;">
                                 <?php
                                 $returnLanguages = $accountLanguages->returnLanguages($conn, $userid);
                                 ?>
@@ -251,13 +252,14 @@ if (isset($_POST['updateLanguages'])) {
                         <?php
                     } else if ($string == 1) {
                         ?>
-                            <table class="table_app">
-                                <caption style="margin-bottom: 20px; font-size: 15px; font-weight: bold;">Joburile la care ați aplicat</caption>
+                        <div class="profile_div">
+                        <label class="label_adaugaJob">Joburile la care ați aplicat</label>  
+                        <table class="table table-striped">
                                 <thead>
                                     <tr>
                                         <th>Nume job</th>
-                                        <th>Data aplicare</th>
-                                        <th>Status aplicare</th>
+                                        <th>Dată</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -266,6 +268,7 @@ if (isset($_POST['updateLanguages'])) {
                                     ?>
                                 </tbody>
                             </table>
+                            </div>  
                         </div>
                     <?php
                     }

@@ -133,7 +133,7 @@ if (isset($_POST['creareTest'])) {
             </div>
         </div>
         <div class="main-content">
-            <form method="post" class="menu" name="Quiz" id="form" style="padding: 50px; border-radius: 10px; box-shadow: 0px 0px 20px 10px black; margin-top: 50px;">
+            <form method="post" class="menu" name="Quiz" id="form" style="padding: 50px; border-radius: 10px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <div>
                     <div class="form-group" style="margin-top: 10px;">
                         <label class="label_adaugaJob">Nume job</label>

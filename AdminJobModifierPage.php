@@ -45,7 +45,7 @@ $static = 'Jobs';
                 </form>
             </div>
         </div>
-        <div class="main_content">
+        <div class="main_content" style="padding-left: 100px;">
                 <form action="UpdateJobPage.php" method="post" style="margin-top: 150px;">
                 <div class="table_divAdminModifier">
                     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>

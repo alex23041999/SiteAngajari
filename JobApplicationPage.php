@@ -65,9 +65,9 @@ if (isset($_POST['Back'])) {
 
 <body>
     <div class="page-container m-0">
-        <form method="post" id="form1" action="RedirectPageUser.php">
+        <form method="post" id="form1" action="RedirectPageUser.php" style="display: flex; align-items: center;padding-left: 500px;">
             <div class="test_div">
-                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 50px;">
+                <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 50px;padding:20px;box-shadow: 0px 2px 5px 5px rgba(0,6,241,0.6); border-radius: 5px;">
                     <input type="text" id="numeJob" name="numejob" placeholder="Nume job" class="input_testJob" value="<?php echo $numejob; ?>" readonly>
                     <div class="div_mail" style="margin-top: 50px; display: flex;justify-content: space-between;">
                         <div style="display: flex; align-items: center; flex-direction: column;">
@@ -81,7 +81,7 @@ if (isset($_POST['Back'])) {
                     </div>
                 </div>
                 <div>
-                    <button type="button" id="incepeTest" class="registration_button" style="width: 200px;margin-bottom: 50px;" name="incepeTest" onclick="visibleDivTest();timeCountDown();">Incepe testul pentru aplicare!</button>
+                    <button type="button" id="incepeTest" class="registration_button" style="width: 200px;margin-bottom: 50px;" name="incepeTest" onclick="visibleDivTest();timeCountDown();">Începe testul pentru aplicare!</button>
                     <script>
                         function visibleDivTest() {
                             document.getElementById("divTest").style.display = "unset";
@@ -123,7 +123,7 @@ if (isset($_POST['Back'])) {
                     </div>
                 </div>
                 <div>
-                    <input type="submit" name="Back" value="Inapoi" class="registration_button" style="margin-top: 50px;">
+                    <input type="submit" name="Back" value="Înapoi" class="registration_button" style="margin-top: 50px;">
                 </div>
             </div>
         </form>

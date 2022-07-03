@@ -30,7 +30,7 @@ footer {
 	width: 400px;
 	background-color: rgb(66, 89, 239);
 	position: relative;
-	box-shadow: 10px -1px 1px -2px rgb(3, 9, 34);
+	box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3);
 	align-items: center;
     display: flex;
     flex-direction: column;
@@ -42,11 +42,14 @@ footer {
 	width: 400px;
 	background-color: rgba(15, 56, 203, 0.9);
 	position: relative;
-	box-shadow: 10px -1px 5px -2px rgb(3, 9, 34);
+	box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3);
 	align-items: center;
     display: flex;
     flex-direction: column;
 	padding: 5px;
+}
+.sidebar_mainpageclear {
+	width: 500px;
 }
 
 .sidebar-button {
@@ -59,7 +62,7 @@ footer {
 	display: flex;
 	font-size: 20px;
 	justify-content: flex-start;
-	box-shadow: 0px 0px 20px 5px black;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 	align-items: center;
 }
 
@@ -262,7 +265,7 @@ a.start {
 
 hr {
 	width: 1000px;
-	box-shadow: 0px 0px 15px 6px #0b4eba;
+	box-shadow: 0px 0px 5px 1px rgba(0,6,241,0.6);
 	margin-top: 25px;
 	margin-bottom: 15px ;
 }
@@ -301,7 +304,7 @@ div.logo-firmUser::before {
 	font-size: 20px;
 	align-items: center;
 	justify-content: flex-start;
-	box-shadow: 0px 0px 20px 5px black;
+	box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 	margin-right: 20px;
 	height: 50px;
 	padding: 10px;
@@ -309,6 +312,7 @@ div.logo-firmUser::before {
 
 .logout-button:hover {
 	background-color: rgb(32, 34, 25);
+	color: white;
 }
 
 .navbar-text1 {
@@ -324,7 +328,7 @@ div.logo-firmUser::before {
 	display: flex;
 	align-items: center;
 	background: rgb(25,49,224);
-	background: linear-gradient(30deg, rgba(25,49,224,1) 45%, rgba(45,172,253,1) 55%);
+	background: linear-gradient(0deg, rgba(25,49,224,1) 0%, rgba(45,172,253,1) 100%);
 	height: 100vh;
 	flex-direction: column;
 	overflow-y: auto;
@@ -403,7 +407,7 @@ textarea {
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	font-size: 18px;
-	background-color: #dae8f5;
+	background-color: #fafafa;
 	color: black;
 	font-weight: bold;
 	margin-top: 5px;
@@ -412,7 +416,7 @@ textarea {
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	font-size: 18px;
-	background-color: #dae8f5;
+	background-color: #fbfbfb;
 	color: black;
 }
 .label_adaugaJob{
@@ -427,12 +431,12 @@ textarea {
 .textarea_adaugaJob {
 	margin-top: 5px;
 	border-radius: 5px;
-	background-color: #dae8f5;
+	background-color: #ffffff;
 	resize: none;
 	font-size: 18px;
 	color: black;
 	box-sizing: border-box;
-	border: 2px solid #ccc;
+	border: 2px solid rgb(165, 164, 164);
 	height: auto;
 }
 .textarea_adaugaJob::placeholder{
@@ -487,10 +491,10 @@ textarea {
 }
 
 .input_intrebareTest{
-	border: 2px solid #ccc;
+	border: 2px solid #9a9b9c;
 	border-radius: 5px;
 	font-size: 18px;
-	background-color: #bfddfa;
+	background-color: #c1c1c166;
 	color: black;
 	width: 700px;
 	margin-bottom: 10px;
@@ -519,7 +523,7 @@ textarea {
 	width: 1400px;
 	border-radius: 10px;
 	padding: 5px;
-	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	margin: 50px;
 }
 
@@ -528,7 +532,7 @@ textarea {
 	width: 1600px;
 	border-radius: 10px;
 	padding: 5px;
-	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	margin-top: 50px;
 }
 .tr_div{
@@ -579,7 +583,7 @@ textarea {
 	border: 2px solid #ccc;
 	border-radius: 5px;
 	font-size: 18px;
-	background-color: #dae8f5;
+	background-color: #ffffff;
 	color: black;
 	font-weight: bold;
 	margin-top: 5px;
@@ -596,7 +600,7 @@ textarea {
 	width: 1600px;
 	border-radius: 10px;
 	padding: 5px;
-	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	margin: 50px;
 	display: flex;
 	align-items: center;
@@ -613,7 +617,7 @@ textarea {
 }
 
 .div_shadow{
-	box-shadow: 20px 0px 15px -9px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.25) 1.95px 1.95px 2.6px;
 }
 .button_updateJob{
 	background-color: rgb(68, 68, 219);
@@ -652,14 +656,23 @@ textarea {
 	overflow-y: hidden;
 	width: 100vw;
 	height: 100vh;
-	background-image: url('images/background_mainpage.jpg');
+	background-image: url('images/background2.svg');
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: contain;
 	margin: 0;
-	display: flex;
-	flex-direction: column;
-	padding-left: 100px;
-	align-items: flex-start;
+}
+
+.mainpageAdmin_div{
+	overflow-x: hidden;
+	overflow-y: hidden;
+	width: 100vw;
+	height: 100vh;
+	background-image: 
+	url('images/background_admin.svg'),
+	linear-gradient(90deg, rgba(255,255,255,0.2329482134650736) 0%, rgba(255,255,255,0.2521358885351015) 100%);
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin: 0;
 }
 .main-contentProfile {
 	width: 100%;
@@ -674,14 +687,26 @@ textarea {
 }
 .profile_div{
 	display: flex;
-	justify-content: flex-start;
+	justify-content: flex-end;
 	flex-direction: column;	
 	border: 3px solid whitesmoke;
 	width: 400px;
 	padding-left: 20px;
 	border-radius: 10px;
-	box-shadow: 0px 0px 10px 4px #0f15d2;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	background-color: white;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.profile_div1{
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 400px;
+	padding-left: 20px;
+	border-radius: 10px;
 	margin-top: 20px;
 	margin-bottom: 50px;
 }
@@ -723,6 +748,10 @@ textarea {
 	width: 150px;
 		align-items: center;
 }
+.button_CV:hover {
+	background-color: rgb(32, 34, 25);
+	color: white;
+}
 .input_language{
 	border: 2px solid #ccc;
 	border-radius: 5px;
@@ -735,12 +764,13 @@ textarea {
 }
 
 .table_app{
+	background-color: white;
 	border: 2px solid whitesmoke;
 	border-radius: 5px;
 	padding: 5px;
-	box-shadow: 0px 0px 10px 10px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	width: 800px;
-	color: rgb(96, 202, 221);
+	color: rgb(0, 0, 0);
 }
 .table_app tr, .table_app td{
 	font-size: 15px;
@@ -773,7 +803,7 @@ textarea {
 	border: 2px solid whitesmoke;
 	border-radius: 5px;
 	padding: 5px;
-	box-shadow: 0px 0px 10px 10px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	width: 100px;
 }
 .table_languagetr, .table_language td{
@@ -785,9 +815,11 @@ textarea {
 	width: 100%;
 	margin: 0;
 	height: 100vh;
-	background-color: whitesmoke;
 	overflow-y: auto;
-	padding-left: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-right: 250px;
 }
 .button_avJob{
 	background-color: #ffffff;
@@ -812,7 +844,8 @@ textarea {
 	border: none;
 	border-radius: 5px;
 	font-size: 25px;
-	background-color: #dae8f5;
+	background-color: #ffffff;
+	border: 2px solid #9a9b9c;
 	color: black;
 	outline: none;
 	text-align: center;
@@ -827,7 +860,7 @@ textarea {
 	border: 3px solid whitesmoke;
 	border-radius: 10px;
 	padding: 20px;
-	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3);
 	margin: 50px;
 	display: flex;
 	flex-direction: column;
@@ -838,7 +871,7 @@ textarea {
 	width: 1300px;
 	border-radius: 10px;
 	padding: 5px;
-	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.3);
 	margin: 50px;
 }
 
@@ -850,22 +883,24 @@ text-align: left;
 	overflow-x: hidden;
 	overflow-y: hidden;
 	width: 100vw;
-	background-image: url('images/background_mainpage.jpg');
+	background-image: 
+	linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255,255,255,1) 100%),
+	url('images/profile_background.svg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	margin: 0;
 	display: flex;
 	flex-direction: column;
-	padding-left: 100px;
+	padding-right: 150px;
 	padding-bottom: 50px;
-	align-items: flex-start;
+	align-items: flex-end;
+	justify-content: flex-end;
 }
 .sidebar_accInfo {
 	width: 400px;
 	background-color: rgb(66, 89, 239);
 	position: sticky;
 	top: 0;
-	box-shadow: 10px -1px 1px -2px rgb(3, 9, 34);
 	align-items: center;
     display: flex;
     flex-direction: column;
@@ -919,8 +954,9 @@ text-align: left;
 	border: 3px solid whitesmoke;
 	width: 1200px;
 	border-radius: 10px;
-	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	margin-top: 50px;
+	padding: 5px;
 }
 
 .divSendMail{
@@ -928,6 +964,6 @@ text-align: left;
 	width: 1050px;
 	border-radius: 10px;
 	padding: 5px;
-	box-shadow: 0px 0px 15px 15px rgba(15, 56, 203, 0.9);
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 	margin: 50px;
 }

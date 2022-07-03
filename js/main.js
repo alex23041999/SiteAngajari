@@ -223,7 +223,7 @@
         "Aprilie",
         "Mai",
         "Iunie",
-        "Iulia",
+        "Iulie",
         "August",
         "Septembrie",
         "Octombrie",

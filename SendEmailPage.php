@@ -157,7 +157,7 @@ if (isset($_POST['trimite'])) {
                     <div class="container" style="margin: 0%;">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="calendar calendar-first" id="calendar_first" style="border: 4px solid rgba(15, 56, 203, 0.7);">
+                                <div class="calendar calendar-first" id="calendar_first" style="border: 2px solid black;">
                                     <div class="calendar_header">
                                         <button class="switch-month switch-left"> <i class="fa fa-chevron-left"></i></button>
                                         <h2></h2>

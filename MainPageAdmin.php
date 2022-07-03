@@ -35,7 +35,7 @@ define('WP_DEBUG_DISPLAY', false);
                 </form>
             </div>
         </div>
-        <div class="main-content">
+        <div class="mainpageAdmin_div">
 
         </div>
     </div>

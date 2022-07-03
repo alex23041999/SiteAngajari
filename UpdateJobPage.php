@@ -55,7 +55,7 @@ if (isset($_POST['Back'])) {
     <link rel="shortcut icon" type="image/png" href="css/images/FavIcon.png">
 </head>
 
-<body>
+<body style="display: flex;align-items: center; padding-left: 250px;">
     <div class="updateJob_div" style="margin-top: 50px; margin-left: 50px;">
         <form method="post" action="RedirectPageAdmin.php">
             <div class="div_princUpdate">
@@ -111,7 +111,7 @@ if (isset($_POST['Back'])) {
                         </script>
                     </div>
                     <div class="form-control" style="margin-top: 10px;">
-                        <p style="font-size: 17px;">Durata timpului aleasa va fi considerata a fi in minute(doar valori intregi):</p>
+                        <p style="font-size: 17px;">Durata timpului aleasă va fi considerată a fi în minute(doar valori întregi):</p>
                         <input type="number" id="durataTestNoua" name="durataTestNoua" style="height: 30px;" value="<?php echo $durataTestVeche; ?>" onchange="updateInput4(this.value)" required>
                         <script>
                             function updateInput4(newvalue) {
