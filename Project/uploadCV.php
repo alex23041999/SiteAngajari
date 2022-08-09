@@ -15,20 +15,20 @@ if (($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 1) {
         echo "<script>alert('Alegeti un CV valabil!')</script>";
         ?>
         <html>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AccountInfoPage.php">
     <?php
     }else {
         $updateCV = $static::updateCV($conn, $accountid, $file["name"]);
         echo "<script>alert('Ai incarcat CV-ul cu succes !')</script>";
     ?>
         <html>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/MainPageUser.php">
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/MainPageUser.php">
     <?php
     }
 } else if(($updateCV = $static::verifyCvExistance($conn, $file["name"])) == 0){
     echo "<script>alert('Va rugam sa incarcati un CV cu alt nume, deoarece acesta este deja existent in baza noastra !')</script>";
     ?>
-    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AccountInfoPage.php">
     <?php
 }   
 ?>

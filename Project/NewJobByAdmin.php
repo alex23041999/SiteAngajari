@@ -98,7 +98,7 @@ if (isset($_POST['creareTest'])) {
                     $result = $newjob->insertJobs();
                     echo "<script>alert('Job adaugat cu succes')</script>";
 ?>
-                    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/NewJobByAdmin.php">
+                    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/NewJobByAdmin.php">
 <?php
                 }
             }

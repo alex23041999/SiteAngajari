@@ -56,7 +56,7 @@ if (isset($_POST["aplicare"])) {
         echo "<script>alert('Ai aplicat cu succes !')</script>";
         ?>
         <html>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AvailableJobsPage.php">
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AvailableJobsPage.php">
     <?php
     }
 }else if(isset($_POST["numejob"])){
@@ -82,7 +82,7 @@ if (isset($_POST["aplicare"])) {
         echo "<script>alert('Timpul a expirat, aplicarea ta a fost salvata !')</script>" ;
         ?>
         <html>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AccountInfoPage.php">
     <?php
     }
 }

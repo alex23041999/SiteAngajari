@@ -27,7 +27,7 @@ if (isset($_POST['updateJob'])) {
     echo "<script>alert('Job modificat cu succes')</script>";
     ?>
     <html>
-    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AdminJobModifierPage.php">
+    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AdminJobModifierPage.php">
 <?php
 }
 ?>

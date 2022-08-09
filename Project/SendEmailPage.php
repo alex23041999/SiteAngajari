@@ -79,13 +79,13 @@ if (isset($_POST['trimite'])) {
                 echo "<script>alert('Mail trimis cu succes!')</script>";
 
 ?>
-                <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/UpdateApplicationsPage.php">
+                <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/UpdateApplicationsPage.php">
             <?php
             } else {
                 echo "<script>alert('Mail-ul nu a fost trimis, ceva a mers prost!')</script>";
 
             ?>
-                <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/UpdateApplicationsPage.php">
+                <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/UpdateApplicationsPage.php">
             <?php
             }
         }
@@ -94,13 +94,13 @@ if (isset($_POST['trimite'])) {
             echo "<script>alert('Mail trimis cu succes!')</script>";
 
             ?>
-            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/UpdateApplicationsPage.php">
+            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/UpdateApplicationsPage.php">
         <?php
         } else {
             echo "<script>alert('Mail-ul nu a fost trimis, ceva a mers prost!')</script>";
 
         ?>
-            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/UpdateApplicationsPage.php">
+            <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/UpdateApplicationsPage.php">
 <?php
         }
     }

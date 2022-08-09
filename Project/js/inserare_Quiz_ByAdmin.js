@@ -164,6 +164,7 @@ function createRaspunsuri() {
                 input_text.name = "raspuns" + i + x;
                 input_text.id = "raspuns" + i + x;
                 input_text.setAttribute('required','');
+                input_text.setAttribute('size','80px');
                 document.getElementById('divRaspuns' + i + x).appendChild(input_text);
 
                 //folosesc radiobutton-uri cu acelasi nume pentru a bifa raspunsul corect

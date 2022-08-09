@@ -905,6 +905,7 @@ text-align: left;
     display: flex;
     flex-direction: column;
 	padding: 5px;
+	height: 100vh;
 }
 
 .container_tableApp{

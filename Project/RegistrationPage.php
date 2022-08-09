@@ -95,7 +95,7 @@ if (isset($_POST['register'])) {
       $newaccount->insertIntoDb();
       echo "<script>alert('Te-ai inregistrat cu succes')</script>";
 ?>
-      <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/LoginPage.php">
+      <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/LoginPage.php">
 <?php
     }
   }

@@ -1,0 +1,9 @@
+Proiectul reprezinta un site de angajari(interfata user + interfata admin).
+
+Baza de date este realizata in phpMyAdmin, de tip MySql.
+
+Limbaje utilizate in realizarea proiectului:
+-php
+-javascript
+-css
+-html

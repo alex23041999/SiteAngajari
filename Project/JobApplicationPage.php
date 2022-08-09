@@ -31,7 +31,7 @@ $cvCandidat = $candidatnou->getAccountCV();
 if (strcmp($cvCandidat, "") == 0) {
     echo "<script>alert('Trebuie sa ai un CV incarcat pentru a aplica la un job !')</script>";
 ?>
-    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AccountInfoPage.php">
 <?php
 }
 

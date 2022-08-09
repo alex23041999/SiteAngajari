@@ -36,7 +36,7 @@ if (isset($_POST['saveLanguages'])) {
     if ($updateLanguages == true) {
         echo "<script>alert('Limbaje adaugate cu succes!')</script>";
 ?>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AccountInfoPage.php">
     <?php
     } else {
         echo "<script>alert('Ceva nu a mers bine, reincearca!')</script>";
@@ -53,7 +53,7 @@ if (isset($_POST['updateLanguages'])) {
     if ($updateLanguages == true) {
         echo "<script>alert('Limbaje updatate cu succes!')</script>";
     ?>
-        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+        <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AccountInfoPage.php">
 <?php
     } else {
         echo "<script>alert('Ceva nu a mers bine, reincearca!')</script>";
@@ -167,7 +167,7 @@ if (isset($_POST['updateLanguages'])) {
                                 else {
                                     $accountdata = $static::deleteCV($conn, $userid);
                                 ?>
-                                    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/AccountInfoPage.php">
+                                    <META http-equiv="Refresh" content="0; URL=http://localhost/ProiectLicenta/Project/AccountInfoPage.php">
                             <?php
                                 }
                             }
